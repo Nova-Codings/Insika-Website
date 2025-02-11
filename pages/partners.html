@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insika Foundation - Partners</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../img/insika_foundation_logo1.png" type="image/x-icon">
+    <style>
+        :root {
+            --primary: #df8207;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: #fff;
+            color: #000;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            height: 45vh;
+            background: linear-gradient(135deg, rgba(223, 130, 7, 0.9), rgba(0, 0, 0, 0.9));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .hero h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--primary);
+            animation: lineWidth 1s ease forwards 1s;
+        }
+
+        .breadcrumb {
+            display: inline-flex;
+            list-style: none;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            margin-top: 20px;
+        }
+
+        .breadcrumb li {
+            color: white;
+            padding: 0 10px;
+        }
+
+        .breadcrumb li a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .intro-text {
+            text-align: center;
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards 0.5s;
+        }
+
+        .partner-card {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideInRight 1s ease forwards;
+        }
+
+        .partner-card:nth-child(even) {
+            flex-direction: row-reverse;
+            transform: translateX(50px);
+        }
+
+        .partner-image {
+            flex: 1;
+            padding: 2rem;
+        }
+
+        .partner-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(223, 130, 7, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .partner-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .partner-content {
+            flex: 2;
+            padding: 2rem;
+        }
+
+        .partner-content h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .slideshow-container {
+            overflow: hidden;
+            white-space: nowrap;
+            margin-top: 4rem;
+            background: #ffffff;
+            padding: 2rem 0;
+            border: 2px solid #df8207;
+        }
+
+        .slideshow {
+            display: inline-block;
+            animation: slide 20s linear infinite;
+        }
+
+        .slideshow img {
+            height: 100px;
+            margin: 0 2rem;
+            vertical-align: middle;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+        @keyframes lineWidth {
+            to { width: 200px; }
+        }
+
+        @keyframes slide {
+            from { transform: translateX(0); }
+            to { transform: translateX(-100%); }
+        }
+    </style>
+</head>
+<body>
+    <!--Scroll button-->
+<a id="scroll-to-top" href="#top" title="Go to top">
+    <span>&#x2191;</span>
+</a>
+
+
+<header>
+    <div class="logo-container">
+        <a href="../index.html" ><img  src="../img/insika_foundation_logo1.png" alt="Insika Foundation Logo" class="logo"></a>
+    </div>
+    <nav>
+        <ul>
+            <li class="dropdown">
+                <a href="#about">ABOUT US</a>
+                <ul class="dropdown-content">
+                    <li><a href="founder.html">About Founder</a></li>
+                    <li class="nested-dropdown">
+                        <a href="#vision">Provincial Office</a>
+                        <ul class="nested-dropdown-content">
+                            <li><a href="Gauteng.html">Gauteng</a></li>
+                            <li><a href="KZN.html">Kwazulu-Natal</a></li>
+                            <li><a href="eastlondon.html">East London</a></li>
+                            <li><a href="westerncape.html">Western Cape</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="covid.html">Covid-19</a></li>
+                    <li><a href="staff finder.html">Staff Finder</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#programs">PROGRAMMES</a>
+                <ul class="dropdown-content">
+                    <li><a href="cwp.html">Community Work Program</a></li>
+                    <li><a href="CWP Beneficiaries.html">CWP Beneficiaries</a></li>
+                    <li><a href="internship.html">Internship</a></li>
+                    <li><a href="Internship Beneficiaries.html">Internship Beneficiaries</a></li>
+                    <li><a href="csip.html">Corporate Social Investment Programme</a></li>
+                    <li><a href="ESD.html">Enterprise Supplies Development</a></li>
+                    <li><a href="other Beneficiancies.html">Other Beneficiaries</a></li>
+                </ul>
+            </li>
+            <li><a href="partners.html">PARTNERS</a></li>
+            <li class="dropdown">
+                <a href="#procurement">PROCUREMENT</a>
+                <ul class="dropdown-content">
+                    <li><a href="get_started.html">Getting Started</a></li>
+                    <li><a href="CWP_procurement.html">CWP - Procurement Process</a></li>
+                    <li><a href="tech_support.html">Technical Support Form</a></li>
+                    <li><a href="PSA-form.html">Prospective Supplier Application form</a></li>
+                    <li><a href="compliance-checklist.html">Supplier Compliance Checklist</a></li>
+                    <li><a href="site-addresses.html">Current Site Addresses</a></li>
+                    <li><a href="sbd-6.1.html">SBD 6.1</a></li>
+                    <li><a href="sbd-6.2.html">SBD 6.2</a></li>
+                    <li><a href="sworn-affidavit.html">Sworn Affidavit Form BBBEE Exempted Micro Enterprise</a></li>
+                </ul>
+            </li>
+            <li><a href="gallery.html">GALLERY</a></li>
+            <li><a href="vacancies.html">VANCACIES</a></li>
+            <li class="dropdown">
+                <a href="#contact">CONTACTS</a>
+                <ul class="dropdown-content">
+                    <li><a href="gautengoffice.html">Gauteng Office</a></li>
+                    <li><a href="kznoffice.html">KZN Office</a></li>
+                    <li><a href="westerncapeoffice.html">Western Cape Office</a></li>
+                </ul>
+            </li>
+            <li><a href="#trainig">TRAINING</a></li>
+        </ul>
+    </nav>
+    <a href="donate.html">
+        <button class="donate-btn">Donate Now</button>
+    </a>
+    <div class="hamburger-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+</header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Our Partners</h1>
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li>Partners</li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="intro-text">
+            <h2>Working Together for Change</h2>
+            <p>Insika Foundation has various partners both locally and internationally across a range of different projects and project objectives.</p>
+        </div>
+
+        <div class="partner-card" data-animation="slideInRight 1s ease forwards">
+            <div class="partner-image">
+                <img src="../img/zte.jpeg" alt="ZTE Corporation">
+            </div>
+            <div class="partner-content">
+                <h2>ZTE Corporation</h2>
+                <p>Insika Foundation in partnership with ZTE Corporation championed a project supplying telecommunication equipment such as computers, tablets, projectors and routers for the training and development of rural communities. ZTE Corporation is based in China and is a global leader in telecommunications and information.</p>
+            </div>
+        </div>
+
+        <div class="partner-card">
+            <div class="partner-image">
+                <img src="../img/Capture.png" alt="Teach in China">
+            </div>
+            <div class="partner-content">
+                <h2>Teach in China</h2>
+                <p>Insika Foundation has worked in partnership with the Chinese Culture and International Exchange Centre on the "Teach in China" initiative. The initiative was launched as a programme between South Africa and China recruiting English teachers for universities, high schools, primary schools and pre-schools in China. The programme also focuses on the cultural exchange between South Africa and China.</p>
+            </div>
+        </div>
+
+        <div class="partner-card">
+            <div class="partner-image">
+                <img src="../img/insika_foundation_logo1.png" alt="Third World Large Foundation">
+            </div>
+            <div class="partner-content">
+                <h2>Third World Large Foundation</h2>
+                <p>The Third World Large Foundation focuses on promoting social development and human rights progress through international cooperation. Key themes include:</p>
+                <ul>
+                    <li>Responsibility in promoting social development</li>
+                    <li>Innovation in foundation practices</li>
+                    <li>International cooperation among foundations</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <h1 style="text-align: center; margin: 2rem 0; color: var(--primary);">Our Global Impact</h1>
+    
+    <div class="slideshow-container">
+        <div class="slideshow">
+            <img src="../img/uif.jpg" alt="Partner 1">
+            <img src="../img/labour.jpg" alt="Partner 2">
+            <img src="../img/home_affairs.jpg" alt="Partner 3">
+            <img src="../img/cwp.png" alt="Partner 4">
+            <img src="../img/social_development.png" alt="Partner 5">
+            <!-- Duplicate for seamless loop -->
+            <img src="../img/Skyco.png" alt="Partner 1">
+            <img src="../img/joburg.png" alt="Partner 2">
+            <img src="../img/garden court.png" alt="Partner 3">
+            <img src="../img/durban.jpg" alt="Partner 4">
+            <img src="../img/nkandla.jpg" alt="Partner 5">
+        </div>
+    </div>
+
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-row">
+                    <div class="footer-widget">
+                        <div class="footer-logo">
+                            <img src="../img/logo_footer.png" class="img-fluid" alt="Insika Foundation Logo">
+                        </div>
+                        <div class="footer-text">
+                            <p>Bringing sponsors and beneficiaries together to ensure sustainable results in all Insika programmes.</p>
+                        </div>
+                        <br>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/InsikaFoundationComms" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/insikafoundation/" class="instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                        </div>                        
+                    </div>
+                    <div class="footer-widget">
+                        <div class="footer-widget-heading">
+                            <h3>Quick Links</h3>
+                        </div>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Programmes</a></li>
+                            <li><a href="#">Partners</a></li>
+                            <li><a href="#">Procurement</a></li>
+                            <li><a href="#">Gallery</a></li>
+                            <li><a href="#">Vacancies</a></li>
+                            <li><a href="#">Contacts</a></li>
+                            <li><a href="#">Training</a></li>
+                        </ul>
+                        <a href="donate.html">
+                            <button class="donate-btn" type="button">Donate Now</button>
+                        </a>
+                    </div>
+                    <div class="footer-widget">
+                        <div class="footer-widget-heading">
+                            <h1 class="contact-heading">
+                                <span class="line"></span>
+                                Contact Info.
+                                <span class="line"></span>
+                            </h1>
+                        </div>
+                        <div class="contact-icons">
+                            <div class="icon">
+                                <i class="fas fa-envelope"></i>
+                                <p><a style="color: #df8207; text-decoration: none;" href="mailto:info@insikafoundation.co.za">info@insikafoundation.co.za</a></p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-phone"></i>
+                                <p>011 695 6800</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <p><a style="color: #df8207; text-decoration: none;" href="https://www.google.com/maps/search/?api=1&query=Elethu+House,+Building+23+Thornhill+Office+Park+94+Bekker+Road+Midrand+1686" target="_blank">Elethu House, Building 23 Thornhill Office Park 94 Bekker Road Midrand 1686</a></p>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+        <div class="copyright-area">
+            <div class="container">
+                <div class="copyright-row">
+                    <div class="copyright-text">
+                        <p>Copyright &copy; 2023 <a href="https://insikafoundation.co.za/">Insika Foundation</a> - All Rights Reserved - Made By Nova Codings</p>
+                    </div>
+                    <div class="footer-menu">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Terms</a></li>
+                            <li><a href="#">Privacy</a></li>
+                            <li><a href="#">Policy</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.animation = entry.target.dataset.animation;
+            observer.unobserve(entry.target); // Stop observing once animation is applied
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.partner-card').forEach((card, index) => {
+    card.dataset.animation = `slideInRight 1s ease forwards ${index * 0.3}s`;
+    observer.observe(card);
+});
+
+//Navigation Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger-menu');
+    const nav = document.querySelector('nav');
+    const dropdowns = document.querySelectorAll('.dropdown');
+
+    hamburger.addEventListener('click', function() {
+        this.classList.toggle('active');
+        nav.classList.toggle('active');
+    });
+
+    // Handle mobile menu interactions
+    if (window.innerWidth <= 768) {
+        dropdowns.forEach(dropdown => {
+            // Keep hover functionality for dropdowns
+            dropdown.addEventListener('mouseenter', function() {
+                this.querySelector('.dropdown-content').style.display = 'block';
+            });
+
+            dropdown.addEventListener('mouseleave', function() {
+                this.querySelector('.dropdown-content').style.display = 'none';
+            });
+
+            // Handle nested dropdowns
+            const nestedDropdowns = dropdown.querySelectorAll('.nested-dropdown');
+            nestedDropdowns.forEach(nested => {
+                nested.addEventListener('mouseenter', function() {
+                    this.querySelector('.nested-dropdown-content').style.display = 'block';
+                });
+
+                nested.addEventListener('mouseleave', function() {
+                    this.querySelector('.nested-dropdown-content').style.display = 'none';
+                });
+            });
+        });
+    }
+
+    // Reset menu state on window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            hamburger.classList.remove('active');
+            nav.classList.remove('active');
+        }
+    });
+});
+    </script>
+
+</body>
+</html>

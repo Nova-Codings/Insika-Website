@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insika Foundation Western Cape</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../img/insika_foundation_logo1.png" type="image/x-icon">
+    <style>
+        :root {
+            --primary: #df8207;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: white;
+            color: black;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            height: 45vh;
+            background: linear-gradient(135deg, rgba(223, 130, 7, 0.9), rgba(0, 0, 0, 0.9));
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--primary);
+            animation: lineWidth 1s ease forwards 1s;
+        }
+
+        .hero h1 span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: letterBeat 0.5s ease forwards;
+}
+
+.hero h1 span:nth-child(1) { animation-delay: 0s; }
+.hero h1 span:nth-child(2) { animation-delay: 0.1s; }
+.hero h1 span:nth-child(3) { animation-delay: 0.2s; }
+.hero h1 span:nth-child(4) { animation-delay: 0.3s; }
+.hero h1 span:nth-child(5) { animation-delay: 0.4s; }
+.hero h1 span:nth-child(6) { animation-delay: 0.5s; }
+.hero h1 span:nth-child(7) { animation-delay: 0.6s; }
+.hero h1 span:nth-child(8) { animation-delay: 0.7s; }
+.hero h1 span:nth-child(9) { animation-delay: 0.8s; }
+.hero h1 span:nth-child(10) { animation-delay: 0.9s; }
+.hero h1 span:nth-child(11) { animation-delay: 1s; }
+.hero h1 span:nth-child(12) { animation-delay: 1.1s; }
+.hero h1 span:nth-child(13) { animation-delay: 1.2s; }
+.hero h1 span:nth-child(14) { animation-delay: 1.3s; }
+.hero h1 span:nth-child(15) { animation-delay: 1.4s; }
+.hero h1 span:nth-child(16) { animation-delay: 1.5s; }
+.hero h1 span:nth-child(17) { animation-delay: 1.6s; }
+
+/* Letterbeat Keyframe */
+@keyframes letterBeat {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.breadcrumb-inner {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .breadcrumb {
+            display: inline-flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: transparent;
+            border-radius: 51px;
+            border: 1px solid rgba(26, 26, 26, 0.5);
+        }
+        
+        .breadcrumb li {
+            padding: 5px 10px;
+            color: white;
+        }
+        
+        .breadcrumb li a {
+            color: #df8207;
+            text-decoration: none;
+        }
+        
+        .breadcrumb li a:hover {
+            color: #fff;
+        }
+        
+        .breadcrumb li:not(:last-child)::after {
+            content: ">";
+            margin-left: 10px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .breadcrumb li.active {
+            font-weight: bold;
+        }
+        
+        .container {
+   width: 1150px;
+   margin: 0;
+   padding: 2rem;
+   overflow-x: auto;
+   margin: 1.5rem auto; /* Centered */
+}
+
+.about-section {
+   display: flex;
+   gap: 2rem;
+   margin: 2rem 0;
+   padding: 1rem;
+}
+
+.about-text {
+   padding: 2rem;
+   min-width: 200px;
+   background: rgb(177, 176, 176);
+   border-radius: 10px;
+   box-shadow: 0 4px 6px #df8207;
+   opacity: 0;
+   animation: slideInLeft 1s ease forwards;
+}
+
+        .project-image {
+            position: relative;
+            height: 300px;  /* Reduced height */
+            width: 500px;   /* Added specific width */
+            margin: 1.5rem auto; /* Centered */
+            overflow: hidden;
+            border-radius: 10px;
+            opacity: 0;
+            animation: slideInRight 1s ease forwards 0.3s;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.1);
+            animation: zoomOut 1.5s ease forwards;
+        }
+
+        .projects {
+            background: linear-gradient(135deg, #000000, var(--primary));
+            color: white;
+            padding: 4rem 0;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(5px);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .project-card.visible {
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .project-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .image-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .grid-image {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 10px;
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
+        .grid-image.visible {
+            animation: scaleIn 0.8s ease forwards;
+        }
+
+        .grid-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .grid-image:hover img {
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes lineWidth {
+            to { width: 200px; }
+        }
+
+        @keyframes zoomOut {
+            to { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+     <!--Scroll button-->
+     <a id="scroll-to-top" href="#top" title="Go to top">
+        <span>&#x2191;</span>
+      </a>  
+
+      <header>
+        <div class="logo-container">
+            <a href="../index.html" ><img  src="../img/insika_foundation_logo1.png" alt="Insika Foundation Logo" class="logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="#about">ABOUT US</a>
+                    <ul class="dropdown-content">
+                        <li><a href="founder.html">About Founder</a></li>
+                        <li class="nested-dropdown">
+                            <a href="#vision">Provincial Office</a>
+                            <ul class="nested-dropdown-content">
+                                <li><a href="Gauteng.html">Gauteng</a></li>
+                                <li><a href="KZN.html">Kwazulu-Natal</a></li>
+                                <li><a href="eastlondon.html">East London</a></li>
+                                <li><a href="westerncape.html">Western Cape</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="covid.html">Covid-19</a></li>
+                        <li><a href="staff finder.html">Staff Finder</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#programs">PROGRAMMES</a>
+                    <ul class="dropdown-content">
+                        <li><a href="cwp.html">Community Work Program</a></li>
+                        <li><a href="CWP Beneficiaries.html">CWP Beneficiaries</a></li>
+                        <li><a href="internship.html">Internship</a></li>
+                        <li><a href="Internship Beneficiaries.html">Internship Beneficiaries</a></li>
+                        <li><a href="csip.html">Corporate Social Investment Programme</a></li>
+                        <li><a href="ESD.html">Enterprise Supplies Development</a></li>
+                        <li><a href="other Beneficiancies.html">Other Beneficiaries</a></li>
+                    </ul>
+                </li>
+                <li><a href="partners.html">PARTNERS</a></li>
+                <li class="dropdown">
+                    <a href="#procurement">PROCUREMENT</a>
+                    <ul class="dropdown-content">
+                        <li><a href="get_started.html">Getting Started</a></li>
+                        <li><a href="CWP_procurement.html">CWP - Procurement Process</a></li>
+                        <li><a href="tech_support.html">Technical Support Form</a></li>
+                        <li><a href="PSA-form.html">Prospective Supplier Application form</a></li>
+                        <li><a href="compliance-checklist.html">Supplier Compliance Checklist</a></li>
+                        <li><a href="site-addresses.html">Current Site Addresses</a></li>
+                        <li><a href="sbd-6.1.html">SBD 6.1</a></li>
+                        <li><a href="sbd-6.2.html">SBD 6.2</a></li>
+                        <li><a href="sworn-affidavit.html">Sworn Affidavit Form BBBEE Exempted Micro Enterprise</a></li>
+                    </ul>
+                </li>
+                <li><a href="gallery.html">GALLERY</a></li>
+                <li><a href="vacancies.html">VANCACIES</a></li>
+                <li class="dropdown">
+                    <a href="#contact">CONTACTS</a>
+                    <ul class="dropdown-content">
+                        <li><a href="gautengoffice.html">Gauteng Office</a></li>
+                        <li><a href="kznoffice.html">KZN Office</a></li>
+                        <li><a href="westerncapeoffice.html">Western Cape Office</a></li>
+                    </ul>
+                </li>
+                <li><a href="#trainig">TRAINING</a></li>
+            </ul>
+        </nav>
+        <a href="donate.html">
+            <button class="donate-btn">Donate Now</button>
+        </a>
+        <div class="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                <span>W</span><span>e</span><span>s</span><span>t</span><span>e</span><span>r</span><span>n</span>
+                <span>C</span><span>a</span><span>p</span><span>e</span>
+                <span>O</span><span>f</span><span>f</span><span>i</span><span>c</span><span>e</span>
+            </h1>
+            <p>Empowering communities across Somerset West</p>
+            <div class="breadcrumb-inner">
+                <ol class="breadcrumb">
+                    <li><a href="../index.html">Home</a></li>
+                    <li class="active">Western Cape</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+    
+
+    <div class="container">
+        <section class="about-section">
+            <div class="about-text">
+                <h2>About Our Western Cape Office</h2>
+                <p>Insika Foundation has a provincial office set up in Somerset West, Western Cape in order to serve the province at a local level.<br>
+                    The operational model enables our staff, Provincial Managers, Site Managers and Site Administrators to reach local communities more efficiently, especially in remote, underserved areas of the province.</p>
+                <br>
+                <p>In the implementation of Insika Foundation projects and programmes, the objective is to use regional knowledge and expertise to roll-out initiatives in the most effective way working in collaboration with the community, municipality and other local structures.</p>
+            </div>
+        </section> 
+    </div>
+
+    <section class="projects">
+        <div class="container">
+            <h2>Flagship Projects</h2>
+            <div class="project-card">
+                <h3>Hair, Nail and Beauty Salon Programme</h3>
+                <p>Started in March 2019, this programme aims to create SMME opportunities for CWP participants.
+                    The participants receive technical training in hair, nail technology, and beauty technology,
+                    along with business skills for successful program exit. Currently,
+                    25 beneficiaries are participating in this transformative initiative.</p>
+                <div class="project-image">
+                    <img src="../img/westcape1.jpg" alt="Western Cape Office">
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>Support to the Education Sector</h3>
+                <p>Initiated in March 2012, this programme supports under-resourced schools and
+                    ECD centres in delivering quality education to disadvantaged communities. 
+                    Participants serve as classroom assistants, tutors, sports coaches, library 
+                    assistants, and administrative clerks. The programme has benefited over 8,000 learners
+                    across the province, significantly improving academic performance and promoting 
+                    early reading culture.</p>
+                    <div class="image-grid">
+                        <div class="grid-image">
+                            <img src="../img/Western-Cape2.jpg" alt="Western Cape 1">
+                        </div>
+                        <div class="grid-image">
+                            <img src="../img/Western-Cape-3.jpg" alt="Western Cape 2">
+                        </div>
+                        <div class="grid-image">
+                            <img src="../img/Western-Cape-4.jpg" alt="Western Cape 3">
+                        </div>
+                        <div class="grid-image">
+                            <img src="../img/Western-Cape5.jpg" alt="Western Cape 4">
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-row">
+                    <div class="footer-widget">
+                        <div class="footer-logo">
+                            <img src="../img/logo_footer.png" class="img-fluid" alt="Insika Foundation Logo">
+                        </div>
+                        <div class="footer-text">
+                            <p>Bringing sponsors and beneficiaries together to ensure sustainable results in all Insika programmes.</p>
+                        </div>
+                        <br>
+                        <div class="social-icons">
+                            <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                        </div>                        
+                    </div>
+                    <div class="footer-widget">
+                        <div class="footer-widget-heading">
+                            <h3>Quick Links</h3>
+                        </div>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Programmes</a></li>
+                            <li><a href="#">Partners</a></li>
+                            <li><a href="#">Procurement</a></li>
+                            <li><a href="#">Gallery</a></li>
+                            <li><a href="#">Vacancies</a></li>
+                            <li><a href="#">Contacts</a></li>
+                            <li><a href="#">Training</a></li>
+                        </ul>
+                        <a href="donate.html">
+                            <button class="donate-btn" type="button">Donate Now</button>
+                        </a>
+                    </div>
+                    <div class="footer-widget">
+                        <div class="footer-widget-heading">
+                            <h1 class="contact-heading">
+                                <span class="line"></span>
+                                Contact Info.
+                                <span class="line"></span>
+                            </h1>
+                        </div>
+                        <div class="contact-icons">
+                            <div class="icon">
+                                <i class="fas fa-envelope"></i>
+                                <p>info@insikafoundation.co.za</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-phone"></i>
+                                <p>011 695 6800</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <p>Elethu House, Building 23 Thornhill Office Park 94 Bekker Road Midrand 1686</p>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+        <div class="copyright-area">
+            <div class="container">
+                <div class="copyright-row">
+                    <div class="copyright-text">
+                        <p>Copyright &copy; 2023 <a href="https://insikafoundation.co.za/">Insika Foundation</a> - All Rights Reserved - Made By Nova Codings</p>
+                    </div>
+                    <div class="footer-menu">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Terms</a></li>
+                            <li><a href="#">Privacy</a></li>
+                            <li><a href="#">Policy</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.project-card, .grid-image').forEach(element => {
+            observer.observe(element);
+        });
+        //Navigation Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger-menu');
+    const nav = document.querySelector('nav');
+    const dropdowns = document.querySelectorAll('.dropdown');
+
+    hamburger.addEventListener('click', function() {
+        this.classList.toggle('active');
+        nav.classList.toggle('active');
+    });
+
+    // Handle mobile menu interactions
+    if (window.innerWidth <= 768) {
+        dropdowns.forEach(dropdown => {
+            // Keep hover functionality for dropdowns
+            dropdown.addEventListener('mouseenter', function() {
+                this.querySelector('.dropdown-content').style.display = 'block';
+            });
+
+            dropdown.addEventListener('mouseleave', function() {
+                this.querySelector('.dropdown-content').style.display = 'none';
+            });
+
+            // Handle nested dropdowns
+            const nestedDropdowns = dropdown.querySelectorAll('.nested-dropdown');
+            nestedDropdowns.forEach(nested => {
+                nested.addEventListener('mouseenter', function() {
+                    this.querySelector('.nested-dropdown-content').style.display = 'block';
+                });
+
+                nested.addEventListener('mouseleave', function() {
+                    this.querySelector('.nested-dropdown-content').style.display = 'none';
+                });
+            });
+        });
+    }
+
+    // Reset menu state on window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            hamburger.classList.remove('active');
+            nav.classList.remove('active');
+        }
+    });
+});
+    </script>
+
+</body>
+</html>

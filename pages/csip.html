@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Social Investment Programme</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="../img/insika_foundation_logo1.png" type="image/x-icon">
+    <style>
+        :root {
+            --primary: #df8207;
+            --dark: #000;
+            --light: #fff;
+            --gray: #f5f5f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--gray);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #000000, #df8207, #000000);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumb-inner {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .breadcrumb {
+            display: inline-flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: transparent;
+            border-radius: 51px;
+            border: 1px solid rgba(26, 26, 26, 0.5);
+        }
+
+        .breadcrumb li {
+            padding: 5px 10px;
+            color: white;
+        }
+
+        .breadcrumb li a {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .breadcrumb li a:hover {
+            color: #fff;
+        }
+
+        .breadcrumb li:not(:last-child)::after {
+            content: ">";
+            margin-left: 10px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .breadcrumb li.active {
+            font-weight: bold;
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .content-section {
+            background: var(--light);
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            animation: fadeIn 1s ease-out;
+        }
+
+        .content-section h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Base styles for all image containers */
+.image-container {
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.image-container img {
+    transition: transform 0.3s;
+    object-fit: cover;
+}
+
+.image-container img:hover {
+    transform: scale(1.05);
+}
+
+/* First section - Landscape image */
+.content-section:nth-child(1) .image-container img {
+    width: 100%;
+    height: 600px;
+}
+
+/* Second sections - Three images with gaps */
+.content-section:nth-child(2) .image-container img{
+    width: 284px;
+    height: 300px;
+}
+
+/* Third section -Three images with gaps */
+.content-section:nth-child(3) .image-container img {
+    width: 300px;
+    height: 200px;
+}
+
+/* Fourth section - Four images with gaps */
+.content-section:nth-child(4) .image-container img {
+    width: 300px;
+    height: 200px;
+}
+
+/* Fifth section - Portrait image centered */
+.content-section:nth-child(5) .image-container {
+    justify-content: center;
+}
+
+.content-section:nth-child(5) .image-container img {
+    width: 200px;
+    height: 300px;
+}
+
+/* Sixth section - Three images with specific dimensions */
+.content-section:nth-child(6) .image-container img {
+    width: 300px;
+    height: 215px;
+}
+
+.content-section:nth-child(6) .image-container img:last-child {
+    width: 215px;
+    height: 312px;
+}
+
+/* Seventh section - Two portrait images with gap */
+.content-section:nth-child(7) .image-container img {
+    width: 215px;
+    height: 312px;
+}
+
+/* Eighth section - Two images left and right */
+.content-section:nth-child(8) .image-container img {
+    width: 225px;
+    height: 300px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .image-container {
+        gap: 0.5rem;
+    }
+    
+    .image-container img {
+        width: 100% !important;
+        height: auto !important;
+        margin-bottom: 1rem;
+    }
+}
+
+        .give-section {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .give-btn {
+            background-color: var(--primary);
+            color: var(--light);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .give-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .comment-section {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        .form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Adjust spacing between checkbox and label */
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto; /* Ensure the checkbox does not take 100% width */
+    margin: 0; /* Remove any extra margins around the checkbox */
+}
+
+        .Social-share {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            justify-content: center;
+        }
+
+        .Social-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .Social-icon:hover {
+            transform: rotate(360deg);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .image-container img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+     <!--Scroll button-->
+<a id="scroll-to-top" href="#top" title="Go to top">
+    <span>&#x2191;</span>
+</a>
+
+
+    <header>
+        <div class="logo-container">
+            <a href="../index.html" ><img  src="../img/insika_foundation_logo1.png" alt="Insika Foundation Logo" class="logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="#about">ABOUT US</a>
+                    <ul class="dropdown-content">
+                        <li><a href="founder.html">About Founder</a></li>
+                        <li class="nested-dropdown">
+                            <a href="#vision">Provincial Office</a>
+                            <ul class="nested-dropdown-content">
+                                <li><a href="Gauteng.html">Gauteng</a></li>
+                                <li><a href="KZN.html">Kwazulu-Natal</a></li>
+                                <li><a href="eastlondon.html">East London</a></li>
+                                <li><a href="westerncape.html">Western Cape</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="covid.html">Covid-19</a></li>
+                        <li><a href="staff finder.html">Staff Finder</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#programs">PROGRAMMES</a>
+                    <ul class="dropdown-content">
+                        <li><a href="cwp.html">Community Work Program</a></li>
+                        <li><a href="CWP Beneficiaries.html">CWP Beneficiaries</a></li>
+                        <li><a href="internship.html">Internship</a></li>
+                        <li><a href="Internship Beneficiaries.html">Internship Beneficiaries</a></li>
+                        <li><a href="csip.html">Corporate Social Investment Programme</a></li>
+                        <li><a href="ESD.html">Enterprise Supplies Development</a></li>
+                        <li><a href="other Beneficiancies.html">Other Beneficiaries</a></li>
+                    </ul>
+                </li>
+                <li><a href="partners.html">PARTNERS</a></li>
+                <li class="dropdown">
+                    <a href="#procurement">PROCUREMENT</a>
+                    <ul class="dropdown-content">
+                        <li><a href="get_started.html">Getting Started</a></li>
+                        <li><a href="CWP_procurement.html">CWP - Procurement Process</a></li>
+                        <li><a href="tech_support.html">Technical Support Form</a></li>
+                        <li><a href="PSA-form.html">Prospective Supplier Application form</a></li>
+                        <li><a href="compliance-checklist.html">Supplier Compliance Checklist</a></li>
+                        <li><a href="site-addresses">Current Site Addresses</a></li>
+                        <li><a href="sbd-6.1.html">SBD 6.1</a></li>
+                        <li><a href="sbd-6.2.html">SBD 6.2</a></li>
+                        <li><a href="sworn-affidavit.html">Sworn Affidavit Form BBBEE Exempted Micro Enterprise</a></li>
+                    </ul>
+                </li>
+                <li><a href="gallery.html">GALLERY</a></li>
+                <li><a href="vacancies.html">VANCACIES</a></li>
+                <li class="dropdown">
+                    <a href="#contact">CONTACTS</a>
+                    <ul class="dropdown-content">
+                        <li><a href="gautengoffice.html">Gauteng Office</a></li>
+                        <li><a href="kznoffice.html">KZN Office</a></li>
+                        <li><a href="westerncapeoffice.html">Western Cape Office</a></li>
+                    </ul>
+                </li>
+                <li><a href="#trainig">TRAINING</a></li>
+            </ul>
+        </nav>
+        <a href="donate.html">
+            <button class="donate-btn">Donate Now</button>
+        </a>
+        <div class="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </header>
+
+    <div class="header">
+        <h1>Corporate Social Investment</h1>
+        <div class="breadcrumb-inner">
+            <ol class="breadcrumb">
+                <li><a href="../index.html"><strong>Home</strong></a></li>
+                <li><a href="donate.html"><strong>Our Campaigns</strong></a></li>
+                <li class="active">Corporate Social Investment</li>
+            </ol>
+        </div>
+    </div>
+
+    <section class="hero">
+        <h1 style="text-align: center; margin-top: 1rem;">Corporate Social Investment Programme</h1>
+        <div class="give-section">
+            <input type="number" placeholder="Custom Amount" style="padding: 1rem; margin-right: 1rem;">
+            <button class="give-btn">Donate Now</button>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <section class="content-section">
+            <h3>About Our Programme</h3>
+            <p>The Gauteng office also implements Insika Foundation's Corporate Social Investment Programme. 
+                The Insika Foundation philosophy is that beneficiaries do not all require the same assistance. 
+                In the extension of resources and support to programmes at grassroots level Insika Foundation 
+                pays acute attention to how it can facilitate for moving beneficiaries closer to becoming 
+                self-sufficient, thus moving them from point A to point B, one beneficiary at a time.</p>
+            <div class="image-container">
+                <img src="../img/csip.jpg" alt="CSI Programme Overview">
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h3>Nelson Mandela Day at CWP Crèche</h3>
+            <p>Insika Foundation spent Nelson Mandela day on the 18 July 2019 with the CWP crèche in Alexander. 
+                As part of the activity for the day the Insika team painted the crèche and provided a range of 
+                educational toys, equipment and food items for the children.</p>
+            <div class="image-container">
+                <img src="../img/Alex.jpg" alt="Mandela Day Activities">
+                <img src="../img/Alex1.jpg" alt="Mandela Day Activities">
+                <img src="../img/Alex2.jpg" alt="Mandela Day Activities">
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h3>Gcwalulwazi High School Donation</h3>
+            <p>Insika Foundation spent the day with Gcwalulwazi High School, eShowe on the 26 July 2019 to 
+                present a donation to the principal, Mr Hlabisa, the educators and most importantly the learners 
+                of Gcwalulwazi High School.</p>
+            <div class="image-container">
+                <img src="../img/Eshowe1.jpg" alt="School Donation">
+                <img src="../img/Eshowe2.jpg" alt="School Donation">
+                <img src="../img/Eshowe3.jpg" alt="School Donation">
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h3>Women in Business</h3>
+            <p>On the 17 August 2019 KZN Namuhla Community Newspaper in partnership with Ethekwini Municipality 
+                ABM hosted a Women in Business seminar in Durban. Insika Foundation was one of the key sponsors 
+                of the event and the CEO & Founder Ms Gabsie Mathenjwa was one of the panelists at the event.</p>
+            <div class="image-container">
+                <img src="../img/WIB-3.jpg" alt="Women in Business Seminar">
+                <img src="../img/KZN-Women-in-Business-1.jpg" alt="Women in Business Seminar">
+                <img src="../img/KZN-Women-in-Business-2.jpg" alt="Women in Business Seminar">
+                <img src="../img/WIB-2.jpg" alt="Women in Business Seminar">
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h3>Life Beyond Disability</h3>
+            <p>Life Beyond Disability (LBD) is a humanitarian Non-Profit Organisation (NPO) registered in 
+                June 2018 by Nolwazi Khuzwayo who serves as the Director of the organisation. 
+                The main objective of LBD is to promote full social integration for people living with 
+                disabilities. The model LBD employs is to work in partnership with persons with disabilities 
+                and their families to provide care and support in a holistic way. The NPO is also passionate 
+                about empowering persons with disabilities so that they are able to integrate into mainstream 
+                society thereby becoming more self-sufficient in the long term. In addition, through its various 
+                programmes LBD commits to educating all its stakeholders on the importance of restoring human 
+                dignity and promoting equality for people living with disabilities. Insika Foundation sponsored 
+                LBD with its Annual Award/Prize Giving ceremony in October 2019 and looks forward to working 
+                with this organisation in the future.</p>
+            <div class="image-container">
+                <img src="../img/life_beyond.jpg" alt="CSI Programme Overview">
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h3>Mhlabayalingana Soccer Tournament – KwaZulu Natal</h3>
+            <p>A soccer tournament was held in Mhlabayalingana, which is situated in the north eastern part of 
+                KwaZulu Natal on the 7th and the 8th of September with the aim of bringing the youth of the 
+                community together. In total five (5) teams participated in the tournament. There is growing 
+                concern about the increased usage of drugs, alcohol and crime amongst the youth in the community 
+                of Mhlabayalingana and the encouragement of youth sport and recreational activities has been a 
+                great way to keep the youngsters of the community healthy and off the streets. Insika Foundation 
+                sponsored this event by providing soccer kits and soccer gear (trophies, medals & soccer balls) 
+                for this event which was a huge success. This event will be a cause that Insika Foundation will 
+                support in the future.</p>
+            <div class="image-container">
+                <img src="../img/Soccer-Tournament-1.jpg" alt="Soccer Tournament Activities">
+                <img src="../img/Soccer-Tournament-2.jpg" alt="Soccer Tournament Activities">
+                <img src="../img/Mhlabalingana-Soccer3-207x300.jpeg" alt="Soccer Tournament Activities">
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h3>Comrades Marathon 2019</h3>
+            <p>An employee at the Insika Foundation Mr Kelebogile Thlako (29) was sponsored by Insika to 
+                participate in the Comrades Marathon which took place on the 09 June 2019. 
+                It was his first time running the Comrades Marathon but he qualified by running 42km in 3hrs:59.
+                He trained diligently for his race with the Mogalakwena Athletic club. 
+                Insika Foundation contributed running gear and supplements to assist him and his running club 
+                team in his fulfillment of this great sporting challenge. Unfortunately, due to an injury prior 
+                to the race he could not participate in 2019 but will be returning in 2020 in full force!</p>
+            <div class="image-container">
+                <img src="../img/Comrades1.jpeg" alt="Comrades Marathon Activities">
+                <img src="../img/Comrades22.jpg" alt="Comrades Marathon Activities">
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h3>Fun Run - Mall of Africa</h3>
+            <p>Insika Foundation employees participated in a Fun Run at the Mall of Africa on the 
+                5th December 2019. A total of six participants four (4) gentleman and two (2) ladies were 
+                there representing the organisation. The main purpose of the event was to promote the importance 
+                of exercise amongst staff members but also to encourage team building and cohesion amongst the 
+                staff. The importance of employee wellness is a principal that Insika Foundation entrenches in 
+                all its offices around the country.</p>
+            <div class="image-container">
+                <img src="../img/Mall-of-Africa-Fun-Run1.jpg" alt="Fun Run Activities">
+                <img src="../img/Mall-of-Africa-Fun-Run2.jpg" alt="Fun Run Activities">
+            </div>
+        </section>
+
+        <section class="comment-section">
+            <h3>Leave a Comment</h3>
+            <form>
+                <div class="form-group">
+                    <textarea placeholder="Your Comment" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Name*" required>
+                </div>
+                <div class="form-group">
+                    <input type="mail" placeholder="Email*" required>
+                </div>
+                <div class="form-group">
+                    <input type="url" placeholder="Website">
+                </div>
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="save-info">
+                    <label for="save-info">Save my name, email, and website in this browser for the next time I comment.</label>
+                </div>
+                <button type="send" class="give-btn">Submit Comment</button>
+            </form>
+        </section>
+
+        <div class="Social-share">
+            <div class="Social-icon"><i class="fab fa-facebook-f"></i></div>
+            <div class="Social-icon"> <i class="fab fa-x-twitter"></i></div>
+            <div class="Social-icon"><i class="fab fa-instagram"></i></div>
+        </div>
+    </main>
+
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-row">
+                    <div class="footer-widget">
+                        <div class="footer-logo">
+                            <img src="../img/logo_footer.png" class="img-fluid" alt="Insika Foundation Logo">
+                        </div>
+                        <div class="footer-text">
+                            <p>Bringing sponsors and beneficiaries together to ensure sustainable results in all Insika programmes.</p>
+                        </div>
+                        <br>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/InsikaFoundationComms" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/insikafoundation/" class="instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                        </div>                        
+                    </div>
+                    <div class="footer-widget">
+                        <div class="footer-widget-heading">
+                            <h3>Quick Links</h3>
+                        </div>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Programmes</a></li>
+                            <li><a href="#">Partners</a></li>
+                            <li><a href="#">Procurement</a></li>
+                            <li><a href="#">Gallery</a></li>
+                            <li><a href="#">Vacancies</a></li>
+                            <li><a href="#">Contacts</a></li>
+                            <li><a href="#">Training</a></li>
+                        </ul>
+                        <a href="donate.html">
+                            <button class="donate-btn" type="button">Donate Now</button>
+                        </a>
+                    </div>
+                    <div class="footer-widget">
+                        <div class="footer-widget-heading">
+                            <h1 class="contact-heading">
+                                <span class="line"></span>
+                                Contact Info.
+                                <span class="line"></span>
+                            </h1>
+                        </div>
+                        <div class="contact-icons">
+                            <div class="icon">
+                                <i class="fas fa-envelope"></i>
+                                <p><a style="color: #df8207; text-decoration: none;" href="mailto:info@insikafoundation.co.za">info@insikafoundation.co.za</a></p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-phone"></i>
+                                <p>011 695 6800</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <p><a style="color: #df8207; text-decoration: none;" href="https://www.google.com/maps/search/?api=1&query=Elethu+House,+Building+23+Thornhill+Office+Park+94+Bekker+Road+Midrand+1686" target="_blank">Elethu House, Building 23 Thornhill Office Park 94 Bekker Road Midrand 1686</a></p>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+        <div class="copyright-area">
+            <div class="container">
+                <div class="copyright-row">
+                    <div class="copyright-text">
+                        <p>Copyright &copy; 2023 <a href="https://insikafoundation.co.za/">Insika Foundation</a> - All Rights Reserved - Made By Nova Codings</p>
+                    </div>
+                    <div class="footer-menu">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Terms</a></li>
+                            <li><a href="#">Privacy</a></li>
+                            <li><a href="#">Policy</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animate sections on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        //Navigation Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger-menu');
+    const nav = document.querySelector('nav');
+    const dropdowns = document.querySelectorAll('.dropdown');
+
+    hamburger.addEventListener('click', function() {
+        this.classList.toggle('active');
+        nav.classList.toggle('active');
+    });
+
+    // Handle mobile menu interactions
+    if (window.innerWidth <= 768) {
+        dropdowns.forEach(dropdown => {
+            // Keep hover functionality for dropdowns
+            dropdown.addEventListener('mouseenter', function() {
+                this.querySelector('.dropdown-content').style.display = 'block';
+            });
+
+            dropdown.addEventListener('mouseleave', function() {
+                this.querySelector('.dropdown-content').style.display = 'none';
+            });
+
+            // Handle nested dropdowns
+            const nestedDropdowns = dropdown.querySelectorAll('.nested-dropdown');
+            nestedDropdowns.forEach(nested => {
+                nested.addEventListener('mouseenter', function() {
+                    this.querySelector('.nested-dropdown-content').style.display = 'block';
+                });
+
+                nested.addEventListener('mouseleave', function() {
+                    this.querySelector('.nested-dropdown-content').style.display = 'none';
+                });
+            });
+        });
+    }
+
+    // Reset menu state on window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            hamburger.classList.remove('active');
+            nav.classList.remove('active');
+        }
+    });
+});
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Our Founder - Insika Foundation</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="../img/insika_foundation_logo1.png" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: white;
+            color: black;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, #df8207, #000000);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .founder-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 30px; /* Rounded square */
+            margin: 2rem auto;
+            border: 8px solid white;
+            object-fit: cover;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .founder-image:hover {
+            transform: scale(1.05);
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .bio {
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideIn 1s ease-out forwards;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .qualifications {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateX(50px);
+            animation: slideIn 1s ease-out 0.5s forwards;
+        }
+
+        .qualification-item {
+            margin: 1rem 0;
+            padding: 1.5rem;
+            border-left: 4px solid #df8207;
+            background: #fff;
+            transition: all 0.3s ease;
+            border-radius: 0 15px 15px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .qualification-item:hover {
+            transform: translateX(10px);
+            background: #fff9f2;
+            border-left-width: 8px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            color: #df8207;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            animation: fadeInUp 1s ease-out forwards;
+            opacity: 0;
+        }
+
+        .company-info {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .breadcrumb-inner {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .breadcrumb {
+            display: inline-flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: transparent;
+            border-radius: 51px;
+            border: 1px solid rgba(26, 26, 26, 0.5);
+        }
+
+        .breadcrumb li {
+            padding: 5px 10px;
+            color: white;
+        }
+
+        .breadcrumb li a {
+            color: #df8207;
+            text-decoration: none;
+        }
+
+        .breadcrumb li a:hover {
+            color: #fff;
+        }
+
+        .breadcrumb li:not(:last-child)::after {
+            content: ">";
+            margin-left: 10px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .breadcrumb li.active {
+            font-weight: bold;
+        }
+
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Enhanced hover effects */
+        .bio:hover, .qualifications:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            
+            .founder-image {
+                width: 250px;
+                height: 250px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Keeping the rest of your existing styles for header, footer, etc. */
+    </style>
+
+</head>
+<body>
+     <!--Scroll button-->
+     <a id="scroll-to-top" href="#top" title="Go to top">
+        <span>&#x2191;</span>
+      </a>  
+
+      <header>
+        <div class="logo-container">
+            <a href="../index.html" ><img  src="../img/insika_foundation_logo1.png" alt="Insika Foundation Logo" class="logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="#about">ABOUT US</a>
+                    <ul class="dropdown-content">
+                        <li><a href="founder.html">About Founder</a></li>
+                        <li class="nested-dropdown">
+                            <a href="#vision">Provincial Office</a>
+                            <ul class="nested-dropdown-content">
+                                <li><a href="Gauteng.html">Gauteng</a></li>
+                                <li><a href="KZN.html">Kwazulu-Natal</a></li>
+                                <li><a href="eastlondon.html">East London</a></li>
+                                <li><a href="westerncape.html">Western Cape</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="covid.html">Covid-19</a></li>
+                        <li><a href="staff finder.html">Staff Finder</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#programs">PROGRAMMES</a>
+                    <ul class="dropdown-content">
+                        <li><a href="cwp.html">Community Work Program</a></li>
+                        <li><a href="CWP Beneficiaries.html">CWP Beneficiaries</a></li>
+                        <li><a href="internship.html">Internship</a></li>
+                        <li><a href="Internship Beneficiaries.html">Internship Beneficiaries</a></li>
+                        <li><a href="csip.html">Corporate Social Investment Programme</a></li>
+                        <li><a href="ESD.html">Enterprise Supplies Development</a></li>
+                        <li><a href="other Beneficiancies.html">Other Beneficiaries</a></li>
+                    </ul>
+                </li>
+                <li><a href="partners.html">PARTNERS</a></li>
+                <li class="dropdown">
+                    <a href="#procurement">PROCUREMENT</a>
+                    <ul class="dropdown-content">
+                        <li><a href="get_started.html">Getting Started</a></li>
+                        <li><a href="CWP_procurement.html">CWP - Procurement Process</a></li>
+                        <li><a href="tech_support.html">Technical Support Form</a></li>
+                        <li><a href="PSA-form.html">Prospective Supplier Application form</a></li>
+                        <li><a href="compliance-checklist.html">Supplier Compliance Checklist</a></li>
+                        <li><a href="site-addresses.html">Current Site Addresses</a></li>
+                        <li><a href="sbd-6.1.html">SBD 6.1</a></li>
+                        <li><a href="sbd-6.2.html">SBD 6.2</a></li>
+                        <li><a href="sworn-affidavit.html">Sworn Affidavit Form BBBEE Exempted Micro Enterprise</a></li>
+                    </ul>
+                </li>
+                <li><a href="gallery.html">GALLERY</a></li>
+                <li><a href="vacancies.html">VANCACIES</a></li>
+                <li class="dropdown">
+                    <a href="#contact">CONTACTS</a>
+                    <ul class="dropdown-content">
+                        <li><a href="gautengoffice.html">Gauteng Office</a></li>
+                        <li><a href="kznoffice.html">KZN Office</a></li>
+                        <li><a href="westerncapeoffice.html">Western Cape Office</a></li>
+                    </ul>
+                </li>
+                <li><a href="#trainig">TRAINING</a></li>
+            </ul>
+        </nav>
+        <a href="donate.html">
+            <button class="donate-btn">Donate Now</button>
+        </a>
+        <div class="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </header>
+
+    <div class="hero">
+        <h1>GETTING TO KNOW OUR FOUNDER</h1>
+        <p class="company-info"><strong>Company Registration Number: </strong>2012 / 200645 / 08   <strong>NPO Number: </strong>183-347.</p>
+        <div class="breadcrumb-inner">
+            <ol class="breadcrumb">
+                <li><a href="../index.html">Home</a></li>
+                <li class="active">About Founder</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <div class="bio">
+                <h2>About Gabsie</h2>
+                <img style="margin-left: 6rem;" src="../img/CEO.jpg" alt="Ziphozethu Busisiwe Mathenjwa" class="founder-image">
+                <p>Insika Foundation was started by <strong>Ziphozethu Busisiwe Mathenjwa</strong>, affectionately known as <strong>'Gabsie'</strong> 
+                    to partners, beneficiaries, participants, employers and staff who work with the Insika Foundation. 
+                    Gabsie started as a water scientist and evolved into an all rounded business person with a love and 
+                    empathy for South African communities and a desire to connect business, government, and the community 
+                    through social projects designed to provide skills that yield maximum impact to create sustainable 
+                    livelihoods.</p>
+                <br>
+                <p><strong>Gabsie</strong> grew up in the small town of Eshowe and observed social challenges on the side of both
+                     her paternal (Emanyiseni) and maternal (Mbongolwane) grandmothers' homesteads.
+                     This ignited in Gabsie a desire to assist in the upliftment of her community, 
+                     motivating her to become an agent of change.</p>
+            </div>
+
+            <div class="qualifications">
+                <h2>Professional Qualifications</h2>
+                <div class="qualification-item">
+                    Bachelor in Science (BSC) in Hydrology and Advanced Biochemistry (1997)
+                </div>
+                <div class="qualification-item">
+                    Certificate in Financial Management and Investments (1998)
+                </div>
+                <div class="qualification-item">
+                    Post Graduate in Business Management (2001)
+                </div>
+                <div class="qualification-item">
+                    Masters in Business Administration (2002)
+                </div>
+                <div class="qualification-item">
+                    Post Graduate Award in Corporate Governance and Strategic Management (2008)
+                </div>
+                <div class="qualification-item">
+                    Master in International Business (2012)
+                </div>
+                <div class="qualification-item">
+                    Postgraduate Diploma in Laws (Commercial and corporate law) (2020)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-row">
+                    <div class="footer-widget">
+                        <div class="footer-logo">
+                            <img src="../img/logo_footer.png" class="img-fluid" alt="Insika Foundation Logo">
+                        </div>
+                        <div class="footer-text">
+                            <p>Bringing sponsors and beneficiaries together to ensure sustainable results in all Insika programmes.</p>
+                        </div>
+                        <br>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/InsikaFoundationComms" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/insikafoundation/" class="instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                        </div>                        
+                    </div>
+                    <div class="footer-widget">
+                        <div class="footer-widget-heading">
+                            <h3>Quick Links</h3>
+                        </div>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Programmes</a></li>
+                            <li><a href="#">Partners</a></li>
+                            <li><a href="#">Procurement</a></li>
+                            <li><a href="#">Gallery</a></li>
+                            <li><a href="#">Vacancies</a></li>
+                            <li><a href="#">Contacts</a></li>
+                            <li><a href="#">Training</a></li>
+                        </ul>
+                        <a href="donate.html">
+                            <button class="donate-btn" type="button">Donate Now</button>
+                        </a>
+                    </div>
+                    <div class="footer-widget">
+                        <div class="footer-widget-heading">
+                            <h1 class="contact-heading">
+                                <span class="line"></span>
+                                Contact Info.
+                                <span class="line"></span>
+                            </h1>
+                        </div>
+                        <div class="contact-icons">
+                            <div class="icon">
+                                <i class="fas fa-envelope"></i>
+                                <p><a style="color: #df8207; text-decoration: none;" href="mailto:info@insikafoundation.co.za">info@insikafoundation.co.za</a></p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-phone"></i>
+                                <p>011 695 6800</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <p><a style="color: #df8207; text-decoration: none;" href="https://www.google.com/maps/search/?api=1&query=Elethu+House,+Building+23+Thornhill+Office+Park+94+Bekker+Road+Midrand+1686" target="_blank">Elethu House, Building 23 Thornhill Office Park 94 Bekker Road Midrand 1686</a></p>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+        <div class="copyright-area">
+            <div class="container">
+                <div class="copyright-row">
+                    <div class="copyright-text">
+                        <p>Copyright &copy; 2023 <a href="https://insikafoundation.co.za/">Insika Foundation</a> - All Rights Reserved - Made By Nova Codings</p>
+                    </div>
+                    <div class="footer-menu">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Terms</a></li>
+                            <li><a href="#">Privacy</a></li>
+                            <li><a href="#">Policy</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Enhanced intersection observer for smoother animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateX(0)';
+                }
+            });
+        }, { 
+            threshold: 0.2,
+            rootMargin: '0px'
+        });
+
+        document.querySelectorAll('.bio, .qualifications').forEach(el => observer.observe(el));
+
+        // Add hover animation for qualification items
+        document.querySelectorAll('.qualification-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateX(10px)';
+            });
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateX(0)';
+            });
+        });
+
+        //Navigation Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger-menu');
+    const nav = document.querySelector('nav');
+    const dropdowns = document.querySelectorAll('.dropdown');
+
+    hamburger.addEventListener('click', function() {
+        this.classList.toggle('active');
+        nav.classList.toggle('active');
+    });
+
+    // Handle mobile menu interactions
+    if (window.innerWidth <= 768) {
+        dropdowns.forEach(dropdown => {
+            // Keep hover functionality for dropdowns
+            dropdown.addEventListener('mouseenter', function() {
+                this.querySelector('.dropdown-content').style.display = 'block';
+            });
+
+            dropdown.addEventListener('mouseleave', function() {
+                this.querySelector('.dropdown-content').style.display = 'none';
+            });
+
+            // Handle nested dropdowns
+            const nestedDropdowns = dropdown.querySelectorAll('.nested-dropdown');
+            nestedDropdowns.forEach(nested => {
+                nested.addEventListener('mouseenter', function() {
+                    this.querySelector('.nested-dropdown-content').style.display = 'block';
+                });
+
+                nested.addEventListener('mouseleave', function() {
+                    this.querySelector('.nested-dropdown-content').style.display = 'none';
+                });
+            });
+        });
+    }
+
+    // Reset menu state on window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            hamburger.classList.remove('active');
+            nav.classList.remove('active');
+        }
+    });
+});
+    </script>
+</body>
+</html>
+

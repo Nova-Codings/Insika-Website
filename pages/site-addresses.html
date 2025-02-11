@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site-addresses | Insika Foundation </title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="../img/insika_foundation_logo1.png" type="image/x-icon">
+    <style>
+        :root {
+            --primary: #df8207;
+            --dark: #000000;
+            --light: #ffffff;
+            --gray: #f4f4f4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+        }
+
+        @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.header {
+    background-color: black;
+    color: white;
+    padding: 5rem 1rem;
+    animation: slideInDown 0.5s ease-out forwards;
+}
+
+.header-content {
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
+.header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: fadeInTop 1s ease forwards;
+}
+
+@keyframes fadeInTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (min-width: 640px) {
+    .header h1 {
+        font-size: 3.5rem;
+    }
+}
+
+.orange-line {
+    height: 0.25rem;
+    width: 25rem;
+    background-color: var(--primary);
+    margin-left: 20%;
+}
+
+.breadcrumb-inner {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .breadcrumb {
+            display: inline-flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: transparent;
+            border-radius: 51px;
+            border: 1px solid #df8207;
+        }
+
+        .breadcrumb li {
+            padding: 5px 10px;
+            color: white;
+        }
+
+        .breadcrumb li a {
+            color: #df8207;
+            text-decoration: none;
+        }
+
+        .breadcrumb li a:hover {
+            color: #fff;
+        }
+
+        .breadcrumb li:not(:last-child)::after {
+            content: ">";
+            margin-left: 10px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .breadcrumb li.active {
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .entries-control, .search-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-control {
+    justify-content: flex-end; /* Align search to the right */
+}
+
+#search-input {
+    border-radius: 20px; /* Add rounded corners */
+    padding: 5px 10px; /* Add some padding for a better look */
+    border: 1px solid #ccc; /* Optional: Add a subtle border */
+    outline: none; /* Remove outline for better aesthetics */
+    width: 200px; /* Adjust width if needed */
+}
+
+        select, input {
+            padding: 8px;
+            border: 1px solid var(--dark);
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            opacity: 0;
+            animation: slideUp 0.5s ease-out forwards;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: var(--dark);
+            color: var(--light);
+        }
+
+        tr:hover {
+            background-color: var(--gray);
+            transform: translateX(5px);
+            transition: all 0.3s ease;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 8px 16px;
+            background-color: var(--primary);
+            color: var(--light);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+
+            th, td {
+                min-width: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!--Scroll button-->
+    <a id="scroll-to-top" href="#top" title="Go to top">
+      <span>&#x2191;</span>
+    </a>  
+
+    <header>
+        <div class="logo-container">
+            <a href="../index.html" ><img  src="../img/insika_foundation_logo1.png" alt="Insika Foundation Logo" class="logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="#about">ABOUT US</a>
+                    <ul class="dropdown-content">
+                        <li><a href="founder.html">About Founder</a></li>
+                        <li class="nested-dropdown">
+                            <a href="#vision">Provincial Office</a>
+                            <ul class="nested-dropdown-content">
+                                <li><a href="Gauteng.html">Gauteng</a></li>
+                                <li><a href="KZN.html">Kwazulu-Natal</a></li>
+                                <li><a href="eastlondon.html">East London</a></li>
+                                <li><a href="westerncape.html">Western Cape</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="covid.html">Covid-19</a></li>
+                        <li><a href="staff finder.html">Staff Finder</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#programs">PROGRAMMES</a>
+                    <ul class="dropdown-content">
+                        <li><a href="cwp.html">Community Work Program</a></li>
+                        <li><a href="CWP Beneficiaries.html">CWP Beneficiaries</a></li>
+                        <li><a href="internship.html">Internship</a></li>
+                        <li><a href="Internship Beneficiaries.html">Internship Beneficiaries</a></li>
+                        <li><a href="csip.html">Corporate Social Investment Programme</a></li>
+                        <li><a href="ESD.html">Enterprise Supplies Development</a></li>
+                        <li><a href="other Beneficiancies.html">Other Beneficiaries</a></li>
+                    </ul>
+                </li>
+                <li><a href="partners.html">PARTNERS</a></li>
+                <li class="dropdown">
+                    <a href="#procurement">PROCUREMENT</a>
+                    <ul class="dropdown-content">
+                        <li><a href="get_started.html">Getting Started</a></li>
+                        <li><a href="CWP_procurement.html">CWP - Procurement Process</a></li>
+                        <li><a href="tech_support.html">Technical Support Form</a></li>
+                        <li><a href="PSA-form.html">Prospective Supplier Application form</a></li>
+                        <li><a href="compliance-checklist.html">Supplier Compliance Checklist</a></li>
+                        <li><a href="site-addresses.html">Current Site Addresses</a></li>
+                        <li><a href="sbd-6.1.html">SBD 6.1</a></li>
+                        <li><a href="sbd-6.2.html">SBD 6.2</a></li>
+                        <li><a href="sworn-affidavit.html">Sworn Affidavit Form BBBEE Exempted Micro Enterprise</a></li>
+                    </ul>
+                </li>
+                <li><a href="gallery.html">GALLERY</a></li>
+                <li><a href="vacancies.html">VANCACIES</a></li>
+                <li class="dropdown">
+                    <a href="#contact">CONTACTS</a>
+                    <ul class="dropdown-content">
+                        <li><a href="gautengoffice.html">Gauteng Office</a></li>
+                        <li><a href="kznoffice.html">KZN Office</a></li>
+                        <li><a href="westerncapeoffice.html">Western Cape Office</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://trainingacademy.insikafoundation.co.za/">TRAINING</a></li>
+            </ul>
+        </nav>
+        <a href="donate.html">
+            <button class="donate-btn">Donate Now</button>
+        </a>
+        <div class="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </header>
+
+  <header class="header">
+    <div class="header-content">
+        <h1> Current Site Addresses </h1>
+        <div class="orange-line"></div>
+        <div class="breadcrumb-inner">
+            <ol class="breadcrumb">
+                <li><a href="../index.html">Home</a></li>
+                <li class="active">Current Site Addresses</li>
+            </ol>
+        </div>
+    </div>
+</header>
+
+  <main class="container">
+    <h3 style="text-align: center; font-size: 40px;">Kwazulu-Natal</h3>
+      <div class="table-controls">
+          <div class="entries-control">
+              Show 
+              <select id="entries-select">
+                  <option value="10">10</option>
+                  <option value="25">25</option>
+                  <option value="50">50</option>
+                  <option value="100">100</option>
+              </select>
+              entries
+          </div>
+          <div class="search-control">
+            Search: 
+            <input type="text" id="search-input" placeholder="Type to search...">
+        </div>        
+      </div>
+
+      <div class="table-container">
+          <table id="staff-table">
+              <thead>
+                  <tr>
+                      <th data-sort="province">Province</th>
+                      <th data-sort="department">Department / Role</th>
+                      <th data-sort="name">Employee Name & Surname</th>
+                      <th data-sort="email">Email</th>
+                      <th data-sort="contact">Contact Number</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <!-- Table content will be dynamically populated by JavaScript -->
+              </tbody>
+          </table>
+      </div>
+
+      <div class="table-footer">
+          <div>
+              Showing <span id="showing-start">0</span> to <span id="showing-end">0</span> of <span id="total-entries">0</span> entries
+          </div>
+          <div class="pagination">
+              <button id="prev-page" class="page-btn" disabled>Previous</button>
+              <button id="next-page" class="page-btn">Next</button>
+          </div>
+      </div>
+  </main>
+</div>
+
+<footer class="footer-section">
+  <div class="container">
+      <div class="footer-content">
+          <div class="footer-row">
+              <div class="footer-widget">
+                  <div class="footer-logo">
+                      <img src="../img/logo_footer.png" class="img-fluid" alt="Insika Foundation Logo">
+                  </div>
+                  <div class="footer-text">
+                      <p>Bringing sponsors and beneficiaries together to ensure sustainable results in all Insika programmes.</p>
+                  </div>
+                  <br>
+                  <div class="social-icons">
+                      <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                      <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                      <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                      <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                  </div>                        
+              </div>
+              <div class="footer-widget">
+                  <div class="footer-widget-heading">
+                      <h3>Quick Links</h3>
+                  </div>
+                  <ul>
+                      <li><a href="#">About Us</a></li>
+                      <li><a href="#">Programmes</a></li>
+                      <li><a href="#">Partners</a></li>
+                      <li><a href="#">Procurement</a></li>
+                      <li><a href="#">Gallery</a></li>
+                      <li><a href="#">Vacancies</a></li>
+                      <li><a href="#">Contacts</a></li>
+                      <li><a href="#">Training</a></li>
+                  </ul>
+                  <a href="donate.html">
+                    <button class="donate-btn" type="button">Donate Now</button>
+                </a>
+              </div>
+              <div class="footer-widget">
+                  <div class="footer-widget-heading">
+                      <h1 class="contact-heading">
+                          <span class="line"></span>
+                          Contact Info.
+                          <span class="line"></span>
+                      </h1>
+                  </div>
+                  <div class="contact-icons">
+                      <div class="icon">
+                          <i class="fas fa-envelope"></i>
+                          <p>info@insikafoundation.co.za</p>
+                      </div>
+                      <div class="icon">
+                          <i class="fas fa-phone"></i>
+                          <p>011 695 6800</p>
+                      </div>
+                      <div class="icon">
+                          <i class="fas fa-map-marker-alt"></i>
+                          <p>Elethu House, Building 23 Thornhill Office Park 94 Bekker Road Midrand 1686</p>
+                      </div>
+                  </div>
+              </div>                    
+          </div>
+      </div>
+  </div>
+  <div class="copyright-area">
+      <div class="container">
+          <div class="copyright-row">
+              <div class="copyright-text">
+                  <p>Copyright &copy; 2023 <a href="https://insikafoundation.co.za/">Insika Foundation</a> - All Rights Reserved - Made By Nova Codings</p>
+              </div>
+              <div class="footer-menu">
+                  <ul>
+                      <li><a href="#">Home</a></li>
+                      <li><a href="#">Terms</a></li>
+                      <li><a href="#">Privacy</a></li>
+                      <li><a href="#">Policy</a></li>
+                      <li><a href="#">Contact</a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </div>
+</footer>
+
+   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Full staff data
+    const staffData = [
+        {
+            province: 'Gauteng',
+            department: 'HR & Internships',
+            name: 'Michael Mathebula',
+            email: 'mmathebula@insikafoundation.co.za',
+            contact: '067 853 8928'
+        },
+        {
+            province: 'Gauteng',
+            department: 'Chief Financial Officer/Head of Gauteng Office',
+            name: 'Katlego Makinita',
+            email: 'kmakinita@insikafoundation.co.za',
+            contact: '067 961 5172'
+        },
+        {
+            province: 'Gaueng',
+            department: 'Chief Operations Officer',
+            name: 'Nompumelelo Ngubane',
+            email: 'nngubane@insikafoundation.co.za',
+            contact: '061 007 2975'
+        },
+        {
+            province: 'Gauteng',
+            department: 'SCM Manager',
+            name: 'Sifiso Ngwenya',
+            email: 'sngwenya@insikafoundation.co.za',
+            contact: '067 850 8947'
+        },
+        {
+            province: 'Gauteng',
+            department: '',
+            name: 'Kelebogile Tlhako',
+            email: 'ktlhako@insikafoundation.co.za',
+            contact: '067 980 2979'
+        },
+        {
+            province: 'Gauteng',
+            department: '',
+            name: 'Tebogo Lebepe',
+            email: 'tlebepe@insikafoundation.co.za',
+            contact: '067 851 1453'
+        },
+        {
+            province: 'Gauteng',
+            department: '',
+            name: 'Given Moreku',
+            email: 'gmoreku@insikafoundation.co.za',
+            contact: '067 995 5719'
+        },
+        {
+            province: 'Gauteng',
+            department: '',
+            name: 'Tshepang Mathule',
+            email: 'tmathule@insikafoundation.co.za',
+            contact: '067 852 5496'
+        },
+        {
+            province: 'Gauteng',
+            department: '',
+            name: 'Thandiwe Mabena',
+            email: 'tmabena@insikafoundation.co.za',
+            contact: '067 855 1077'
+        },
+        {
+            province: 'Gauteng',
+            department: '',
+            name: 'Siyanda Bani',
+            email: 'sbani@insikafoundation.co.za',
+            contact: '067 963 4795'
+        },
+        {
+            province: 'Gauteng',
+            department: '',
+            name: 'Sibahle Mvuyane',
+            email: 'smvuyane@insikafoundation.co.za',
+            contact: '067 851 4565'
+        },
+        {
+            province: 'Gauteng',
+            department: '',
+            name: 'Luyanda Mazibuko',
+            email: 'lmazibuko@insikafoundation.co.za',
+            contact: '067 855 1372'
+        },
+        {
+            province: 'Gauteng',
+            department: '',
+            name: 'Kelebogile Chwaro',
+            email: 'kchwaro@insikafoundation.co.za',
+            contact: '067 855 1180'
+        },
+        {
+            province: 'KZN',
+            department: 'Chief Operations Officer',
+            name: 'Nompumelelo Ngubane',
+            email: 'nngubane@insikafoundation.co.za',
+            contact: '061 007 2975'
+        },
+        {
+            province: 'KZN',
+            department: 'HR Officer : Mashona House',
+            name: 'Nontobeka Mnyandu',
+            email: 'nmnyandu@insikafoundation.co.za',
+            contact: '084 947 0181'
+        },
+        {
+            province: 'KZN',
+            department: 'Assistant Project Manager : Mashona House',
+            name: 'Zamani Ngidi',
+            email: '',
+            contact: '062 877 5633'
+        },
+        {
+            province: 'KZN',
+            department: 'Assistant Project : Mashona House',
+            name: 'Thabile Cele',
+            email: '',
+            contact: '072 858 3706'
+        },
+        {
+            province: 'KZN',
+            department: 'Finance Adiminstrator : Mashona House',
+            name: 'Nomvelo Cele',
+            email: '',
+            contact: '061 318 8451'
+        },
+        {
+            province: 'KZN',
+            department: 'MIS Administrator : Mashona House',
+            name: 'Siyabonga Zungu',
+            email: '',
+            contact: '061 708 2668'
+        },
+        {
+            province: 'KZN',
+            department: 'IT Officer : Mashona House',
+            name: 'Siyaduduzwa Dlamini',
+            email: '',
+            contact: '072 021 2074'
+        },
+        {
+            province: 'KZN',
+            department: 'Asset Co-ordinator : Mashona House',
+            name: 'Lungisani Khuzwayo',
+            email: '',
+            contact: '072 909 1383'
+        },
+        {
+            province: 'KZN',
+            department: 'Office Assistant : Mashona House',
+            name: 'Gloria Mtshali',
+            email: '',
+            contact: '072 662 4830'
+        },
+        {
+            province: 'KZN',
+            department: 'Project Administrator : Mashona House',
+            name: 'Nombulelo Mofokeng',
+            email: '',
+            contact: '068 292 3955'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Okhahlamba',
+            name: 'Nokthula Ntuli',
+            email: 'ntulinokuthula210@gmail.com',
+            contact: '073 782 9436'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Okhahlamba',
+            name: 'Khethiwe Shabalala',
+            email: 'khethishabalala001@gmail.com',
+            contact: '072 717 2002'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Richmond',
+            name: 'Nonkululeko Zuma',
+            email: 'nonkululekozooma@gmail.com',
+            contact: '076 858 3239'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Richmond',
+            name: 'Abegail Ngcongo',
+            email: 'nganez83@gmail.com',
+            contact: '082 763 1779'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Msunduzi',
+            name: 'Ntuthuko Ncwane',
+            email: 'ntuthukoabncwane@gmail.com',
+            contact: '076 617 1590 / 061 402 9892'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Msunduzi',
+            name: 'Zamambo Mkhize',
+            email: 'zam150990@gmail.com',
+            contact: '073 508 1963'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Msunduzi',
+            name: 'Malusi Khanyile',
+            email: 'memekhanyile@gmail.com',
+            contact: '073 747 4160 / 072 858 0493'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Mpofana',
+            name: 'Antonett Sina',
+            email: 'simajolakiki@gmail.com',
+            contact: '066 140 0028'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Mpofana',
+            name: 'Siphesihle Mbona',
+            email: 'sp.mbona@gmail.com',
+            contact: '073 236 4804 / 072 960 9288'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : InkosiLangalibalele',
+            name: 'Mlamuli Ndlovu',
+            email: 'mlamuli.24ndlovu@gmail.com',
+            contact: '078 948 0644'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : InkosiLangalibalele (Mtshezi)',
+            name: 'Nonkanyiso Nene',
+            email: 'nonkanene34@gmail.com',
+            contact: '072 273 3407'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : InkosiLangalibalele',
+            name: 'Happy Mchunu',
+            email: 'happymchunu02@gmail.com',
+            contact: '073 521 8127'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Endumeni',
+            name: 'Nosipho Zuma',
+            email: 'nosiphozuma05@gmail.com',
+            contact: '062 654 3658'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Endumeni',
+            name: 'Conerlia Kunene',
+            email: 'daisydaisy983@gmail.com',
+            contact: '073 171 3454'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Nquthu',
+            name: 'Zanele Ndlovu',
+            email: 'zndlovun@gmail.com',
+            contact: '081 085 1234'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Nquthu',
+            name: 'Thembeka Ndaba',
+            email: 'thembekandaba577@gmail.com',
+            contact: '071 801 5256'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Big 5 Hlabisa',
+            name: 'Thenjiwe Mafuleka',
+            email: 'nomkhosimafuleka30@gmail.com',
+            contact: '067 852 1509'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Big 5 Hlabisa',
+            name: 'Ntandoyenkosi Buthelezi',
+            email: 'ntandoyenkosi55@gmail.com',
+            contact: '079 224 5750'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Umfolozi',
+            name: 'Nokuthula Msinga',
+            email: 'nonhlemsinga90@gmail.com',
+            contact: '073 905 1789'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Umfolozi',
+            name: 'Snethemba Wanda',
+            email: 'wandasnethemba@gmail.com',
+            contact: '060 389 6806'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Umkhabathini',
+            name: 'Thabile Hlongwane',
+            email: 'tfhlongwane226@gmail.com',
+            contact: '07 1494 5772'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Umkhabathini',
+            name: 'Simphiwe Mncwabe',
+            email: 'mncwabesimphiwe141@gmail.com',
+            contact: '061 925 8684'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Nkandla',
+            name: 'Zama Mtshali',
+            email: 'zmtshali72@gmail.com',
+            contact: '082 581 6222'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Nkandla',
+            name: 'Siphiwesihle Ntanzi',
+            email: 'sphiwesihle77@gmail.com',
+            contact: '073 997 6683/079 972 9050'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Nkandla',
+            name: 'Nombuso Gcaba',
+            email: 'asiphe.gcaba@gmail.com',
+            contact: '076 195 7417'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Pongola',
+            name: 'Nkululeko Sikhosana',
+            email: 'skhosy93@gmail.com',
+            contact: '072 578 9884'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Pongola',
+            name: 'Thembelihle Mathe',
+            email: 'lihle.mbalile@gmail.com',
+            contact: '072 385 8140'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Maphumulo',
+            name: 'Philangenkosi Ngcwensa',
+            email: 'mcoshi.technologies@gmail.com',
+            contact: '063 052 6052/067 158 9177'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Maphumulo',
+            name: 'Dumisile Khanyile',
+            email: 'Dumsile.Mhlongo@mandeni.gov.za',
+            contact: '082 502 3549'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Ethekwini',
+            name: 'Sizakele Nkosi',
+            email: 'nkosi.sizakele@yahoo.com',
+            contact: '071 359 3693'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Ethekwini',
+            name: 'Siphesihle Gwala',
+            email: 'siphesihlegwala01@gmail.com',
+            contact: '083 680 5297'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Ethekwini',
+            name: 'Mvelonhle Sokhabase',
+            email: 'mvelosokhabase@gmail.com',
+            contact: '073 079 7194/067 855 2371'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Ethekwini',
+            name: 'Lwazi Majozi',
+            email: 'lwazimajozi07@gmail.com',
+            contact: '067 959 5739'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Nongoma',
+            name: 'Bongekile Zulu',
+            email: 'bongikangol@yahoo.com',
+            contact: '073 822 3376'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Nongoma',
+            name: 'Ntombifuthi Ndwandwe',
+            email: 'futhi54@gmail.com',
+            contact: '079 468 2021'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Mpendle',
+            name: 'Steven Nkabini',
+            email: 'nkabinis@gmail.com',
+            contact: '072 303 0010'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Mpendle',
+            name: 'Nosipho Ndwalane',
+            email: 'nosiphondwalane87@gmail.com',
+            contact: '073 830 5781'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Kwadukuza',
+            name: 'Thuli Mbonambi',
+            email: 'thulimbonambi8@gmail.com',
+            contact: '082 664 6030'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Kwadukuza',
+            name: 'Thandi Madondo',
+            email: 'Khanyisilemadondo34@gmail.com',
+            contact: '0812885112'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Danhauser',
+            name: 'Lwandile Mncube',
+            email: 'lwandile17@yahoo.com',
+            contact: '079 791 9150'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Danhauser',
+            name: 'Siphamandla Gule',
+            email: 'siphamandlag84@gmail.com',
+            contact: '071 117 2160'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Newcastle',
+            name: 'Angel Kiggudu',
+            email: 'scabbptyltd@gmail.com',
+            contact: '0824748140'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Newcastle',
+            name: 'Simangele Buthelezi',
+            email: 'happinesssmangele@gmail.com',
+            contact: '0782300291'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Alfred Duma',
+            name: 'Thobani Mkhulise',
+            email: 'thobani2mkhulise@gmail.com',
+            contact: '0780373613'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Alfred Duma',
+            name: 'Nocwaka Buthelezi',
+            email: 'nocwakabuthelezi@gmail.com',
+            contact: '078 037 3613'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : EDumbe',
+            name: 'Thembelihle Nene',
+            email: 'okavezi.40@gmail.com',
+            contact: '081009 9666'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : EDumbe',
+            name: 'Phumla Mthethwa',
+            email: 'phumlapretty@gmail.com',
+            contact: '073 067 7998'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Mandeni',
+            name: 'Ntsikelelo Mtimkulu',
+            email: 'mtimkuluntsike@gmail.com',
+            contact: '0827670384'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Mandeni',
+            name: 'Busisiwe Gcaba',
+            email: 'shezehgcabs@gmail.com',
+            contact: '0735390009'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Umlalazi',
+            name: 'Sibongakonke Mncwango',
+            email: 'sbongakonkemncwango653@gmail.com',
+            contact: '0737178514/082085277'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Umlalazi',
+            name: 'Princess Mbatha',
+            email: 'princesszmbath@gmail.com',
+            contact: '0728724360'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Mthonjaneni',
+            name: 'Khumbulani Ngcobo',
+            email: 'kmapholoba4@gmail.com',
+            contact: '076 186 4722'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Mthonjaneni',
+            name: 'Siwelile Ncana',
+            email: 'namathesiwe@gmail.com',
+            contact: '079 074 5637'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Ulundi',
+            name: 'Lindiwe Gumbi',
+            email: 'lindirwe@gmail.com',
+            contact: '0785692004 /071 597 7686'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Ulundi',
+            name: 'Nothile Buthelezi',
+            email: 'batheb20@gmail.com',
+            contact: '0786277161'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Umhlathuze',
+            name: 'Ayanda Khumalo',
+            email: 'sibiyamzwa90@gmail.com',
+            contact: '0744730696'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Umhlathuze',
+            name: 'Duduzile Ngobese',
+            email: 'duduzileyvonnengobese@gmail.com',
+            contact: '0721091433'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Abaqulusi',
+            name: 'Celumusa Nkumane',
+            email: 'nkumanect@gmail.com',
+            contact: '0678533034'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Abaqulusi',
+            name: 'Vusi Siyaya',
+            email: 'vuserr@hotmail.com',
+            contact: '067856603'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Abaqulusi',
+            name: 'Sibukosezwe Mthimkhulu',
+            email: 'sbuko@webmail.co.za',
+            contact: '0678536603'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Msinga',
+            name: 'Kwandile Mchunu',
+            email: 'lmchunu24@gmail.com',
+            contact: '0604426144'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Msinga',
+            name: 'Mbali Dlamini',
+            email: 'dlaminicm@gmail.com',
+            contact: '0726279629'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Mngeni',
+            name: 'Msizi Mchunu',
+            email: 'msizidev@gmail.com',
+            contact: '0678530304'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Mngeni',
+            name: 'Nondumiso Mazeka',
+            email: 'veronica.mazeka@gmail.com',
+            contact: '07383820111'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Mvoti',
+            name: 'Cebolethu Malunge',
+            email: 'cebogift32@gmail.com',
+            contact: '0711661969/0678536072'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Mvoti',
+            name: 'Thobile Mchunu',
+            email: 'mchunuthobile49@gmail.com',
+            contact: '0670707324'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Mtubatuba',
+            name: 'Njabulo Gumede',
+            email: 'njabulogumede464@gmail.com',
+            contact: '0678525992 / 0824259819'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Mtubatuba',
+            name: 'Ngenzi Mngomezulu',
+            email: 'ngenziemngomezulu@gmail.com',
+            contact: '0710552412'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Umhlabayalingana',
+            name: 'Mandla Zikhali',
+            email: 'mandlanzikhali@gmail.com',
+            contact: '0728888069'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Umhlabayalingana',
+            name: 'Lucky Nhlabathi',
+            email: 'nhlabathi.lp@gmail.com',
+            contact: '0728597832'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Umhlabayalingana',
+            name: 'Sipho Cele',
+            email: 'phakamani.cele@gmail.com',
+            contact: '0761269929'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Umhlabayalingana',
+            name: 'Zanele Ntsele',
+            email: 'zanelensele69@gmail.com',
+            contact: '0729047401'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Ndwedwe',
+            name: 'Lungelo Gambushe',
+            email: 'lzgambushe@gmail.com',
+            contact: '0678514399'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Ndwedwe',
+            name: 'Londiwe Ngcobo',
+            email: 'longcobo2015@gmail.com',
+            contact: '0678550977'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Mshwati',
+            name: 'Phumelele Mchunu',
+            email: 'Phummiepower@gmail.com',
+            contact: '0791408723'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Mshwati',
+            name: 'Nothando Cebekhulu',
+            email: 'nothandontshosho1@gmail.com',
+            contact: '067 8550793'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Emadlangeni',
+            name: 'Thandeka Ruth Mbatha',
+            email: 'mbathathandekaruth@gmail.com',
+            contact: '0842234180/0678528680'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Emadlangeni',
+            name: 'Bongiwe Ntshangase',
+            email: 'mgaziannette@gmail.com',
+            contact: '0764543675'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Jozini',
+            name: 'Cythia Myeni',
+            email: 'myencynthia@gmail.com',
+            contact: '0761403037/0725571476'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Jozini',
+            name: 'Phumlani Dlamini',
+            email: 'blackngwane2@gmail.com',
+            contact: '0769183618'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Mdoni Lower',
+            name: 'Asanda Nyawose',
+            email: 'asandanyawose011024@gmail.com',
+            contact: '0639300915'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Mdoni Upper',
+            name: 'Londiwe Khwela',
+            email: 'chelseykhwela@gmail.com',
+            contact: '078 748 9897 /074 737 7064'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Mdoni Lower',
+            name: 'Thulasizwe Maketha',
+            email: 'thula.mcchoose@gmail.com',
+            contact: '0640201742'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Mdoni Lower',
+            name: 'Hloniphani Khathi',
+            email: 'hloniphanipetros@gmail.com',
+            contact: '0731416521'
+        },
+        {
+            province: 'KZN',
+            department: 'Senior Administrator : ALL sites',
+            name: 'Xolani Msimango',
+            email: 'xolanimsimango23@gmail.com',
+            contact: '0734517699'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Greater Kokstad',
+            name: 'Ms Nyameka Mpande',
+            email: 'shaun.mpande@gmail.com',
+            contact: '079 581 3884'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Greater Kokstad',
+            name: 'Yonela Gosani',
+            email: 'ludwegosani@gmail.com',
+            contact: '063 164 5291'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Ray Nkonyeni',
+            name: 'Khanyisile Dlamini',
+            email: 'khanyienyawose1@gmail.com',
+            contact: '073 596 0912'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Ray Nkonyeni',
+            name: 'Zinhle Mthethwa',
+            email: 'zinhle.mthethwa2002@gmail.com',
+            contact: '083 689 8090'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Ubuhlebezwe',
+            name: 'Henry Mbatha',
+            email: 'sbonelo.mbatha@yahoo.com',
+            contact: '083 995 2697'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Ubuhlebezwe',
+            name: 'Nonjabulo Shelembe',
+            email: 'snonjabulo@yahoo.co.uk',
+            contact: '083 739 9638'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Umuziwabuntu',
+            name: 'Nkosinathi Jetro Ndlangisa',
+            email: 'njndlangisa@yahoo.com',
+            contact: '083 238 7099'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Umuziwabuntu',
+            name: 'Zithobile Happyness Ndadane',
+            email: 'zishgigaba@gmail.com',
+            contact: '083 386 4566'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Umzimkhulu',
+            name: 'Cleopatra Ziyanda Mkulisi',
+            email: 'cleopatraziyanda@yahoo.com',
+            contact: '073 272 0396'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Umzimkhulu',
+            name: 'Ntombini Nancy Nguse',
+            email: 'ggift4n@gmail.com',
+            contact: '078 768 2435'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Umzumbe',
+            name: 'Bongiwe Buhle Zwane',
+            email: 'bongiwe.mapezwane@gmail.com',
+            contact: '073 378 2120'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Umzumbe',
+            name: 'Zanele Dlamini',
+            email: 'fundiswaz.dlamini@gmail.com',
+            contact: '078 151 2293'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Manager : Dr Nkosazana Dlamini Zuma',
+            name: 'Sinenhlanhla Pretty Memela',
+            email: 'snememela1@gmail.com',
+            contact: '076 106 2888'
+        },
+        {
+            province: 'KZN',
+            department: 'Site Administrator : Dr Nkosazana Dlamini Zuma',
+            name: 'Sithandiwe Barbara Nyanisa',
+            email: 'sthahnyanisa@gmail.com',
+            contact: '073 796 8886'
+        },
+        {
+            province: 'Western Cape',
+            department: '',
+            name: 'Nyemaka Lumbe',
+            email: 'nlumbe@insikafoundation.co.za',
+            contact: '076 616 1267'
+        }
+    ];
+
+    let currentPage = 1;
+    let entriesPerPage = 10;
+    let sortColumn = 'province'; // Changed to sort by province initially
+    let sortDirection = 'asc';
+    
+    // Custom sort order for provinces
+    const provinceOrder = {
+        'Gauteng': 1,
+        'KZN': 2,
+        'Western Cape': 3
+    };
+
+    // Initialize with sorted data by province
+    let filteredData = [...staffData].sort((a, b) => {
+        return provinceOrder[a.province] - provinceOrder[b.province];
+    });
+
+    const tableBody = document.querySelector('#staff-table tbody');
+    const searchInput = document.getElementById('search-input');
+    const entriesSelect = document.getElementById('entries-select');
+    const prevButton = document.getElementById('prev-page');
+    const nextButton = document.getElementById('next-page');
+
+    // Sort functionality
+    document.querySelectorAll('th[data-sort]').forEach(th => {
+        th.addEventListener('click', () => {
+            const column = th.dataset.sort;
+            if (sortColumn === column) {
+                sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+            } else {
+                sortColumn = column;
+                sortDirection = 'asc';
+            }
+            renderTable();
+        });
+    });
+
+    // Search functionality
+    searchInput.addEventListener('input', () => {
+        const searchTerm = searchInput.value.toLowerCase();
+        filteredData = staffData.filter(staff => 
+            Object.values(staff).some(value => 
+                value.toLowerCase().includes(searchTerm)
+            )
+        );
+        currentPage = 1;
+        renderTable();
+    });
+
+    // Entries per page change
+    entriesSelect.addEventListener('change', () => {
+        entriesPerPage = parseInt(entriesSelect.value);
+        currentPage = 1;
+        renderTable();
+    });
+
+    // Pagination
+    function updatePagination() {
+        const totalPages = Math.ceil(filteredData.length / entriesPerPage);
+        const start = (currentPage - 1) * entriesPerPage + 1;
+        const end = Math.min(currentPage * entriesPerPage, filteredData.length);
+
+        document.getElementById('showing-start').textContent = start;
+        document.getElementById('showing-end').textContent = end;
+        document.getElementById('total-entries').textContent = filteredData.length;
+
+        prevButton.disabled = currentPage === 1;
+        nextButton.disabled = currentPage === totalPages;
+    }
+
+    // Table rendering
+    function renderTable() {
+        // Sort data
+        const sortedData = [...filteredData].sort((a, b) => {
+            if (sortColumn === 'province') {
+                return provinceOrder[a.province] - provinceOrder[b.province];
+            }
+            const aValue = a[sortColumn].toLowerCase();
+            const bValue = b[sortColumn].toLowerCase();
+            return sortDirection === 'asc' 
+                ? aValue.localeCompare(bValue)
+                : bValue.localeCompare(aValue);
+        });
+
+        // Paginate data
+        const start = (currentPage - 1) * entriesPerPage;
+        const paginatedData = sortedData.slice(start, start + entriesPerPage);
+
+        // Render rows
+        tableBody.innerHTML = '';
+        paginatedData.forEach((staff, index) => {
+            const row = document.createElement('tr');
+            row.style.animation = `fadeIn 0.3s ease forwards ${index * 0.1}s`;
+            row.innerHTML = `
+                <td>${staff.province}</td>
+                <td>${staff.department}</td>
+                <td>${staff.name}</td>
+                <td>${staff.email}</td>
+                <td>${staff.contact}</td>
+            `;
+            tableBody.appendChild(row);
+        });
+
+        updatePagination();
+    }
+
+    // Navigation buttons
+    prevButton.addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            renderTable();
+        }
+    });
+
+    nextButton.addEventListener('click', () => {
+        const totalPages = Math.ceil(filteredData.length / entriesPerPage);
+        if (currentPage < totalPages) {
+            currentPage++;
+            renderTable();
+        }
+    });
+
+    // Initial render
+    renderTable();
+});
+
+//Navigation Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger-menu');
+    const nav = document.querySelector('nav');
+    const dropdowns = document.querySelectorAll('.dropdown');
+
+    hamburger.addEventListener('click', function() {
+        this.classList.toggle('active');
+        nav.classList.toggle('active');
+    });
+
+    // Handle mobile menu interactions
+    if (window.innerWidth <= 768) {
+        dropdowns.forEach(dropdown => {
+            // Keep hover functionality for dropdowns
+            dropdown.addEventListener('mouseenter', function() {
+                this.querySelector('.dropdown-content').style.display = 'block';
+            });
+
+            dropdown.addEventListener('mouseleave', function() {
+                this.querySelector('.dropdown-content').style.display = 'none';
+            });
+
+            // Handle nested dropdowns
+            const nestedDropdowns = dropdown.querySelectorAll('.nested-dropdown');
+            nestedDropdowns.forEach(nested => {
+                nested.addEventListener('mouseenter', function() {
+                    this.querySelector('.nested-dropdown-content').style.display = 'block';
+                });
+
+                nested.addEventListener('mouseleave', function() {
+                    this.querySelector('.nested-dropdown-content').style.display = 'none';
+                });
+            });
+        });
+    }
+
+    // Reset menu state on window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            hamburger.classList.remove('active');
+            nav.classList.remove('active');
+        }
+    });
+});
+      </script>
+
+</body>
+</html>

@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Work Program</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="../img/insika_foundation_logo1.png" type="image/x-icon">
+    <style>
+        :root {
+            --primary-color: #df8207;
+            --secondary-color: #000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #000000, #df8207, #000000);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumb-inner {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .breadcrumb {
+            display: inline-flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: transparent;
+            border-radius: 51px;
+            border: 1px solid rgba(26, 26, 26, 0.5);
+        }
+
+        .breadcrumb li {
+            padding: 5px 10px;
+            color: white;
+        }
+
+        .breadcrumb li a {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .breadcrumb li a:hover {
+            color: #fff;
+        }
+
+        .breadcrumb li:not(:last-child)::after {
+            content: ">";
+            margin-left: 10px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .breadcrumb li.active {
+            font-weight: bold;
+        }
+
+
+        .give-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .give-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            color: rgb(59, 59, 59);
+        }
+
+        .container h4 {
+            color: #df8207;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #df8207;
+            padding-bottom: 0.5rem;
+            font-size: 40px;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .card-title {
+            color: #df8207;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #df8207;
+        }
+
+        .program-item {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s ease;
+            animation: slideIn 0.5s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .program-item:last-child {
+            border-bottom: none;
+        }
+
+        .program-item:hover {
+            padding-left: 0.5rem;
+            color: #df8207;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .carousel-container {
+  max-width: 1200px;
+  width: 95%;
+}
+.slider-wrapper {
+  position: relative;
+}
+.slider-wrapper .slide-button {
+  position: absolute;
+  top: 50%;
+  outline: none;
+  border: none;
+  height: 50px;
+  width: 50px;
+  z-index: 5;
+  color: #fff;
+  display: flex;
+  cursor: pointer;
+  font-size: 2.2rem;
+  background: #000;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+.slider-wrapper .slide-button:hover {
+  background: #404040;
+}
+.slider-wrapper .slide-button#prev-slide {
+  left: -25px;
+  display: none;
+}
+.slider-wrapper .slide-button#next-slide {
+  right: -25px;
+}
+.slider-wrapper .image-list {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 18px;
+  font-size: 0;
+  list-style: none;
+  margin-bottom: 30px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.slider-wrapper .image-list::-webkit-scrollbar {
+  display: none;
+}
+.slider-wrapper .image-list .image-item {
+  width: 325px;
+  height: 400px;
+  object-fit: cover;
+}
+.carousel-container .slider-scrollbar {
+  height: 24px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.slider-scrollbar .scrollbar-track {
+  background: #ccc;
+  width: 100%;
+  height: 2px;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  position: relative;
+}
+.slider-scrollbar:hover .scrollbar-track {
+  height: 4px;
+}
+.slider-scrollbar .scrollbar-thumb {
+  position: absolute;
+  background: #000;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  height: 100%;
+  cursor: grab;
+  border-radius: inherit;
+}
+.slider-scrollbar .scrollbar-thumb:active {
+  cursor: grabbing;
+  height: 8px;
+  top: -2px;
+}
+.slider-scrollbar .scrollbar-thumb::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -10px;
+  bottom: -10px;
+}
+/* Styles for mobile and tablets */
+@media only screen and (max-width: 1023px) {
+  .slider-wrapper .slide-button {
+    display: none !important;
+  }
+  .slider-wrapper .image-list {
+    gap: 10px;
+    margin-bottom: 15px;
+    scroll-snap-type: x mandatory;
+  }
+  .slider-wrapper .image-list .image-item {
+    width: 280px;
+    height: 380px;
+  }
+  .slider-scrollbar .scrollbar-thumb {
+    width: 20%;
+  }
+}
+
+        .comment-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        .comment-form input,
+        .comment-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Adjust spacing between checkbox and label */
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto; /* Ensure the checkbox does not take 100% width */
+    margin: 0; /* Remove any extra margins around the checkbox */
+}
+
+        .social-share {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .social-icon:hover {
+            transform: rotate(360deg);
+        }
+
+        .animate {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!--Scroll button-->
+<a id="scroll-to-top" href="#top" title="Go to top">
+    <span>&#x2191;</span>
+</a>
+
+
+<header>
+    <div class="logo-container">
+        <a href="../index.html" ><img  src="../img/insika_foundation_logo1.png" alt="Insika Foundation Logo" class="logo"></a>
+    </div>
+    <nav>
+        <ul>
+            <li class="dropdown">
+                <a href="#about">ABOUT US</a>
+                <ul class="dropdown-content">
+                    <li><a href="founder.html">About Founder</a></li>
+                    <li class="nested-dropdown">
+                        <a href="#vision">Provincial Office</a>
+                        <ul class="nested-dropdown-content">
+                            <li><a href="Gauteng.html">Gauteng</a></li>
+                            <li><a href="KZN.html">Kwazulu-Natal</a></li>
+                            <li><a href="eastlondon.html">East London</a></li>
+                            <li><a href="westerncape.html">Western Cape</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="covid.html">Covid-19</a></li>
+                    <li><a href="staff finder.html">Staff Finder</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#programs">PROGRAMMES</a>
+                <ul class="dropdown-content">
+                    <li><a href="cwp.html">Community Work Program</a></li>
+                    <li><a href="CWP Beneficiaries.html">CWP Beneficiaries</a></li>
+                    <li><a href="internship.html">Internship</a></li>
+                    <li><a href="Internship Beneficiaries.html">Internship Beneficiaries</a></li>
+                    <li><a href="csip.html">Corporate Social Investment Programme</a></li>
+                    <li><a href="ESD.html">Enterprise Supplies Development</a></li>
+                    <li><a href="other Beneficiancies.html">Other Beneficiaries</a></li>
+                </ul>
+            </li>
+            <li><a href="partners.html">PARTNERS</a></li>
+            <li class="dropdown">
+                <a href="#procurement">PROCUREMENT</a>
+                <ul class="dropdown-content">
+                    <li><a href="get_started.html">Getting Started</a></li>
+                    <li><a href="CWP_procurement.html">CWP - Procurement Process</a></li>
+                    <li><a href="tech_support.html">Technical Support Form</a></li>
+                    <li><a href="PSA-form.html">Prospective Supplier Application form</a></li>
+                    <li><a href="compliance-checklist.html">Supplier Compliance Checklist</a></li>
+                    <li><a href="site-addresses.html">Current Site Addresses</a></li>
+                    <li><a href="sbd-6.1.html">SBD 6.1</a></li>
+                    <li><a href="sbd-6.2.html">SBD 6.2</a></li>
+                    <li><a href="sworn-affidavit.html">Sworn Affidavit Form BBBEE Exempted Micro Enterprise</a></li>
+                </ul>
+            </li>
+            <li><a href="gallery.html">GALLERY</a></li>
+            <li><a href="vacancies.html">VANCACIES</a></li>
+            <li class="dropdown">
+                <a href="#contact">CONTACTS</a>
+                <ul class="dropdown-content">
+                    <li><a href="gautengoffice.html">Gauteng Office</a></li>
+                    <li><a href="kznoffice.html">KZN Office</a></li>
+                    <li><a href="westerncapeoffice.html">Western Cape Office</a></li>
+                </ul>
+            </li>
+            <li><a href="#trainig">TRAINING</a></li>
+        </ul>
+    </nav>
+    <a href="donate.html">
+        <button class="donate-btn">Donate Now</button>
+    </a>
+    <div class="hamburger-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+</header>
+
+    <div class="header">
+        <h1>Community Work Program</h1>
+        <div class="breadcrumb-inner">
+            <ol class="breadcrumb">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="donate.html">Our Campaigns</a></li>
+                <li class="active">Community Work Program</li>
+            </ol>
+        </div>
+    </div>
+
+    <section id="home" class="hero">
+        <h1 class="animate" style="margin-top: 1rem; margin-left: 2rem;">Community Work Program</h1>
+        <div class="animate" style="animation-delay: 0.2s;">
+            <input type="number" placeholder="Custom Amount" style="padding: 1rem; margin-right: 1rem;  margin-left: 2rem;">
+            <button class="give-btn">Donate Now</button>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="animate">
+            <p class="description">
+
+                Community Worker Programmes are area-based programmes where participants are provided with a minimum number of days of regular work (typically two days in a week) in a defined location or designated site.
+            </p>
+            <p class="description" style="margin-top: 1rem;">
+                The Department of Cooperative Governance (DCoG) contracted Insika Foundation to implement CWP in close partnership with various Municipalities and Wards at the local level. Sites are managed by a Site Manager and different programmes are implemented at each site. Site Managers are responsible for accurate and timely reporting on all matters related to CWP implementation, safety compliance, operational management and staff management of CWP site personnel (Site Coordinator, Site Administrator, Health and Safety Representative, Storekeeper etc).
+            </p>
+        </div>
+<br><br>
+        <div class="container">
+            <h4>Available Fields</h4>
+            <div class="cards-container">
+                <div class="card">
+                    <h3 class="card-title">Programs</h3>
+                    <div class="program-list" id="card1"></div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Programs</h3>
+                    <div class="program-list" id="card2"></div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Programs</h3>
+                    <div class="program-list" id="card3"></div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Programs</h3>
+                    <div class="program-list" id="card4"></div>
+                </div>
+            </div>
+        </div>
+<br><br>
+<div class="carousel-container">
+    <div class="slider-wrapper">
+      <button id="prev-slide" class="slide-button material-symbols-rounded">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <ul class="image-list">
+        <img class="image-item" src="../img/Bakery4.jpg" alt="img-1" />
+        <img class="image-item" src="../img/kzn17.jpg" alt="img-2" />
+        <img class="image-item" src="../img/Western-Cape2.jpg" alt="img-3" />
+        <img class="image-item" src="../img/kzn13.jpg" alt="img-4" />
+        <img class="image-item" src="../img/kzn16.jpg" alt="img-5" />
+        <img class="image-item" src="../img/kzn23.jpg" alt="img-6" />
+        <img class="image-item" src="../img/kzn1.jpg" alt="img-7" />
+        <img class="image-item" src="../img/west3.jpg" alt="img-8" />
+        <img class="image-item" src="../img/Bakery1.jpg" alt="img-9" />
+        <img class="image-item" src="../img/kzn27.jpg" alt="img-10" />
+      </ul>
+      <button id="next-slide" class="slide-button material-symbols-rounded">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+    <div class="slider-scrollbar">
+      <div class="scrollbar-track">
+        <div class="scrollbar-thumb"></div>
+      </div>
+    </div>
+  </div>
+
+        <div class="social-share">
+            <div class="social-icon"><i class="fab fa-facebook-f"></i></div>
+            <div class="social-icon"> <i class="fab fa-x-twitter"></i></div>
+            <div class="social-icon"><i class="fab fa-instagram"></i></div>
+        </div>
+
+        <div class="comment-section">
+            <h3>Leave a Comment</h3>
+            <p>Your email address will not be published.</p>
+            <form class="comment-form">
+                <input type="text" placeholder="Name*" required>
+                <input type="email" placeholder="Email*" required>
+                <input type="url" placeholder="Website">
+                <textarea placeholder="Comment" rows="4"></textarea>
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="save-info">
+                    <label for="save-info">Save my name, email, and website in this browser for the next time I comment.</label>
+                </div>                
+                <button type="send" class="give-btn" style="margin-top: 1rem;">Submit Comment</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-row">
+                    <div class="footer-widget">
+                        <div class="footer-logo">
+                            <img src="../img/logo_footer.png" class="img-fluid" alt="Insika Foundation Logo">
+                        </div>
+                        <div class="footer-text">
+                            <p>Bringing sponsors and beneficiaries together to ensure sustainable results in all Insika programmes.</p>
+                        </div>
+                        <br>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/InsikaFoundationComms" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/insikafoundation/" class="instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                        </div>                        
+                    </div>
+                    <div class="footer-widget">
+                        <div class="footer-widget-heading">
+                            <h3>Quick Links</h3>
+                        </div>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Programmes</a></li>
+                            <li><a href="#">Partners</a></li>
+                            <li><a href="#">Procurement</a></li>
+                            <li><a href="#">Gallery</a></li>
+                            <li><a href="#">Vacancies</a></li>
+                            <li><a href="#">Contacts</a></li>
+                            <li><a href="#">Training</a></li>
+                        </ul>
+                        <a href="donate.html">
+                            <button class="donate-btn" type="button">Donate Now</button>
+                        </a>
+                    </div>
+                    <div class="footer-widget">
+                        <div class="footer-widget-heading">
+                            <h1 class="contact-heading">
+                                <span class="line"></span>
+                                Contact Info.
+                                <span class="line"></span>
+                            </h1>
+                        </div>
+                        <div class="contact-icons">
+                            <div class="icon">
+                                <i class="fas fa-envelope"></i>
+                                <p><a style="color: #df8207; text-decoration: none;" href="mailto:info@insikafoundation.co.za">info@insikafoundation.co.za</a></p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-phone"></i>
+                                <p>011 695 6800</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <p><a style="color: #df8207; text-decoration: none;" href="https://www.google.com/maps/search/?api=1&query=Elethu+House,+Building+23+Thornhill+Office+Park+94+Bekker+Road+Midrand+1686" target="_blank">Elethu House, Building 23 Thornhill Office Park 94 Bekker Road Midrand 1686</a></p>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+        <div class="copyright-area">
+            <div class="container">
+                <div class="copyright-row">
+                    <div class="copyright-text">
+                        <p>Copyright &copy; 2023 <a href="https://insikafoundation.co.za/">Insika Foundation</a> - All Rights Reserved - Made By Nova Codings</p>
+                    </div>
+                    <div class="footer-menu">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Terms</a></li>
+                            <li><a href="#">Privacy</a></li>
+                            <li><a href="#">Policy</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        const programs = [
+            "Early Childhood Development (ECD)",
+            "Planting food gardens",
+            "Fencing food gardens",
+            "Maintaining roads, graveyards, parks, churches and water pipelines",
+            "Doing repairs at schools and clinics",
+            "Repairing dongas",
+            "Conducting programmes for orphans and vulnerable children",
+            "Providing security in unsafe areas",
+            "Sewing and dressmaking",
+            "Maintaining grass and trees to keep the community tidy",
+            "Safety and Health monitoring",
+            "Hairdressing, Barber and Nail technology initiatives",
+            "Baking initiatives",
+            "Carpentry initiatives",
+            "Hospital administration initiatives",
+            "Construction",
+            "Scholar patrol",
+            "Brick making",
+            "Painting",
+            "Classroom assistants",
+            "Home base care",
+            "Caring for disabled children",
+            "Caring for the aged",
+            "Caring for patients living with HIV and AIDS",
+            "Sport coaching",
+            "Feeding schemes"
+        ];
+
+        // Split programs into four groups
+        const card1Programs = programs.slice(0, 6);
+        const card2Programs = programs.slice(6, 12);
+        const card3Programs = programs.slice(12, 18);
+        const card4Programs = programs.slice(18); // This will take the remaining programs
+
+        // Function to create program items with staggered animation
+        function createProgramItems(containerId, programs) {
+            const container = document.getElementById(containerId);
+            programs.forEach((program, index) => {
+                const div = document.createElement('div');
+                div.className = 'program-item';
+                div.textContent = program;
+                div.style.animationDelay = `${index * 0.1}s`;
+                container.appendChild(div);
+            });
+        }
+
+        createProgramItems('card1', card1Programs);
+        createProgramItems('card2', card2Programs);
+        createProgramItems('card3', card3Programs);
+        createProgramItems('card4', card4Programs);
+
+        // Animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+
+        // carousel-container //
+        const initSlider = () => {
+    const imageList = document.querySelector(".slider-wrapper .image-list");
+    const slideButtons = document.querySelectorAll(".slider-wrapper .slide-button");
+    const sliderScrollbar = document.querySelector(".carousel-container .slider-scrollbar");
+    const scrollbarThumb = sliderScrollbar.querySelector(".scrollbar-thumb");
+    const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth;
+    
+    // Handle scrollbar thumb drag
+    scrollbarThumb.addEventListener("mousedown", (e) => {
+        const startX = e.clientX;
+        const thumbPosition = scrollbarThumb.offsetLeft;
+        const maxThumbPosition = sliderScrollbar.getBoundingClientRect().width - scrollbarThumb.offsetWidth;
+        
+        // Update thumb position on mouse move
+        const handleMouseMove = (e) => {
+            const deltaX = e.clientX - startX;
+            const newThumbPosition = thumbPosition + deltaX;
+            // Ensure the scrollbar thumb stays within bounds
+            const boundedPosition = Math.max(0, Math.min(maxThumbPosition, newThumbPosition));
+            const scrollPosition = (boundedPosition / maxThumbPosition) * maxScrollLeft;
+            
+            scrollbarThumb.style.left = `${boundedPosition}px`;
+            imageList.scrollLeft = scrollPosition;
+        }
+        // Remove event listeners on mouse up
+        const handleMouseUp = () => {
+            document.removeEventListener("mousemove", handleMouseMove);
+            document.removeEventListener("mouseup", handleMouseUp);
+        }
+        // Add event listeners for drag interaction
+        document.addEventListener("mousemove", handleMouseMove);
+        document.addEventListener("mouseup", handleMouseUp);
+    });
+    // Slide images according to the slide button clicks
+    slideButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const direction = button.id === "prev-slide" ? -1 : 1;
+            const scrollAmount = imageList.clientWidth * direction;
+            imageList.scrollBy({ left: scrollAmount, behavior: "smooth" });
+        });
+    });
+     // Show or hide slide buttons based on scroll position
+    const handleSlideButtons = () => {
+        slideButtons[0].style.display = imageList.scrollLeft <= 0 ? "none" : "flex";
+        slideButtons[1].style.display = imageList.scrollLeft >= maxScrollLeft ? "none" : "flex";
+    }
+    // Update scrollbar thumb position based on image scroll
+    const updateScrollThumbPosition = () => {
+        const scrollPosition = imageList.scrollLeft;
+        const thumbPosition = (scrollPosition / maxScrollLeft) * (sliderScrollbar.clientWidth - scrollbarThumb.offsetWidth);
+        scrollbarThumb.style.left = `${thumbPosition}px`;
+    }
+    // Call these two functions when image list scrolls
+    imageList.addEventListener("scroll", () => {
+        updateScrollThumbPosition();
+        handleSlideButtons();
+    });
+}
+window.addEventListener("resize", initSlider);
+window.addEventListener("load", initSlider);
+        // End carousel-container //
+
+        //Navigation Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger-menu');
+    const nav = document.querySelector('nav');
+    const dropdowns = document.querySelectorAll('.dropdown');
+
+    hamburger.addEventListener('click', function() {
+        this.classList.toggle('active');
+        nav.classList.toggle('active');
+    });
+
+    // Handle mobile menu interactions
+    if (window.innerWidth <= 768) {
+        dropdowns.forEach(dropdown => {
+            // Keep hover functionality for dropdowns
+            dropdown.addEventListener('mouseenter', function() {
+                this.querySelector('.dropdown-content').style.display = 'block';
+            });
+
+            dropdown.addEventListener('mouseleave', function() {
+                this.querySelector('.dropdown-content').style.display = 'none';
+            });
+
+            // Handle nested dropdowns
+            const nestedDropdowns = dropdown.querySelectorAll('.nested-dropdown');
+            nestedDropdowns.forEach(nested => {
+                nested.addEventListener('mouseenter', function() {
+                    this.querySelector('.nested-dropdown-content').style.display = 'block';
+                });
+
+                nested.addEventListener('mouseleave', function() {
+                    this.querySelector('.nested-dropdown-content').style.display = 'none';
+                });
+            });
+        });
+    }
+
+    // Reset menu state on window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            hamburger.classList.remove('active');
+            nav.classList.remove('active');
+        }
+    });
+});
+    </script>
+
+</body>
+</html>

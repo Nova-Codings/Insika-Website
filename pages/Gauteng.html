@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insika Foundation | Gauteng</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../img/insika_foundation_logo1.png" type="image/x-icon">
+    <style>
+    /* Gauteng page */
+:root {
+    --primary: #df8207;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background-color: white;
+    color: black;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.header {
+    background-color: black;
+    color: white;
+    padding: 5rem 1rem;
+    animation: slideInDown 0.5s ease-out forwards;
+}
+
+.header-content {
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
+.header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: fadeInTop 1s ease forwards;
+}
+
+@keyframes fadeInTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (min-width: 640px) {
+    .header h1 {
+        font-size: 3.5rem;
+    }
+}
+
+.orange-line {
+    height: 0.25rem;
+    width: 5rem;
+    background-color: var(--primary);
+}
+
+.breadcrumb-inner {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .breadcrumb {
+            display: inline-flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: transparent;
+            border-radius: 51px;
+            border: 1px solid rgba(26, 26, 26, 0.5);
+        }
+
+        .breadcrumb li {
+            padding: 5px 10px;
+            color: white;
+        }
+
+        .breadcrumb li a {
+            color: #df8207;
+            text-decoration: none;
+        }
+
+        .breadcrumb li a:hover {
+            color: #fff;
+        }
+
+        .breadcrumb li:not(:last-child)::after {
+            content: ">";
+            margin-left: 10px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .breadcrumb li.active {
+            font-weight: bold;
+        }
+
+.main-content {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+}
+
+.grid-section {
+    display: grid;
+    gap: 3rem;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+    animation-delay: 0.2s;
+}
+
+@media (min-width: 768px) {
+    .grid-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.about-section > *:not(:last-child) {
+    margin-bottom: 1.5rem;
+}
+
+.about-section h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #df8207;
+}
+
+.core-functions {
+    background-color: black;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    opacity: 0;
+    animation: slideInRight 0.5s ease-out forwards;
+    animation-delay: 0.4s;
+}
+
+.core-functions h3 {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.functions-list {
+    list-style: none;
+    color: white;
+}
+
+.function-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    opacity: 0;
+}
+
+.chevron-right {
+    color: var(--primary);
+    width: 1rem;
+    height: 1rem;
+}
+
+.executive-team {
+    margin-top: 4rem;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+    animation-delay: 0.8s;
+}
+
+.executive-team h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.team-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .team-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.team-member {
+    padding: 1.5rem;
+    border: 2px solid var(--primary);
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+.team-member:hover {
+    background-color: black;
+    color: white;
+}
+
+.team-member h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.team-member p {
+    font-size: 0.875rem;
+    opacity: 0.8;
+}
+
+.csi-section {
+    margin-top: 4rem;
+    background-color: #f9fafb;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+    animation-delay: 1.2s;
+}
+
+.csi-section h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.csi-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary);
+    text-decoration: none;
+    margin-top: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.csi-link:hover {
+    color: black;
+}
+
+.landscape-section {
+            background: linear-gradient(135deg, #df8207, #000000);
+            padding: 4rem 1rem;
+            margin-top: 4rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .landscape-content {
+            max-width: 80rem;
+            margin: 0 auto;
+            display: grid;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .landscape-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .landscape-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                        0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            opacity: 0;
+            transform: translateX(50px);
+            animation: slideInFromRight 1s ease-out forwards;
+        }
+
+        .landscape-text {
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideInFromLeft 1s ease-out forwards;
+        }
+
+        .landscape-text h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .landscape-text h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: white;
+            animation: lineGrow 1.5s ease-out forwards;
+            animation-delay: 1s;
+        }
+
+        @keyframes slideInFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes lineGrow {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100px;
+            }
+        }
+/* End Gauteng page */
+</style>
+</head>
+<body>
+     <!--Scroll button-->
+     <a id="scroll-to-top" href="#top" title="Go to top">
+        <span>&#x2191;</span>
+      </a>  
+
+      <header>
+        <div class="logo-container">
+            <a href="../index.html" ><img  src="../img/insika_foundation_logo1.png" alt="Insika Foundation Logo" class="logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="#about">ABOUT US</a>
+                    <ul class="dropdown-content">
+                        <li><a href="founder.html">About Founder</a></li>
+                        <li class="nested-dropdown">
+                            <a href="#vision">Provincial Office</a>
+                            <ul class="nested-dropdown-content">
+                                <li><a href="Gauteng.html">Gauteng</a></li>
+                                <li><a href="KZN.html">Kwazulu-Natal</a></li>
+                                <li><a href="eastlondon.html">East London</a></li>
+                                <li><a href="westerncape.html">Western Cape</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="covid.html">Covid-19</a></li>
+                        <li><a href="staff finder.html">Staff Finder</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#programs">PROGRAMMES</a>
+                    <ul class="dropdown-content">
+                        <li><a href="cwp.html">Community Work Program</a></li>
+                        <li><a href="CWP Beneficiaries.html">CWP Beneficiaries</a></li>
+                        <li><a href="internship.html">Internship</a></li>
+                        <li><a href="Internship Beneficiaries.html">Internship Beneficiaries</a></li>
+                        <li><a href="csip.html">Corporate Social Investment Programme</a></li>
+                        <li><a href="ESD.html">Enterprise Supplies Development</a></li>
+                        <li><a href="other Beneficiancies.html">Other Beneficiaries</a></li>
+                    </ul>
+                </li>
+                <li><a href="partners.html">PARTNERS</a></li>
+                <li class="dropdown">
+                    <a href="#procurement">PROCUREMENT</a>
+                    <ul class="dropdown-content">
+                        <li><a href="get_started.html">Getting Started</a></li>
+                        <li><a href="CWP_procurement.html">CWP - Procurement Process</a></li>
+                        <li><a href="tech_support.html">Technical Support Form</a></li>
+                        <li><a href="PSA-form.html">Prospective Supplier Application form</a></li>
+                        <li><a href="compliance-checklist.html">Supplier Compliance Checklist</a></li>
+                        <li><a href="site-addresses.html">Current Site Addresses</a></li>
+                        <li><a href="sbd-6.1.html">SBD 6.1</a></li>
+                        <li><a href="sbd-6.2.html">SBD 6.2</a></li>
+                        <li><a href="sworn-affidavit.html">Sworn Affidavit Form BBBEE Exempted Micro Enterprise</a></li>
+                    </ul>
+                </li>
+                <li><a href="gallery.html">GALLERY</a></li>
+                <li><a href="vacancies.html">VANCACIES</a></li>
+                <li class="dropdown">
+                    <a href="#contact">CONTACTS</a>
+                    <ul class="dropdown-content">
+                        <li><a href="gautengoffice.html">Gauteng Office</a></li>
+                        <li><a href="kznoffice.html">KZN Office</a></li>
+                        <li><a href="westerncapeoffice.html">Western Cape Office</a></li>
+                    </ul>
+                </li>
+                <li><a href="#trainig">TRAINING</a></li>
+            </ul>
+        </nav>
+        <a href="donate.html">
+            <button class="donate-btn">Donate Now</button>
+        </a>
+        <div class="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </header>
+
+    <header class="header">
+        <div class="header-content">
+            <h1> Gauteng Office </h1>
+            <div class="orange-line"></div>
+            <div class="breadcrumb-inner">
+                <ol class="breadcrumb">
+                    <li><a href="../index.html">Home</a></li>
+                    <li class="active">Gauteng</li>
+                </ol>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="grid-section">
+            <div class="about-section">
+                <h2>Head Office</h2>
+                <p>
+                    Insika Foundation's Head Office is based in Midrand, Gauteng. The Head Office is responsible for oversight 
+                    and coordination between Gauteng, Kwa-Zulu Natal and the Western Cape to ensure that all offices function 
+                    within the values and compliance framework that governs the work of a Non-Profit Organisation (NPO).
+                </p>
+            </div>
+
+            <div class="core-functions">
+                <h3>Core Corporate Functions</h3>
+                <ul class="functions-list">
+                </ul>
+            </div>
+        </section>
+
+        <section class="executive-team">
+            <h2>Executive Team</h2>
+            <div class="team-grid">
+            </div>
+        </section>
+
+        <section class="csi-section">
+            <h2>Corporate Social Investment Programme</h2>
+            <p>
+                The Gauteng office implements Insika Foundation's Corporate Social Investment Programme. 
+                The Insika Foundation philosophy is that beneficiaries do not all require the same assistance. 
+                In the extension of resources and support to programmes at grassroots level Insika Foundation 
+                pays acute attention to how it can facilitate for moving beneficiaries closer to becoming 
+                self-sufficient, thus moving them from point A to point B, one beneficiary at a time.
+            </p>
+            <a href="/csi" class="csi-link">
+                <span>Visit our CSI initiatives</span>
+                <svg class="chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </section>
+
+        <section class="landscape-section">
+            <div class="landscape-content">
+                <div class="landscape-text">
+                    <h1>Gauteng-Staff</h1>
+                    <h3>Empowering Communities</h3>
+                    <p>Working together to create sustainable change and build stronger communities across Gauteng. Our commitment to excellence and dedication to service drives every initiative we undertake.</p>
+                </div>
+                <img 
+                    src="../img/Gauteng-Staff.jpg" 
+                    alt="Landscape view" 
+                    class="landscape-image"
+                />
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-row">
+                    <div class="footer-widget">
+                        <div class="footer-logo">
+                            <img src="../img/logo_footer.png" class="img-fluid" alt="Insika Foundation Logo">
+                        </div>
+                        <div class="footer-text">
+                            <p>Bringing sponsors and beneficiaries together to ensure sustainable results in all Insika programmes.</p>
+                        </div>
+                        <br>
+                        <div class="social-icons">
+                            <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                        </div>                        
+                    </div>
+                    <div class="footer-widget">
+                        <div class="footer-widget-heading">
+                            <h3>Quick Links</h3>
+                        </div>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Programmes</a></li>
+                            <li><a href="#">Partners</a></li>
+                            <li><a href="#">Procurement</a></li>
+                            <li><a href="#">Gallery</a></li>
+                            <li><a href="#">Vacancies</a></li>
+                            <li><a href="#">Contacts</a></li>
+                            <li><a href="#">Training</a></li>
+                        </ul>
+                        <a href="donate.html">
+                            <button class="donate-btn" type="button">Donate Now</button>
+                        </a>
+                    </div>
+                    <div class="footer-widget">
+                        <div class="footer-widget-heading">
+                            <h1 class="contact-heading">
+                                <span class="line"></span>
+                                Contact Info.
+                                <span class="line"></span>
+                            </h1>
+                        </div>
+                        <div class="contact-icons">
+                            <div class="icon">
+                                <i class="fas fa-envelope"></i>
+                                <p>info@insikafoundation.co.za</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-phone"></i>
+                                <p>011 695 6800</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <p>Elethu House, Building 23 Thornhill Office Park 94 Bekker Road Midrand 1686</p>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+        <div class="copyright-area">
+            <div class="container">
+                <div class="copyright-row">
+                    <div class="copyright-text">
+                        <p>Copyright &copy; 2023 <a href="https://insikafoundation.co.za/">Insika Foundation</a> - All Rights Reserved - Made By Nova Codings</p>
+                    </div>
+                    <div class="footer-menu">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Terms</a></li>
+                            <li><a href="#">Privacy</a></li>
+                            <li><a href="#">Policy</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const coreFunctions = [
+  'Finance',
+  'Human Resources',
+  'Legal',
+  'Marketing and Communications',
+  'ICT',
+  'Training',
+  'Project Coordination'
+];
+
+// Executive team data
+const executiveTeam = [
+  {
+      name: 'Ms Gabsie Mathenjwa',
+      role: 'Founder and Chief Executive Officer'
+  },
+  {
+      name: 'Mr Sipho Shabalala',
+      role: 'Chief Operations Officer'
+  },
+  {
+      name: 'Benedict Mdluli',
+      role: 'Financial Manager'
+  }
+];
+
+// Populate core functions
+const functionsList = document.querySelector('.functions-list');
+coreFunctions.forEach((item, index) => {
+  const li = document.createElement('li');
+  li.className = 'function-item';
+  li.style.animation = `fadeIn 0.5s ease-out forwards`;
+  li.style.animationDelay = `${0.6 + index * 0.1}s`;
+  
+  li.innerHTML = `
+      <svg class="chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>${item}</span>
+  `;
+  functionsList.appendChild(li);
+});
+
+// Populate executive team
+const teamGrid = document.querySelector('.team-grid');
+executiveTeam.forEach((member, index) => {
+  const div = document.createElement('div');
+  div.className = 'team-member';
+  div.style.animation = `fadeIn 0.5s ease-out forwards`;
+  div.style.animationDelay = `${1 + index * 0.2}s`;
+  
+  div.innerHTML = `
+      <h3>${member.name}</h3>
+      <p>${member.role}</p>
+  `;
+  teamGrid.appendChild(div);
+});
+    </script>
+    <script>
+//Navigation Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger-menu');
+    const nav = document.querySelector('nav');
+    const dropdowns = document.querySelectorAll('.dropdown');
+
+    hamburger.addEventListener('click', function() {
+        this.classList.toggle('active');
+        nav.classList.toggle('active');
+    });
+
+    // Handle mobile menu interactions
+    if (window.innerWidth <= 768) {
+        dropdowns.forEach(dropdown => {
+            // Keep hover functionality for dropdowns
+            dropdown.addEventListener('mouseenter', function() {
+                this.querySelector('.dropdown-content').style.display = 'block';
+            });
+
+            dropdown.addEventListener('mouseleave', function() {
+                this.querySelector('.dropdown-content').style.display = 'none';
+            });
+
+            // Handle nested dropdowns
+            const nestedDropdowns = dropdown.querySelectorAll('.nested-dropdown');
+            nestedDropdowns.forEach(nested => {
+                nested.addEventListener('mouseenter', function() {
+                    this.querySelector('.nested-dropdown-content').style.display = 'block';
+                });
+
+                nested.addEventListener('mouseleave', function() {
+                    this.querySelector('.nested-dropdown-content').style.display = 'none';
+                });
+            });
+        });
+    }
+
+    // Reset menu state on window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            hamburger.classList.remove('active');
+            nav.classList.remove('active');
+        }
+    });
+});
+    </script>
+</body>
+</html>

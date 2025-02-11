@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacancies | Insika Foundation</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="../img/insika_foundation_logo1.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #000000, #df8207, #000000);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumb-inner {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .breadcrumb {
+            display: inline-flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: transparent;
+            border-radius: 51px;
+            border: 1px solid rgba(26, 26, 26, 0.5);
+        }
+
+        .breadcrumb li {
+            padding: 5px 10px;
+            color: white;
+        }
+
+        .breadcrumb li a {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .breadcrumb li a:hover {
+            color: #fff;
+        }
+
+        .breadcrumb li:not(:last-child)::after {
+            content: ">";
+            margin-left: 10px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .breadcrumb li.active {
+            font-weight: bold;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .job-post {
+            background: #fff;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .job-post h3 {
+            margin-top: 0;
+        }
+        .apply-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #df8207;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .popup-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            width: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .close-btn {
+            background: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            float: right;
+        }
+
+        /* Add these styles */
+.vacancy-container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+
+.application-page {
+    display: none;  /* Hidden by default */
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin: 20px auto;
+}
+
+.back-btn {
+    background: #df8207;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.application-form {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="date"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.terms-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.send-btn {
+    background: #df8207;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+.submit-btn:hover {
+    background: #c67306;
+}
+
+/* Hide the original form popup */
+.form-popup {
+    display: none;
+}
+
+        .apply-position-btn {
+           display: block;
+           margin: 20px auto;
+           padding: 10px 20px;
+           background: #28a745;
+           color: #fff;
+           border: none;
+           border-radius: 5px;
+           cursor: pointer;
+           text-align: right; /* Change from center to right */
+}
+    </style>
+</head>
+<body>
+      <!--Scroll button-->
+<a id="scroll-to-top" href="#top" title="Go to top">
+    <span>&#x2191;</span>
+</a>
+
+
+<header>
+    <div class="logo-container">
+        <a href="../index.html" ><img  src="../img/insika_foundation_logo1.png" alt="Insika Foundation Logo" class="logo"></a>
+    </div>
+    <nav>
+        <ul>
+            <li class="dropdown">
+                <a href="#about">ABOUT US</a>
+                <ul class="dropdown-content">
+                    <li><a href="founder.html">About Founder</a></li>
+                    <li class="nested-dropdown">
+                        <a href="#vision">Provincial Office</a>
+                        <ul class="nested-dropdown-content">
+                            <li><a href="Gauteng.html">Gauteng</a></li>
+                            <li><a href="KZN.html">Kwazulu-Natal</a></li>
+                            <li><a href="eastlondon.html">East London</a></li>
+                            <li><a href="westerncape.html">Western Cape</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="covid.html">Covid-19</a></li>
+                    <li><a href="staff finder.html">Staff Finder</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#programs">PROGRAMMES</a>
+                <ul class="dropdown-content">
+                    <li><a href="cwp.html">Community Work Program</a></li>
+                    <li><a href="CWP Beneficiaries.html">CWP Beneficiaries</a></li>
+                    <li><a href="internship.html">Internship</a></li>
+                    <li><a href="Internship Beneficiaries.html">Internship Beneficiaries</a></li>
+                    <li><a href="csip.html">Corporate Social Investment Programme</a></li>
+                    <li><a href="ESD.html">Enterprise Supplies Development</a></li>
+                    <li><a href="other Beneficiancies.html">Other Beneficiaries</a></li>
+                </ul>
+            </li>
+            <li><a href="partners.html">PARTNERS</a></li>
+            <li class="dropdown">
+                <a href="#procurement">PROCUREMENT</a>
+                <ul class="dropdown-content">
+                    <li><a href="get_started.html">Getting Started</a></li>
+                    <li><a href="CWP_procurement.html">CWP - Procurement Process</a></li>
+                    <li><a href="tech_support.html">Technical Support Form</a></li>
+                    <li><a href="PSA-form.html">Prospective Supplier Application form</a></li>
+                    <li><a href="compliance-checklist.html">Supplier Compliance Checklist</a></li>
+                    <li><a href="site-addresses.html">Current Site Addresses</a></li>
+                    <li><a href="sbd-6.1.html">SBD 6.1</a></li>
+                    <li><a href="sbd-6.2.html">SBD 6.2</a></li>
+                    <li><a href="sworn-affidavit.html">Sworn Affidavit Form BBBEE Exempted Micro Enterprise</a></li>
+                </ul>
+            </li>
+            <li><a href="gallery.html">GALLERY</a></li>
+            <li><a href="vacancies.html">VANCACIES</a></li>
+            <li class="dropdown">
+                <a href="#contact">CONTACTS</a>
+                <ul class="dropdown-content">
+                    <li><a href="gautengoffice.html">Gauteng Office</a></li>
+                    <li><a href="kznoffice.html">KZN Office</a></li>
+                    <li><a href="westerncapeoffice.html">Western Cape Office</a></li>
+                </ul>
+            </li>
+            <li><a href="#trainig">TRAINING</a></li>
+        </ul>
+    </nav>
+    <a href="donate.html">
+        <button class="donate-btn">Donate Now</button>
+    </a>
+    <div class="hamburger-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+</header>
+
+    <div class="header">
+        <h1>Our Vacancies</h1>
+        <div class="breadcrumb-inner">
+            <ol class="breadcrumb">
+                <li><a href="../index.html">Home</a></li>
+                <li class="active">Vacancies</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="container">
+        <h3 style="font-weight: bold; font-size: 24px; text-align: center;">Our Openings</h3>
+        <p style="font-weight: bold; font-size: 12px; text-align: center;">6 Open positions</p>
+<div class="job-post">
+    <h3>ADVERT FOR VARIOUS POSITIONS</h3>
+    <p>Short description of the job 1.</p>
+    <button class="apply-btn" onclick="openApplicationPage('ADVERT FOR VARIOUS POSITIONS')">Apply Now</button>
+</div>
+<div class="job-post">
+    <h3>Arts and Culture Administration Intern</h3>
+    <p>Short description of the job 2.</p>
+    <button class="apply-btn" onclick="openApplicationPage('Arts and Culture Administration Intern')">Apply Now</button>
+</div>
+<div class="job-post">
+    <h3>Finance Assistant Intern</h3>
+    <p>Short description of the job 3.</p>
+    <button class="apply-btn" onclick="openApplicationPage('Finance Assistant Intern')">Apply Now</button>
+</div>
+<div class="job-post">
+    <h3>Marketing</h3>
+    <p>Short description of the job 4.</p>
+    <button class="apply-btn" onclick="openApplicationPage('Marketing')">Apply Now</button>
+</div>
+<div class="job-post">
+    <h3>Human Resource</h3>
+    <p>Short description of the job 5.</p>
+    <button class="apply-btn" onclick="openApplicationPage('Human Resource')">Apply Now</button>
+</div>
+<div class="job-post">
+    <h3>ICT Specialist</h3>
+    <p>Short description of the job 6.</p>
+    <button class="apply-btn" onclick="openApplicationPage('ICT Specialist')">Apply Now</button>
+</div>
+    </div>>
+
+    <div class="popup" id="jobPopup">
+        <div class="popup-content">
+            <button class="close-btn" onclick="closePopup()">X</button>
+            <h3><span class="line"></span>About the Job<span class="line"></span></h3>
+            <p><strong>Job Specifics:</strong> Details about the job specifics.</p>
+            <p><strong>About the Role:</strong> Details about the role.</p>
+            <p><strong>Key Responsibilities:</strong> Details about key responsibilities.</p>
+            <p><strong>Qualifications and Experience:</strong> Details about qualifications and experience.</p>
+            <p><strong>Key Competencies:</strong> Details about key competencies.</p>
+            <button class="apply-position-btn" onclick="openApplicationPage()">Apply for Position</button>
+        </div>
+    </div>
+
+    <div class="application-page" id="applicationPage">
+        <div class="vacancy-container">
+            <button class="back-btn" onclick="goBack()">← Back to Vacancies</button>
+            
+            <h3>Application Form</h3>
+            <p>Position: <span id="jobPosition"></span></p>
+            <br>
+            
+            <div class="application-form">
+                <form onsubmit="submitApplication(event)">
+                    <div class="form-group">
+                        <label for="fullName">Full Name: *</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email: *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone: *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="dob">Date of Birth: *</label>
+                        <input type="date" id="dob" name="dob" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="gender">Gender: *</label>
+                        <select id="gender" name="gender" required>
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="nationality">Nationality: *</label>
+                        <select id="nationality" name="nationality" required>
+                            <option value="">Select Nationality</option>
+                            <option value="South African">South African</option>
+                            <!-- Add other nationalities -->
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="languages">Languages: *</label>
+                        <select id="languages" name="languages" required>
+                            <option value="">Select Language</option>
+                            <option value="English">English</option>
+                            <option value="Afrikaans">Afrikaans</option>
+                            <!-- Add other languages -->
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Physical Address: *</label>
+                        <textarea id="address" name="address" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="education">Highest Level of Education: *</label>
+                        <input type="text" id="education" name="education" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="employment">Current Employment Status: *</label>
+                        <input type="text" id="employment" name="employment" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="notice">Notice Period: *</label>
+                        <select id="notice" name="notice" required>
+                            <option value="">Select Notice Period</option>
+                            <option value="Immediate">Immediate</option>
+                            <option value="1 month">1 Month</option>
+                            <option value="2 months">2 Months</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cover">Cover Letter:</label>
+                        <textarea id="cover" name="cover"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="resume">Resume: *</label>
+                        <input type="file" id="resume" name="resume" required>
+                    </div>
+                    
+                    <div class="terms-checkbox">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">I agree to the terms and conditions & privacy policy</label>
+                    </div>
+                    
+                    <button type="send" class="send-btn">Submit Application</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-row">
+                    <div class="footer-widget">
+                        <div class="footer-logo">
+                            <img src="../img/logo_footer.png" class="img-fluid" alt="Insika Foundation Logo">
+                        </div>
+                        <div class="footer-text">
+                            <p>Bringing sponsors and beneficiaries together to ensure sustainable results in all Insika programmes.</p>
+                        </div>
+                        <br>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/InsikaFoundationComms" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/insikafoundation/" class="instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                        </div>                        
+                    </div>
+                    <div class="footer-widget">
+                        <div class="footer-widget-heading">
+                            <h3>Quick Links</h3>
+                        </div>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Programmes</a></li>
+                            <li><a href="#">Partners</a></li>
+                            <li><a href="#">Procurement</a></li>
+                            <li><a href="#">Gallery</a></li>
+                            <li><a href="#">Vacancies</a></li>
+                            <li><a href="#">Contacts</a></li>
+                            <li><a href="#">Training</a></li>
+                        </ul>
+                        <a href="donate.html">
+                            <button class="donate-btn" type="button">Donate Now</button>
+                        </a>
+                    </div>
+                    <div class="footer-widget">
+                        <div class="footer-widget-heading">
+                            <h1 class="contact-heading">
+                                <span class="line"></span>
+                                Contact Info.
+                                <span class="line"></span>
+                            </h1>
+                        </div>
+                        <div class="contact-icons">
+                            <div class="icon">
+                                <i class="fas fa-envelope"></i>
+                                <p><a style="color: #df8207; text-decoration: none;" href="mailto:info@insikafoundation.co.za">info@insikafoundation.co.za</a></p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-phone"></i>
+                                <p>011 695 6800</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <p><a style="color: #df8207; text-decoration: none;" href="https://www.google.com/maps/search/?api=1&query=Elethu+House,+Building+23+Thornhill+Office+Park+94+Bekker+Road+Midrand+1686" target="_blank">Elethu House, Building 23 Thornhill Office Park 94 Bekker Road Midrand 1686</a></p>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+        <div class="copyright-area">
+            <div class="container">
+                <div class="copyright-row">
+                    <div class="copyright-text">
+                        <p>Copyright &copy; 2023 <a href="https://insikafoundation.co.za/">Insika Foundation</a> - All Rights Reserved - Made By Nova Codings</p>
+                    </div>
+                    <div class="footer-menu">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Terms</a></li>
+                            <li><a href="#">Privacy</a></li>
+                            <li><a href="#">Policy</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function openPopup() {
+            document.getElementById('jobPopup').style.display = 'flex';
+        }
+
+        function closePopup() {
+            document.getElementById('jobPopup').style.display = 'none';
+        }
+
+        function openApplicationPage(jobTitle) {
+    document.querySelector('.container').style.display = 'none';
+    document.getElementById('applicationPage').style.display = 'block';
+    document.getElementById('jobPosition').textContent = jobTitle;
+}
+
+function goBack() {
+    document.querySelector('.container').style.display = 'block';
+    document.getElementById('applicationPage').style.display = 'none';
+}
+
+function submitApplication(event) {
+    event.preventDefault();
+    // Add your form submission logic here
+    alert('Application submitted successfully!');
+    goBack();
+}
+
+//Navigation Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger-menu');
+    const nav = document.querySelector('nav');
+    const dropdowns = document.querySelectorAll('.dropdown');
+
+    hamburger.addEventListener('click', function() {
+        this.classList.toggle('active');
+        nav.classList.toggle('active');
+    });
+
+    // Handle mobile menu interactions
+    if (window.innerWidth <= 768) {
+        dropdowns.forEach(dropdown => {
+            // Keep hover functionality for dropdowns
+            dropdown.addEventListener('mouseenter', function() {
+                this.querySelector('.dropdown-content').style.display = 'block';
+            });
+
+            dropdown.addEventListener('mouseleave', function() {
+                this.querySelector('.dropdown-content').style.display = 'none';
+            });
+
+            // Handle nested dropdowns
+            const nestedDropdowns = dropdown.querySelectorAll('.nested-dropdown');
+            nestedDropdowns.forEach(nested => {
+                nested.addEventListener('mouseenter', function() {
+                    this.querySelector('.nested-dropdown-content').style.display = 'block';
+                });
+
+                nested.addEventListener('mouseleave', function() {
+                    this.querySelector('.nested-dropdown-content').style.display = 'none';
+                });
+            });
+        });
+    }
+
+    // Reset menu state on window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            hamburger.classList.remove('active');
+            nav.classList.remove('active');
+        }
+    });
+});
+    </script>
+
+</body>
+</html>

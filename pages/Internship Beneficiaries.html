@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Beneficiaries</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="../img/insika_foundation_logo1.png" type="image/x-icon">
+    <style>
+        :root {
+            --primary-color: #df8207;
+            --secondary-color: #000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #000000, #df8207, #000000);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumb-inner {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .breadcrumb {
+            display: inline-flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: transparent;
+            border-radius: 51px;
+            border: 1px solid rgba(26, 26, 26, 0.5);
+        }
+
+        .breadcrumb li {
+            padding: 5px 10px;
+            color: white;
+        }
+
+        .breadcrumb li a {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .breadcrumb li a:hover {
+            color: #fff;
+        }
+
+        .breadcrumb li:not(:last-child)::after {
+            content: ">";
+            margin-left: 10px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .breadcrumb li.active {
+            font-weight: bold;
+        }
+
+
+        .main-content {
+            padding-top: 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .title {
+            text-align: center;
+            color: var(--secondary-color);
+            padding: 2rem;
+            font-size: 2.5rem;
+        }
+
+        /* Slideshow container */
+        .Slideshow-container {
+            position: relative;
+            max-width: 1000px;
+            margin: auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .Slide {
+            display: none;
+            padding: 2rem;
+            animation: fadeEffect 1.5s;
+        }
+
+        .Slide.active {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .Slide-image {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .Slide-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .Slide-content {
+            flex: 2;
+            padding: 1rem;
+        }
+
+        .Slide-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .Slide-content p {
+            line-height: 1.6;
+            color: #333;
+        }
+
+       /* Navigation buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    bottom: 20px; /* Positions buttons at the bottom */
+    padding: 16px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.next {
+    right: 20px; /* Positions the "next" button at the bottom-right */
+}
+
+.prev {
+    left: 20px; /* Positions the "prev" button at the bottom-left */
+}
+
+.prev:hover, .next:hover {
+    background-color: var(--primary-color);
+}
+
+
+        /* Dots */
+        .dots-container {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .dot.active, .dot:hover {
+            background-color: var(--primary-color);
+        }
+
+        @keyframes fadeEffect {
+            from {opacity: 0.4}
+            to {opacity: 1}
+        }
+
+        @media screen and (max-width: 768px) {
+            .slide {
+                flex-direction: column;
+            }
+            .slide-image {
+                min-width: 100%;
+            }
+            .slide-image img {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+       <!--Scroll button-->
+<a id="scroll-to-top" href="#top" title="Go to top">
+    <span>&#x2191;</span>
+</a>
+
+
+<header>
+    <div class="logo-container">
+        <a href="../index.html" ><img  src="../img/insika_foundation_logo1.png" alt="Insika Foundation Logo" class="logo"></a>
+    </div>
+    <nav>
+        <ul>
+            <li class="dropdown">
+                <a href="#about">ABOUT US</a>
+                <ul class="dropdown-content">
+                    <li><a href="founder.html">About Founder</a></li>
+                    <li class="nested-dropdown">
+                        <a href="#vision">Provincial Office</a>
+                        <ul class="nested-dropdown-content">
+                            <li><a href="Gauteng.html">Gauteng</a></li>
+                            <li><a href="KZN.html">Kwazulu-Natal</a></li>
+                            <li><a href="eastlondon.html">East London</a></li>
+                            <li><a href="westerncape.html">Western Cape</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="covid.html">Covid-19</a></li>
+                    <li><a href="staff finder.html">Staff Finder</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#programs">PROGRAMMES</a>
+                <ul class="dropdown-content">
+                    <li><a href="cwp.html">Community Work Program</a></li>
+                    <li><a href="CWP Beneficiaries.html">CWP Beneficiaries</a></li>
+                    <li><a href="internship.html">Internship</a></li>
+                    <li><a href="Internship Beneficiaries.html">Internship Beneficiaries</a></li>
+                    <li><a href="csip.html">Corporate Social Investment Programme</a></li>
+                    <li><a href="ESD.html">Enterprise Supplies Development</a></li>
+                    <li><a href="other Beneficiancies.html">Other Beneficiaries</a></li>
+                </ul>
+            </li>
+            <li><a href="partners.html">PARTNERS</a></li>
+            <li class="dropdown">
+                <a href="#procurement">PROCUREMENT</a>
+                <ul class="dropdown-content">
+                    <li><a href="get_started.html">Getting Started</a></li>
+                    <li><a href="CWP_procurement.html">CWP - Procurement Process</a></li>
+                    <li><a href="tech_support.html">Technical Support Form</a></li>
+                    <li><a href="PSA-form.html">Prospective Supplier Application form</a></li>
+                    <li><a href="compliance-checklist.html">Supplier Compliance Checklist</a></li>
+                    <li><a href="site-addresses.html">Current Site Addresses</a></li>
+                    <li><a href="sbd-6.1.html">SBD 6.1</a></li>
+                    <li><a href="sbd-6.2.html">SBD 6.2</a></li>
+                    <li><a href="sworn-affidavit.html">Sworn Affidavit Form BBBEE Exempted Micro Enterprise</a></li>
+                </ul>
+            </li>
+            <li><a href="gallery.html">GALLERY</a></li>
+            <li><a href="vacancies.html">VANCACIES</a></li>
+            <li class="dropdown">
+                <a href="#contact">CONTACTS</a>
+                <ul class="dropdown-content">
+                    <li><a href="gautengoffice.html">Gauteng Office</a></li>
+                    <li><a href="kznoffice.html">KZN Office</a></li>
+                    <li><a href="westerncapeoffice.html">Western Cape Office</a></li>
+                </ul>
+            </li>
+            <li><a href="#trainig">TRAINING</a></li>
+        </ul>
+    </nav>
+    <a href="donate.html">
+        <button class="donate-btn">Donate Now</button>
+    </a>
+    <div class="hamburger-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+</header>
+
+    <div class="header">
+        <h1>Internship Beneficiaries</h1>
+        <div class="breadcrumb-inner">
+            <ol class="breadcrumb">
+                <li><a href="../index.html">Home</a></li>
+                <li class="active">Internship Beneficiaries</li>
+            </ol>
+        </div>
+    </div>
+
+
+    <main class="main-content">
+        <h1 class="title">Beneficiaries Testimonies</h1>
+        
+        <div class="Slideshow-container">
+            <!-- Slides will be populated by JavaScript -->
+        </div>
+
+        <div class="dots-container">
+            <!-- Dots will be populated by JavaScript -->
+        </div>
+    </main>
+
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-row">
+                    <div class="footer-widget">
+                        <div class="footer-logo">
+                            <img src="../img/logo_footer.png" class="img-fluid" alt="Insika Foundation Logo">
+                        </div>
+                        <div class="footer-text">
+                            <p>Bringing sponsors and beneficiaries together to ensure sustainable results in all Insika programmes.</p>
+                        </div>
+                        <br>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/InsikaFoundationComms" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/insikafoundation/" class="instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                        </div>                        
+                    </div>
+                    <div class="footer-widget">
+                        <div class="footer-widget-heading">
+                            <h3>Quick Links</h3>
+                        </div>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Programmes</a></li>
+                            <li><a href="#">Partners</a></li>
+                            <li><a href="#">Procurement</a></li>
+                            <li><a href="#">Gallery</a></li>
+                            <li><a href="#">Vacancies</a></li>
+                            <li><a href="#">Contacts</a></li>
+                            <li><a href="#">Training</a></li>
+                        </ul>
+                        <a href="donate.html">
+                            <button class="donate-btn" type="button">Donate Now</button>
+                        </a>
+                    </div>
+                    <div class="footer-widget">
+                        <div class="footer-widget-heading">
+                            <h1 class="contact-heading">
+                                <span class="line"></span>
+                                Contact Info.
+                                <span class="line"></span>
+                            </h1>
+                        </div>
+                        <div class="contact-icons">
+                            <div class="icon">
+                                <i class="fas fa-envelope"></i>
+                                <p><a style="color: #df8207; text-decoration: none;" href="mailto:info@insikafoundation.co.za">info@insikafoundation.co.za</a></p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-phone"></i>
+                                <p>011 695 6800</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <p><a style="color: #df8207; text-decoration: none;" href="https://www.google.com/maps/search/?api=1&query=Elethu+House,+Building+23+Thornhill+Office+Park+94+Bekker+Road+Midrand+1686" target="_blank">Elethu House, Building 23 Thornhill Office Park 94 Bekker Road Midrand 1686</a></p>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+        <div class="copyright-area">
+            <div class="container">
+                <div class="copyright-row">
+                    <div class="copyright-text">
+                        <p>Copyright &copy; 2023 <a href="https://insikafoundation.co.za/">Insika Foundation</a> - All Rights Reserved - Made By Nova Codings</p>
+                    </div>
+                    <div class="footer-menu">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Terms</a></li>
+                            <li><a href="#">Privacy</a></li>
+                            <li><a href="#">Policy</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+      const testimonials = [
+    {
+        name: "Ayanda Mkize – KZN",
+        content: "My name is Ayanda Mkize and I grew up in Magabheni Township. I did my Internship through CATHSETA and was placed as an intern at a company called Bluff Eco Park. During my internship I acquired skills such as Telephone Etiquette, Customer Service, Business Administration and Communication. I studied Tourism Management and being a Front Desk Receptionist Intern in the Accommodation Sector really assisted me in understanding the basics of Accommodation and Bookings. I would like to see myself as a Hotel Manager in future. I learnt more about listening to clients to understand what they need during their stay. I also learnt a lot about different types of Online Booking Websites. The importance of portraying a professional image, smiling and being friendly to customers and understanding different languages was very important in the job. Being a team player and also working independently was also required and I was able to identify my strengths and weaknesses. This job also required creative thinking and problem solving. I would love to thank Insika Foundation and CATHSETA for the opportunity they gave me.",
+        image: "../img/Ayanda.jpg"
+    },
+    {
+    name: "Mdletshe Nokukhanya Samukelisiwe",
+    content: `
+        My name is Mdletshe Nokukhanya Samukelisiwe, and I grew up in a rural area called Hluhluwe in KZN. 
+        I was fortunate to land an internship opportunity at the Department of Home Affairs, where I was placed in the Finance Department. 
+        During my time as an intern, I learned a lot about time management, dedication to my work, and teamwork. 
+        My allocated duties and tasks included:
+        
+        - Capturing daily invoices to maintain accurate records,
+        - Receiving and making calls both internally and externally,
+        - Preparing quotations for office needs,
+        - Depositing cash on time,
+        - Controlling and replenishing petty cash,
+        - Processing invoice payments within 30 days,
+        - Managing proper budgeting,
+        - Filing financial records,
+        - Ensuring the Monthly Paymaster General report is submitted on time,
+        - Scheduling marriage bookings for clients, and
+        - Assisting in the Civil Services Department.
+        
+        Today, I feel confident in my abilities and proud to hold a diploma in Business Management. 
+        I wish the Insika Foundation continues to support other learners as they supported me. I am truly grateful!
+    `,
+    image: "../img/Mdletshe.jpg"
+},
+    {
+        name: "Cebisile Innocentia Mabaso",
+        content: "My name is Cebisile Innocentia Mabaso and I am from Nongoma, Kwa-Zulu Natal. I was selected to be an Intern through Insika Foundation at the Nongoma Municipality where my job included processing invoices, dealing with residential confirmations, filing, and assisting with walk in clients on a day-to-day basis. I studied Tourism and so working at the Nongoma Municipality was very exciting as we got to visit National Parks as part of our work and I really learned so much. Thank you so much to the Insika Foundation and to Nongoma Municipality.",
+        image: "../img/Cebisile.jpg",
+    },
+    {
+        name: "Senzo Khulekani Mpungose",
+        content: "My name is Senzo Khulekani Mpungose and I was born and raised in Empangeni but I moved to Mandeni in 2011. I was selected to be an Intern in 2018 to 2019 and my host employer was Ezemvelo KZN Wildlife. During my internship at Mkhuze I was able to learn all the roles and responsibilities of a Receptionist like welcoming guest on arrival checking guests in and out when they depart. I was also able to be a switchboard operator and perform general office duties like filling, photocopying, printing and scanning.  Attending the curio shop and making financial transactions as a cashier and doing reservations was part of my job. One of the lessons that I learnt during my Internship is that persistence always pays off. It may not be when we want it to happen, but if we stay persistent day in and day out, we will eventually get to where we want to go. Do not seek for instant praise and gratification, be patient and trust the process. I would like to thank the Insika Foundation for the opportunity they gave us, they were able to help us with everything since the beginning of the journey especially Nontobeko Mnyandu whom we communicated with more often till the end of the Internship.",
+        image: "../img/Senzo.jpg"
+    },
+    {
+        name: "Dineo Matlhakoana",
+        content: "My name is Dineo Matlhakoana and I am from Bushbuckridge, Mpumalanga but I currently live in Tembisa, Gauteng. I was selected to be an Intern by Insika Foundation and I was placed with a company called Change Agility in Midrand as a Marketing Intern. My role at Change Agility included daily administrative tasks as well as initiating print, digital and email marketing campaigns and promotions for the company. One of the most important things that I learnt as part of the Internship is to work well with a successful team but also to work independently. I enjoyed my Internship because it showed me how much the Marketing world has evolved and I find that very interesting. I would like to thank Insika Foundation for the great work that they do. I have learnt so much about Marketing and I believe this will help me in pursuing my career in Marketing. I am very grateful.",
+        image: "../img/Dineo.jpg",
+    },
+    {
+        name: "Thembani Mbuli",
+        content: "My name is Thembani Mbuli and I grew up in Zonkizizwe Katlehong. I did a Public Management Internship through Insika Foundation and I was based at a company called Asakhe Team Building and Events Management for my Internship. My duties included handling invoices, quotations, writing meetings minutes, filling, handling calls, data capturing and being the Events Assistant Coordinator. I enjoyed this role very much! During my time there I learnt a lot about being able to work as team, meeting deadlines and working under pressure. Also learning to use Pastel Accounting which was an important skill that I learnt during my Internship. I would like to say thank you to Insika Foundation for giving me a platform where I gained lot of experience in administration, handling office equipment and also customer care. I am passing on my skills by assisting grade 12 learners with career guidance.",
+        image: "../img/Thembani.jpg",
+    },
+    {
+        name: "Nomhle Molefe",
+        content: "My name is Nomhle Molefe and I grew up in Thembisa, Gauteng. I was an intern at the City of Johannesburg in the Sports, Arts and Recreation Department where my job involved answering calls, email distribution, minute taking, typing and attending to client queries. During my time as intern I learnt a lot about professional communication, independence and taking constructive criticism as well. The internship helped prepare me for my current job. I am currently Working as Head of Administration at Moore. I am very grateful for the program and what it has done for me in getting a job. A big Warm THANK YOU to Insika Foundation 🙂",
+        image: "../img/Nomhle.jpg",
+    }
+];
+
+const slideshowContainer = document.querySelector('.Slideshow-container');
+const dotsContainer = document.querySelector('.dots-container');
+let currentSlide = 0;
+
+// Create slides
+testimonials.forEach((testimonial, index) => {
+    const slide = document.createElement('div');
+    slide.className = `Slide ${index === 0 ? 'active' : ''}`;
+    slide.innerHTML = `
+        <div class="Slide-image">
+            <img src="${testimonial.image}" alt="${testimonial.name}" class="animate__animated animate__pulse animate__infinite">
+        </div>
+        <div class="Slide-content">
+            <h3>${testimonial.name}</h3>
+            <p>${testimonial.content}</p>
+        </div>
+    `;
+    slideshowContainer.appendChild(slide);
+
+    // Create dot
+    const dot = document.createElement('span');
+    dot.className = `dot ${index === 0 ? 'active' : ''}`;
+    dot.onclick = () => showSlide(index);
+    dotsContainer.appendChild(dot);
+});
+
+// Add navigation buttons
+slideshowContainer.innerHTML += `
+    <button class="prev" onclick="changeSlide(-1)">❮</button>
+    <button class="next" onclick="changeSlide(1)">❯</button>
+`;
+
+function changeSlide(direction) {
+    showSlide(currentSlide + direction);
+}
+
+function showSlide(n) {
+    const slides = document.getElementsByClassName('Slide');
+    const dots = document.getElementsByClassName('dot');
+    
+    // Reset current slide
+    slides[currentSlide].classList.remove('active');
+    dots[currentSlide].classList.remove('active');
+    
+    // Calculate new slide index
+    currentSlide = (n + slides.length) % slides.length;
+    
+    // Show new slide
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+}
+
+// Auto-advance slides
+setInterval(() => changeSlide(1), 5000);
+
+    </script>
+    <script>
+        //Navigation Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger-menu');
+    const nav = document.querySelector('nav');
+    const dropdowns = document.querySelectorAll('.dropdown');
+
+    hamburger.addEventListener('click', function() {
+        this.classList.toggle('active');
+        nav.classList.toggle('active');
+    });
+
+    // Handle mobile menu interactions
+    if (window.innerWidth <= 768) {
+        dropdowns.forEach(dropdown => {
+            // Keep hover functionality for dropdowns
+            dropdown.addEventListener('mouseenter', function() {
+                this.querySelector('.dropdown-content').style.display = 'block';
+            });
+
+            dropdown.addEventListener('mouseleave', function() {
+                this.querySelector('.dropdown-content').style.display = 'none';
+            });
+
+            // Handle nested dropdowns
+            const nestedDropdowns = dropdown.querySelectorAll('.nested-dropdown');
+            nestedDropdowns.forEach(nested => {
+                nested.addEventListener('mouseenter', function() {
+                    this.querySelector('.nested-dropdown-content').style.display = 'block';
+                });
+
+                nested.addEventListener('mouseleave', function() {
+                    this.querySelector('.nested-dropdown-content').style.display = 'none';
+                });
+            });
+        });
+    }
+
+    // Reset menu state on window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            hamburger.classList.remove('active');
+            nav.classList.remove('active');
+        }
+    });
+});
+    </script>
+</body>
+</html>

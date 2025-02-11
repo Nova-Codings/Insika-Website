@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19 Safety Measures - Healthcare Information</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="../img/insika_foundation_logo1.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e6152, #0b971d, #1e6152);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumb-inner {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .breadcrumb {
+            display: inline-flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: transparent;
+            border-radius: 51px;
+            border: 1px solid rgba(26, 26, 26, 0.5);
+        }
+
+        .breadcrumb li {
+            padding: 5px 10px;
+            color: white;
+        }
+
+        .breadcrumb li a {
+            color: #df8207;
+            text-decoration: none;
+        }
+
+        .breadcrumb li a:hover {
+            color: #fff;
+        }
+
+        .breadcrumb li:not(:last-child)::after {
+            content: ">";
+            margin-left: 10px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .breadcrumb li.active {
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .intro {
+            background-color: #ebf8ff;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+        }
+
+        .measures-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .measure-card {
+            position: relative;
+            border-radius: 10px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            min-height: 120px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .measure-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .measure-card:nth-child(1) { background-color: #90cdf4; }
+        .measure-card:nth-child(2) { background-color: #9ae6b4; }
+        .measure-card:nth-child(3) { background-color: #fbd38d; }
+        .measure-card:nth-child(4) { background-color: #feb2b2; }
+        .measure-card:nth-child(5) { background-color: #d6bcfa; }
+        .measure-card:nth-child(6) { background-color: #9decf9; }
+
+        .icons {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .icons img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+.card-content h3 {
+    margin: 0;
+    color: #2d3748;
+    font-size: 1.1rem;
+    position: relative;
+    transition: transform 0.3s ease;
+    z-index: 2;
+    text-align: center;
+}
+
+.measure-card:hover .card-content h3 {
+    transform: translateY(-38px);
+}
+
+        .card-content p {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 1rem;
+            margin: 0;
+            transition: bottom 0.3s ease;
+            z-index: 1;
+        }
+
+        .measure-card:hover .card-content p {
+            bottom: 0;
+        }
+
+        .footer {
+            background-color: #1a365d;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 1024px) {
+            .measures-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .measures-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+     <!--Scroll button-->
+     <a id="scroll-to-top" href="#top" title="Go to top">
+        <span>&#x2191;</span>
+      </a>  
+
+      <header>
+        <div class="logo-container">
+            <a href="../index.html" ><img  src="../img/insika_foundation_logo1.png" alt="Insika Foundation Logo" class="logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="#about">ABOUT US</a>
+                    <ul class="dropdown-content">
+                        <li><a href="founder.html">About Founder</a></li>
+                        <li class="nested-dropdown">
+                            <a href="#vision">Provincial Office</a>
+                            <ul class="nested-dropdown-content">
+                                <li><a href="Gauteng.html">Gauteng</a></li>
+                                <li><a href="KZN.html">Kwazulu-Natal</a></li>
+                                <li><a href="eastlondon.html">East London</a></li>
+                                <li><a href="westerncape.html">Western Cape</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="covid.html">Covid-19</a></li>
+                        <li><a href="staff finder.html">Staff Finder</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#programs">PROGRAMMES</a>
+                    <ul class="dropdown-content">
+                        <li><a href="cwp.html">Community Work Program</a></li>
+                        <li><a href="CWP Beneficiaries.html">CWP Beneficiaries</a></li>
+                        <li><a href="internship.html">Internship</a></li>
+                        <li><a href="Internship Beneficiaries.html">Internship Beneficiaries</a></li>
+                        <li><a href="csip.html">Corporate Social Investment Programme</a></li>
+                        <li><a href="ESD.html">Enterprise Supplies Development</a></li>
+                        <li><a href="other Beneficiancies.html">Other Beneficiaries</a></li>
+                    </ul>
+                </li>
+                <li><a href="partners.html">PARTNERS</a></li>
+                <li class="dropdown">
+                    <a href="#procurement">PROCUREMENT</a>
+                    <ul class="dropdown-content">
+                        <li><a href="get_started.html">Getting Started</a></li>
+                        <li><a href="CWP_procurement.html">CWP - Procurement Process</a></li>
+                        <li><a href="tech_support.html">Technical Support Form</a></li>
+                        <li><a href="PSA-form.html">Prospective Supplier Application form</a></li>
+                        <li><a href="compliance-checklist.html">Supplier Compliance Checklist</a></li>
+                        <li><a href="site-addresses.html">Current Site Addresses</a></li>
+                        <li><a href="sbd-6.1.html">SBD 6.1</a></li>
+                        <li><a href="sbd-6.2.html">SBD 6.2</a></li>
+                        <li><a href="sworn-affidavit.html">Sworn Affidavit Form BBBEE Exempted Micro Enterprise</a></li>
+                    </ul>
+                </li>
+                <li><a href="gallery.html">GALLERY</a></li>
+                <li><a href="vacancies.html">VANCACIES</a></li>
+                <li class="dropdown">
+                    <a href="#contact">CONTACTS</a>
+                    <ul class="dropdown-content">
+                        <li><a href="gautengoffice.html">Gauteng Office</a></li>
+                        <li><a href="kznoffice.html">KZN Office</a></li>
+                        <li><a href="westerncapeoffice.html">Western Cape Office</a></li>
+                    </ul>
+                </li>
+                <li><a href="#trainig">TRAINING</a></li>
+            </ul>
+        </nav>
+        <a href="donate.html">
+            <button class="donate-btn" type="button">Donate Now</button>
+        </a>
+        <div class="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </header>
+
+    <div class="header">
+        <h1>COVID-19 Safety Measures</h1>
+        <p>Protecting Our Community Through Comprehensive Health Protocols</p>
+        <div class="breadcrumb-inner">
+            <ol class="breadcrumb">
+                <li><a href="../index.html">Home</a></li>
+                <li class="active">About Founder</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="intro">
+            <h2>Our Commitment to Safety</h2>
+            <p>Insika Foundation is dedicated to maintaining a safe and healthy work environment for all employees. We have implemented comprehensive measures to prevent the spread of COVID-19 while ensuring continuous operations.</p>
+        </div>
+
+        <div class="measures-grid">
+            <div class="measure-card">
+                <div class="icons">
+                    <img src="../img/people-arrows-solid.png" alt="Social Distancing Icon">
+                </div>
+                <div class="card-content">
+                    <h3>Social Distancing</h3>
+                    <p>Maintaining appropriate physical distance between individuals to minimize the risk of viral transmission.</p>
+                </div>
+            </div>
+
+            <div class="measure-card">
+                <div class="icons">
+                    <img src="../img/user-md-solid.png" alt="Symptom Screening Icon">
+                </div>
+                <div class="card-content">
+                    <h3>Symptom Screening</h3>
+                    <p>Regular health checks and temperature monitoring for all employees and visitors.</p>
+                </div>
+            </div>
+
+            <div class="measure-card">
+                <div class="icons">
+                    <img src="../img/pump-medical-solid.png" alt="Sanitizer Icon">
+                </div>
+                <div class="card-content">
+                    <h3>Sanitizer Stations</h3>
+                    <p>Mandatory use of hand sanitizers with strategically placed stations throughout the facility.</p>
+                </div>
+            </div>
+
+            <div class="measure-card">
+                <div class="icons">
+                    <img src="../img/hospital-user-solid.png" alt="Workspace Disinfection Icon">
+                </div>
+                <div class="card-content">
+                    <h3>Workspace Disinfection</h3>
+                    <p>Regular and thorough disinfection of all work areas to maintain a clean environment.</p>
+                </div>
+            </div>
+
+            <div class="measure-card">
+                <div class="icons">
+                    <img src="../img/head-side-mask-solid.png" alt="Masks Icon">
+                </div>
+                <div class="card-content">
+                    <h3>Mandatory Masks</h3>
+                    <p>Required use of face masks by all employees and visitors while on premises.</p>
+                </div>
+            </div>
+
+            <div class="measure-card">
+                <div class="icons">
+                    <img src="../img/virus-slash-solid.png" alt="PPE Icon">
+                </div>
+                <div class="card-content">
+                    <h3>PPE Provision</h3>
+                    <p>Complete Personal Protective Equipment provided to all Insika Foundation staff.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>For the latest COVID-19 information and updates, please visit <a href="http://www.sacoronavirus.co.za" target="_blank" rel="noopener">www.sacoronavirus.co.za</a></p>
+    </div>
+
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-row">
+                    <div class="footer-widget">
+                        <div class="footer-logo">
+                            <img src="../img/logo_footer.png" class="img-fluid" alt="Insika Foundation Logo">
+                        </div>
+                        <div class="footer-text">
+                            <p>Bringing sponsors and beneficiaries together to ensure sustainable results in all Insika programmes.</p>
+                        </div>
+                        <br>
+                        <div class="social-icons">
+                            <a href="#" class="facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="twitter" title="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="linkedin" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>                        
+                    </div>
+                    <div class="footer-widget">
+                        <div class="footer-widget-heading">
+                            <h3>Quick Links</h3>
+                        </div>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Programmes</a></li>
+                            <li><a href="#">Partners</a></li>
+                            <li><a href="#">Procurement</a></li>
+                            <li><a href="#">Gallery</a></li>
+                            <li><a href="#">Vacancies</a></li>
+                            <li><a href="#">Contacts</a></li>
+                            <li><a href="#">Training</a></li>
+                        </ul>
+                        <a href="donate.html">
+                            <button class="donate-btn" type="button">Donate Now</button>
+                        </a>
+                    </div>
+                    <div class="footer-widget">
+                        <div class="footer-widget-heading">
+                            <h1 class="contact-heading">
+                                <span class="line"></span>
+                                Contact Info.
+                                <span class="line"></span>
+                            </h1>
+                        </div>
+                        <div class="contact-icons">
+                            <div class="icon">
+                                <i class="fas fa-envelope"></i>
+                                <p>info@insikafoundation.co.za</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-phone"></i>
+                                <p>011 695 6800</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <p>Elethu House, Building 23 Thornhill Office Park 94 Bekker Road Midrand 1686</p>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+        <div class="copyright-area">
+            <div class="container">
+                <div class="copyright-row">
+                    <div class="copyright-text">
+                        <p>Copyright &copy; 2023 <a href="https://insikafoundation.co.za/">Insika Foundation</a> - All Rights Reserved - Made By Nova Codings</p>
+                    </div>
+                    <div class="footer-menu">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Terms</a></li>
+                            <li><a href="#">Privacy</a></li>
+                            <li><a href="#">Policy</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>//Navigation Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger-menu');
+            const nav = document.querySelector('nav');
+            const dropdowns = document.querySelectorAll('.dropdown');
+        
+            hamburger.addEventListener('click', function() {
+                this.classList.toggle('active');
+                nav.classList.toggle('active');
+            });
+        
+            // Handle mobile menu interactions
+            if (window.innerWidth <= 768) {
+                dropdowns.forEach(dropdown => {
+                    // Keep hover functionality for dropdowns
+                    dropdown.addEventListener('mouseenter', function() {
+                        this.querySelector('.dropdown-content').style.display = 'block';
+                    });
+        
+                    dropdown.addEventListener('mouseleave', function() {
+                        this.querySelector('.dropdown-content').style.display = 'none';
+                    });
+        
+                    // Handle nested dropdowns
+                    const nestedDropdowns = dropdown.querySelectorAll('.nested-dropdown');
+                    nestedDropdowns.forEach(nested => {
+                        nested.addEventListener('mouseenter', function() {
+                            this.querySelector('.nested-dropdown-content').style.display = 'block';
+                        });
+        
+                        nested.addEventListener('mouseleave', function() {
+                            this.querySelector('.nested-dropdown-content').style.display = 'none';
+                        });
+                    });
+                });
+            }
+        
+            // Reset menu state on window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    hamburger.classList.remove('active');
+                    nav.classList.remove('active');
+                }
+            });
+        });
+        </script>
+</body>
+</html>

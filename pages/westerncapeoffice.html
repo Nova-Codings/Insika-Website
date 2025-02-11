@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Western Cape</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="../img/insika_foundation_logo1.png" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: white;
+            color: black;
+        }
+
+        @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.header {
+    background-color: black;
+    color: white;
+    padding: 5rem 1rem;
+    animation: slideInDown 0.5s ease-out forwards;
+}
+
+.header-content {
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
+.header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: fadeInTop 1s ease forwards;
+}
+
+@keyframes fadeInTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (min-width: 640px) {
+    .header h1 {
+        font-size: 3.5rem;
+    }
+}
+
+.orange-line {
+    height: 0.25rem;
+    width: 5rem;
+    background-color: var(--primary);
+}
+
+.breadcrumb-inner {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .breadcrumb {
+            display: inline-flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: transparent;
+            border-radius: 51px;
+            border: 1px solid rgba(26, 26, 26, 0.5);
+        }
+
+        .breadcrumb li {
+            padding: 5px 10px;
+            color: white;
+        }
+
+        .breadcrumb li a {
+            color: #df8207;
+            text-decoration: none;
+        }
+
+        .breadcrumb li a:hover {
+            color: #fff;
+        }
+
+        .breadcrumb li:not(:last-child)::after {
+            content: ">";
+            margin-left: 10px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .breadcrumb li.active {
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .info-section {
+            padding: 2rem;
+        }
+
+        .info-section h1 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .address-info {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        /* Social Media Section */
+.social-section {
+    margin-top: 2rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--black);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--black);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: #df8207;
+    border-color: black;
+    color: white;
+    transform: translateY(-3px);
+}
+
+        .form-section {
+            background-color: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group label {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #f9f9f9;
+            padding: 0 0.5rem;
+            color: #666;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .form-group textarea + label {
+            top: 1rem;
+            transform: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #df8207;
+            outline: none;
+        }
+
+        .form-group input:focus + label,
+        .form-group textarea:focus + label,
+        .form-group input:not(:placeholder-shown) + label,
+        .form-group textarea:not(:placeholder-shown) + label {
+            top: 0;
+            transform: translateY(-50%) scale(0.9);
+            color: #df8207;
+        }
+
+        .send-btn {
+            background-color: #df8207;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .send-btn:hover {
+            background-color: #b66a06;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 400px;
+            margin-top: 2rem;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+     <!--Scroll button-->
+     <a id="scroll-to-top" href="#top" title="Go to top">
+        <span>&#x2191;</span>
+      </a>  
+
+      <header>
+        <div class="logo-container">
+            <a href="../index.html" ><img  src="../img/insika_foundation_logo1.png" alt="Insika Foundation Logo" class="logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="#about">ABOUT US</a>
+                    <ul class="dropdown-content">
+                        <li><a href="founder.html">About Founder</a></li>
+                        <li class="nested-dropdown">
+                            <a href="#vision">Provincial Office</a>
+                            <ul class="nested-dropdown-content">
+                                <li><a href="Gauteng.html">Gauteng</a></li>
+                                <li><a href="KZN.html">Kwazulu-Natal</a></li>
+                                <li><a href="eastlondon.html">East London</a></li>
+                                <li><a href="westerncape.html">Western Cape</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="covid.html">Covid-19</a></li>
+                        <li><a href="staff finder.html">Staff Finder</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#programs">PROGRAMMES</a>
+                    <ul class="dropdown-content">
+                        <li><a href="cwp.html">Community Work Program</a></li>
+                        <li><a href="CWP Beneficiaries.html">CWP Beneficiaries</a></li>
+                        <li><a href="internship.html">Internship</a></li>
+                        <li><a href="Internship Beneficiaries.html">Internship Beneficiaries</a></li>
+                        <li><a href="csip.html">Corporate Social Investment Programme</a></li>
+                        <li><a href="ESD.html">Enterprise Supplies Development</a></li>
+                        <li><a href="other Beneficiancies.html">Other Beneficiaries</a></li>
+                    </ul>
+                </li>
+                <li><a href="partners.html">PARTNERS</a></li>
+                <li class="dropdown">
+                    <a href="#procurement">PROCUREMENT</a>
+                    <ul class="dropdown-content">
+                        <li><a href="get_started.html">Getting Started</a></li>
+                        <li><a href="CWP_procurement.html">CWP - Procurement Process</a></li>
+                        <li><a href="tech_support.html">Technical Support Form</a></li>
+                        <li><a href="PSA-form.html">Prospective Supplier Application form</a></li>
+                        <li><a href="compliance-checklist.html">Supplier Compliance Checklist</a></li>
+                        <li><a href="site-addresses.html">Current Site Addresses</a></li>
+                        <li><a href="sbd-6.1.html">SBD 6.1</a></li>
+                        <li><a href="sbd-6.2.html">SBD 6.2</a></li>
+                        <li><a href="sworn-affidavit.html">Sworn Affidavit Form BBBEE Exempted Micro Enterprise</a></li>
+                    </ul>
+                </li>
+                <li><a href="gallery.html">GALLERY</a></li>
+                <li><a href="vacancies.html">VANCACIES</a></li>
+                <li class="dropdown">
+                    <a href="#contact">CONTACTS</a>
+                    <ul class="dropdown-content">
+                        <li><a href="gautengoffice.html">Gauteng Office</a></li>
+                        <li><a href="kznoffice.html">KZN Office</a></li>
+                        <li><a href="westerncapeoffice.html">Western Cape Office</a></li>
+                    </ul>
+                </li>
+                <li><a href="#trainig">TRAINING</a></li>
+            </ul>
+        </nav>
+        <a href="donate.html">
+            <button class="donate-btn">Donate Now</button>
+        </a>
+        <div class="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </header>
+
+    <header class="header">
+        <div class="header-content">
+            <h1> Western cape Office </h1>
+            <div class="orange-line"></div>
+            <div class="breadcrumb-inner">
+                <ol class="breadcrumb">
+                    <li><a href="../index.html">Home</a></li>
+                    <li class="active">western Cape</li>
+                </ol>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="contact-grid">
+            <div class="info-section">
+                <h1>Information</h1>
+                <div class="contact-info">
+                    <p><i class="fas fa-user"></i> &nbsp;Nyemaka Lumbe</p><br>
+                    <p><i class="fas fa-envelope"></i> &nbsp;nlumbe@insikafoundation.co.za</p><br>
+                    <p><i class="fas fa-phone"></i> &nbsp;076 616 1267</p><br>
+                </div>
+                <br>
+                <div class="address-info">
+                    <p><i class="fas fa-map-marker-alt"></i>  Elethu House, Suite G4/ Building 23</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;Thornhill Office Park</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;94 Bekker Road</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;Midrand</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;1686</p>
+                    <br>
+                    <p><i class="fas fa-phone"></i>&nbsp;011 695 6800/ 066 347 6322</p>
+                    <p><i class="fas fa-fax"></i>&nbsp;Fax: 011 312 9916</p>
+                    <p><i class="fas fa-envelope"></i>&nbsp;info@insikafoundation.co.za</p>
+                </div>
+                <div class="social-section">
+                    <p>We are also active on social media. You can find us below on.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="form-section">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder=" " required>
+                        <label for="name">Name*</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder=" " required>
+                        <label for="email">Email*</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" placeholder=" " required>
+                        <label for="subject">Subject</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="5" placeholder=" " required></textarea>
+                        <label for="message">Message</label>
+                    </div>
+                    <button type="send" class="send-btn">SUBMIT</button>
+                </form>
+            </div>
+        </div>
+        <div class="map-container">
+            <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d52869.55704666723!2d18.821673!3d-34.086242!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xbc0b390b4a640f71!2sInsika+Foundation!5e0!3m2!1sen!2sus!4v1563908869979!5m2!1sen!2sus"
+            width="100%" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="">
+        </iframe>
+        </div>
+    </div>
+
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-row">
+                    <div class="footer-widget">
+                        <div class="footer-logo">
+                            <img src="../img/logo_footer.png" class="img-fluid" alt="Insika Foundation Logo">
+                        </div>
+                        <div class="footer-text">
+                            <p>Bringing sponsors and beneficiaries together to ensure sustainable results in all Insika programmes.</p>
+                        </div>
+                        <br>
+                        <div class="social-icons">
+                            <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                        </div>                        
+                    </div>
+                    <div class="footer-widget">
+                        <div class="footer-widget-heading">
+                            <h3>Quick Links</h3>
+                        </div>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Programmes</a></li>
+                            <li><a href="#">Partners</a></li>
+                            <li><a href="#">Procurement</a></li>
+                            <li><a href="#">Gallery</a></li>
+                            <li><a href="#">Vacancies</a></li>
+                            <li><a href="#">Contacts</a></li>
+                            <li><a href="#">Training</a></li>
+                        </ul>
+                        <a href="donate.html">
+                            <button class="donate-btn" type="button">Donate Now</button>
+                        </a>
+                    </div>
+                    <div class="footer-widget">
+                        <div class="footer-widget-heading">
+                            <h1 class="contact-heading">
+                                <span class="line"></span>
+                                Contact Info.
+                                <span class="line"></span>
+                            </h1>
+                        </div>
+                        <div class="contact-icons">
+                            <div class="icon">
+                                <i class="fas fa-envelope"></i>
+                                <p>info@insikafoundation.co.za</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-phone"></i>
+                                <p>011 695 6800</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <p>Elethu House, Building 23 Thornhill Office Park 94 Bekker Road Midrand 1686</p>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+        <div class="copyright-area">
+            <div class="container">
+                <div class="copyright-row">
+                    <div class="copyright-text">
+                        <p>Copyright &copy; 2023 <a href="https://insikafoundation.co.za/">Insika Foundation</a> - All Rights Reserved - Made By Nova Codings</p>
+                    </div>
+                    <div class="footer-menu">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Terms</a></li>
+                            <li><a href="#">Privacy</a></li>
+                            <li><a href="#">Policy</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add form submission logic here
+            alert('Form submitted successfully!');
+        });
+
+        //Navigation Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger-menu');
+    const nav = document.querySelector('nav');
+    const dropdowns = document.querySelectorAll('.dropdown');
+
+    hamburger.addEventListener('click', function() {
+        this.classList.toggle('active');
+        nav.classList.toggle('active');
+    });
+
+    // Handle mobile menu interactions
+    if (window.innerWidth <= 768) {
+        dropdowns.forEach(dropdown => {
+            // Keep hover functionality for dropdowns
+            dropdown.addEventListener('mouseenter', function() {
+                this.querySelector('.dropdown-content').style.display = 'block';
+            });
+
+            dropdown.addEventListener('mouseleave', function() {
+                this.querySelector('.dropdown-content').style.display = 'none';
+            });
+
+            // Handle nested dropdowns
+            const nestedDropdowns = dropdown.querySelectorAll('.nested-dropdown');
+            nestedDropdowns.forEach(nested => {
+                nested.addEventListener('mouseenter', function() {
+                    this.querySelector('.nested-dropdown-content').style.display = 'block';
+                });
+
+                nested.addEventListener('mouseleave', function() {
+                    this.querySelector('.nested-dropdown-content').style.display = 'none';
+                });
+            });
+        });
+    }
+
+    // Reset menu state on window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            hamburger.classList.remove('active');
+            nav.classList.remove('active');
+        }
+    });
+});
+    </script>
+
+</body>
+</html>

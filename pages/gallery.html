@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Insika Foundation</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="../img/insika_foundation_logo1.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .below-header {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
+        .header {
+            background: linear-gradient(135deg, #df8207, #000000, #df8207);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumb-inner {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .breadcrumb {
+            display: inline-flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: transparent;
+            border-radius: 51px;
+            border: 1px solid rgba(26, 26, 26, 0.5);
+        }
+
+        .breadcrumb li {
+            padding: 5px 10px;
+            color: white;
+        }
+
+        .breadcrumb li a {
+            color: #df8207;
+            text-decoration: none;
+        }
+
+        .breadcrumb li a:hover {
+            color: #fff;
+        }
+
+        .breadcrumb li:not(:last-child)::after {
+            content: ">";
+            margin-left: 10px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .breadcrumb li.active {
+            font-weight: bold;
+        }
+
+        /* slider section  */
+.slider{
+    height: 650px;
+    margin-top: -50px;
+    width: 85%;
+    overflow: hidden;
+    position: relative;
+    margin-left: 6.5rem;
+    border-radius: 51px;
+    border: 2px #df8207;
+    align-items: center;
+}
+.slider .list .item{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0 0 0 0;
+}
+.slider .list .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.slider .list .item .content{
+    position: absolute;
+    top: 20%;
+    width: 1140px;
+    max-width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-right: 30%;
+    box-sizing: border-box;
+    color: #fff;
+    text-shadow: 0 5px 10px #0004;
+}
+
+.slider .list .item .content .title,
+.slider .list .item .content .type{
+    font-size: 5em;
+    font-weight: bold;
+    line-height: 1.3em;
+}
+.slider .list .item .type{
+    color: #df8207;
+}
+.slider .list .item .button{
+    display: grid;
+    grid-template-columns: repeat(2, 130px);
+    grid-template-rows: 40px;
+    gap: 5px;
+    margin-top: 20px;
+}
+.slider .list .item .button button{
+    border: none;
+    background-color: #eee;
+    font-family: Poppins;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.4s;
+    letter-spacing: 2px;
+}
+
+.slider .list .item .button button:hover{
+    letter-spacing: 3px;
+}
+.slider .list .item .button button:nth-child(2){
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #eee;
+}
+
+/* Thumbnail Section  */
+.thumbnail{
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    width: max-content;
+    z-index: 100;
+    display: flex;
+    gap: 20px;
+}
+
+.thumbnail .item{
+    width: 150px;
+    height: 220px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.thumbnail .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+}
+
+/* nextPrevArrows Section  */
+.nextPrevArrows{
+    position: absolute;
+    top: 80%;
+    right: 52%;
+    z-index: 100;
+    width: 300px;
+    max-width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.nextPrevArrows button{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #df8207;
+    border: none;
+    color: #000;
+    font-family: monospace;
+    font-weight: bold;
+    transition: .5s;
+    cursor: pointer;
+}
+.nextPrevArrows button:hover{
+    background-color: #fff;
+    color: #000;
+}
+
+/* Animation Part */
+.slider .list .item:nth-child(1){
+    z-index: 1;
+}
+
+/* animation text in first item */
+.slider .list .item:nth-child(1) .content .title,
+.slider .list .item:nth-child(1) .content .type,
+.slider .list .item:nth-child(1) .content .description,
+.slider .list .item:nth-child(1) .content .buttons
+{
+    transform: translateY(50px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent .5s 1s linear 1 forwards;
+}
+@keyframes showContent{
+    to{
+        transform: translateY(0px);
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+.slider .list .item:nth-child(1) .content .title{
+    animation-delay: 0.4s !important;
+}
+.slider .list .item:nth-child(1) .content .type{
+    animation-delay: 0.6s !important;
+}
+.slider .list .item:nth-child(1) .content .description{
+    animation-delay: 0.8s !important;
+}
+.slider .list .item:nth-child(1) .content .buttons{
+    animation-delay: 1s !important;
+}
+
+/* Animation for next button click */
+.slider.next .list .item:nth-child(1) img{
+    width: 150px;
+    height: 220px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    border-radius: 30px;
+    animation: showImage .5s linear 1 forwards;
+}
+
+@keyframes showImage{
+    to{
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+}
+
+.slider.next .thumbnail .item:nth-last-child(1){
+    overflow: hidden;
+    animation: showThumbnail .5s linear 1 forwards;
+}
+.slider.prev .list .item img{
+    z-index: 100;
+}
+
+@keyframes showThumbnail{
+    from{
+        width: 0;
+        opacity: 0;
+    }
+}
+
+
+.slider.next .thumbnail{
+    animation: effectNext .5s linear 1 forwards;
+}
+
+@keyframes effectNext{
+    from{
+        transform: translateX(150px);
+    }
+}
+
+/* Animation for prev button click */
+.slider.prev .list .item:nth-child(2){
+    z-index: 2;
+}
+
+.slider.prev .list .item:nth-child(2) img{
+    animation: outFrame 0.5s linear 1 forwards;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+@keyframes outFrame{
+    to{
+        width: 150px;
+        height: 220px;
+        bottom: 50px;
+        left: 50%;
+        border-radius: 20px;
+    }
+}
+
+.slider.prev .thumbnail .item:nth-child(1){
+    overflow: hidden;
+    opacity: 0;
+    animation: showThumbnail .5s linear 1 forwards;
+}
+.slider.next .nextPrevArrows button,
+.slider.prev .nextPrevArrows button{
+    pointer-events: none;
+}
+
+
+.slider.prev .list .item:nth-child(2) .content .title,
+.slider.prev .list .item:nth-child(2) .content .type,
+.slider.prev .list .item:nth-child(2) .content .description,
+.slider.prev .list .item:nth-child(2) .content .buttons
+{
+    animation: contentOut 1.5s linear 1 forwards!important;
+}
+
+@keyframes contentOut{
+    to{
+        transform: translateY(-150px);
+        filter: blur(20px);
+        opacity: 0;
+    }
+}
+@media screen and (max-width: 678px) {
+    .slider .list .item .content{
+        padding-right: 0;
+    }
+    .slider .list .item .content .title{
+        font-size: 50px;
+    }
+}
+    </style>
+</head>
+<body>
+ <!--Scroll button-->
+ <a id="scroll-to-top" href="#top" title="Go to top">
+    <span>&#x2191;</span>
+  </a>  
+
+  <header>
+    <div class="logo-container">
+        <a href="../index.html" ><img  src="../img/insika_foundation_logo1.png" alt="Insika Foundation Logo" class="logo"></a>
+    </div>
+    <nav>
+        <ul>
+            <li class="dropdown">
+                <a href="#about">ABOUT US</a>
+                <ul class="dropdown-content">
+                    <li><a href="founder.html">About Founder</a></li>
+                    <li class="nested-dropdown">
+                        <a href="#vision">Provincial Office</a>
+                        <ul class="nested-dropdown-content">
+                            <li><a href="Gauteng.html">Gauteng</a></li>
+                            <li><a href="KZN.html">Kwazulu-Natal</a></li>
+                            <li><a href="eastlondon.html">East London</a></li>
+                            <li><a href="westerncape.html">Western Cape</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="covid.html">Covid-19</a></li>
+                    <li><a href="staff finder.html">Staff Finder</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#programs">PROGRAMMES</a>
+                <ul class="dropdown-content">
+                    <li><a href="cwp.html">Community Work Program</a></li>
+                    <li><a href="CWP Beneficiaries.html">CWP Beneficiaries</a></li>
+                    <li><a href="internship.html">Internship</a></li>
+                    <li><a href="Internship Beneficiaries.html">Internship Beneficiaries</a></li>
+                    <li><a href="csip.html">Corporate Social Investment Programme</a></li>
+                    <li><a href="ESD.html">Enterprise Supplies Development</a></li>
+                    <li><a href="other Beneficiancies.html">Other Beneficiaries</a></li>
+                </ul>
+            </li>
+            <li><a href="partners.html">PARTNERS</a></li>
+            <li class="dropdown">
+                <a href="#procurement">PROCUREMENT</a>
+                <ul class="dropdown-content">
+                    <li><a href="get_started.html">Getting Started</a></li>
+                    <li><a href="CWP_procurement.html">CWP - Procurement Process</a></li>
+                    <li><a href="tech_support.html">Technical Support Form</a></li>
+                    <li><a href="PSA-form.html">Prospective Supplier Application form</a></li>
+                    <li><a href="compliance-checklist.html">Supplier Compliance Checklist</a></li>
+                    <li><a href="site-addresses.html">Current Site Addresses</a></li>
+                    <li><a href="sbd-6.1.html">SBD 6.1</a></li>
+                    <li><a href="sbd-6.2.html">SBD 6.2</a></li>
+                    <li><a href="sworn-affidavit.html">Sworn Affidavit Form BBBEE Exempted Micro Enterprise</a></li>
+                </ul>
+            </li>
+            <li><a href="gallery.html">GALLERY</a></li>
+            <li><a href="vacancies.html">VANCACIES</a></li>
+            <li class="dropdown">
+                <a href="#contact">CONTACTS</a>
+                <ul class="dropdown-content">
+                    <li><a href="gautengoffice.html">Gauteng Office</a></li>
+                    <li><a href="kznoffice.html">KZN Office</a></li>
+                    <li><a href="westerncapeoffice.html">Western Cape Office</a></li>
+                </ul>
+            </li>
+            <li><a href="#trainig">TRAINING</a></li>
+        </ul>
+    </nav>
+    <a href="donate.html">
+        <button class="donate-btn">Donate Now</button>
+    </a>
+    <div class="hamburger-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+</header>
+
+<div class="header">
+    <h1>GALLERY</h1>
+    <div class="breadcrumb-inner">
+        <ol class="breadcrumb">
+            <li><a href="../index.html">Home</a></li>
+            <li class="active">Gallery</li>
+        </ol>
+    </div>
+</div>
+
+<br><br><br><br><br>
+<div class="slider">
+    <div class="list">
+        <div class="item">
+            <img src="../img/Gabsie-Premier1.jpg" alt="">
+            <div class="content">
+                <div class="title">Insika Foundation</div>
+                <div class="type">Gauteng</div>
+            </div>
+        </div>
+        <div class="item">
+            <img src="../img/Gabsie-Premier2.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="../img/Insika-Foundation-Award.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="../img/kzn1.jpg" alt="">
+            <div class="content">
+                <div class="title" style="color: #df8207;">Kwazulu-Natal</div>
+            </div>
+        </div>
+        <div class="item">
+            <img src="../img/kzn2.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="../img/kzn3.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="../img/west1.jpg" alt="">
+            <div class="content">
+                <div class="title" style="color: #df8207; margin-top: -100px;">Western-Cape</div>
+            </div>
+        </div>
+        <div class="item">
+            <img src="../img/west2.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="../img/west3.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="../img/west4.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="../img/west5.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="../img/west6.jpg" alt="">
+        </div>
+    </div>
+    <div class="thumbnail">
+        <div class="item">
+            <img src="../img/Gabsie-Premier1.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="../img/Gabsie-Premier2.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="../img/Insika-Foundation-Award.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="../img/kzn1.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="../img/kzn2.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="../img/kzn3.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="../img/west2.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="../img/west3.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="../img/west4.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="../img/west5.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="../img/west6.jpg" alt="">
+        </div>
+    </div>
+    <div class="nextPrevArrows">
+        <button class="prev"> < </button>
+        <button class="next"> > </button>
+    </div>
+</div>
+
+<br><br><br>
+<footer class="footer-section">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-row">
+                <div class="footer-widget">
+                    <div class="footer-logo">
+                        <img src="../img/logo_footer.png" class="img-fluid" alt="Insika Foundation Logo">
+                    </div>
+                    <div class="footer-text">
+                        <p>Bringing sponsors and beneficiaries together to ensure sustainable results in all Insika programmes.</p>
+                    </div>
+                    <br>
+                    <div class="social-icons">
+                        <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                    </div>                        
+                </div>
+                <div class="footer-widget">
+                    <div class="footer-widget-heading">
+                        <h3>Quick Links</h3>
+                    </div>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Programmes</a></li>
+                        <li><a href="#">Partners</a></li>
+                        <li><a href="#">Procurement</a></li>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="#">Vacancies</a></li>
+                        <li><a href="#">Contacts</a></li>
+                        <li><a href="#">Training</a></li>
+                    </ul>
+                    <a href="donate.html">
+                        <button class="donate-btn" type="button">Donate Now</button>
+                    </a>
+                </div>
+                <div class="footer-widget">
+                    <div class="footer-widget-heading">
+                        <h1 class="contact-heading">
+                            <span class="line"></span>
+                            Contact Info.
+                            <span class="line"></span>
+                        </h1>
+                    </div>
+                    <div class="contact-icons">
+                        <div class="icon">
+                            <i class="fas fa-envelope"></i>
+                            <p>info@insikafoundation.co.za</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-phone"></i>
+                            <p>011 695 6800</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>Elethu House, Building 23 Thornhill Office Park 94 Bekker Road Midrand 1686</p>
+                        </div>
+                    </div>
+                </div>                    
+            </div>
+        </div>
+    </div>
+    <div class="copyright-area">
+        <div class="container">
+            <div class="copyright-row">
+                <div class="copyright-text">
+                    <p>Copyright &copy; 2023 <a href="https://insikafoundation.co.za/">Insika Foundation</a> - All Rights Reserved - Made By Nova Codings</p>
+                </div>
+                <div class="footer-menu">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Policy</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+       let nextBtn = document.querySelector('.next')
+let prevBtn = document.querySelector('.prev')
+
+let slider = document.querySelector('.slider')
+let sliderList = slider.querySelector('.slider .list')
+let thumbnail = document.querySelector('.slider .thumbnail')
+let thumbnailItems = thumbnail.querySelectorAll('.item')
+
+thumbnail.appendChild(thumbnailItems[0])
+
+// Function for next button 
+nextBtn.onclick = function() {
+    moveSlider('next')
+}
+
+
+// Function for prev button 
+prevBtn.onclick = function() {
+    moveSlider('prev')
+}
+
+
+function moveSlider(direction) {
+    let sliderItems = sliderList.querySelectorAll('.item')
+    let thumbnailItems = document.querySelectorAll('.thumbnail .item')
+    
+    if(direction === 'next'){
+        sliderList.appendChild(sliderItems[0])
+        thumbnail.appendChild(thumbnailItems[0])
+        slider.classList.add('next')
+    } else {
+        sliderList.prepend(sliderItems[sliderItems.length - 1])
+        thumbnail.prepend(thumbnailItems[thumbnailItems.length - 1])
+        slider.classList.add('prev')
+    }
+
+
+    slider.addEventListener('animationend', function() {
+        if(direction === 'next'){
+            slider.classList.remove('next')
+        } else {
+            slider.classList.remove('prev')
+        }
+    }, {once: true}) // Remove the event listener after it's triggered once
+}
+
+        // Show Gauteng slider by default
+        showSlider('gauteng');
+
+     //Navigation Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger-menu');
+    const nav = document.querySelector('nav');
+    const dropdowns = document.querySelectorAll('.dropdown');
+
+    hamburger.addEventListener('click', function() {
+        this.classList.toggle('active');
+        nav.classList.toggle('active');
+    });
+
+    // Handle mobile menu interactions
+    if (window.innerWidth <= 768) {
+        dropdowns.forEach(dropdown => {
+            // Keep hover functionality for dropdowns
+            dropdown.addEventListener('mouseenter', function() {
+                this.querySelector('.dropdown-content').style.display = 'block';
+            });
+
+            dropdown.addEventListener('mouseleave', function() {
+                this.querySelector('.dropdown-content').style.display = 'none';
+            });
+
+            // Handle nested dropdowns
+            const nestedDropdowns = dropdown.querySelectorAll('.nested-dropdown');
+            nestedDropdowns.forEach(nested => {
+                nested.addEventListener('mouseenter', function() {
+                    this.querySelector('.nested-dropdown-content').style.display = 'block';
+                });
+
+                nested.addEventListener('mouseleave', function() {
+                    this.querySelector('.nested-dropdown-content').style.display = 'none';
+                });
+            });
+        });
+    }
+
+    // Reset menu state on window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            hamburger.classList.remove('active');
+            nav.classList.remove('active');
+        }
+    });
+});
+</script>
+</body>
+</html>
