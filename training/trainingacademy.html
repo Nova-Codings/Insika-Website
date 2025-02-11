@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insika Foundation Training Academy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="../img/insika_foundation_logo1.png" type="image/x-icon">
+    <style>
+        :root {
+            --primary: #df8207;
+            --dark: #000000;
+            --light: #ffffff;
+            --transition: all 0.3s ease-in-out;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        /* Scroll-to-top button */
+#scroll-to-top {
+    display: none; /* Initially hidden */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #df8207;
+    color: #000000;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+    font-size: 35px;
+    cursor: pointer;
+    z-index: 9999; /* Ensures it stays on top of all elements */
+    transition: background-color 0.3s, color 0.3s, opacity 0.3s;
+}
+
+/* Bounce animation */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+#scroll-to-top span {
+    display: inline-block;
+    animation: bounce 2.5s infinite;
+}
+
+/* Hover effect */
+#scroll-to-top:hover {
+    opacity: 0.7;
+}
+
+/* End Scroll to Top */
+
+        body {
+            line-height: 1.6;
+        }
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/studying.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 150vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Align content to the right */
+    color: var(--light);
+    padding: 0 10%; /* Add spacing on the right */
+}
+
+/* Hero Content */
+.hero-content {
+    max-width: 40%; /* Restrict the content width */
+    text-align: left; /* Keep text aligned to the left */
+}
+
+.hero-content h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.hero-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+/* Button */
+.btn {
+    padding: 1rem 2rem;
+    background: var(--primary);
+    color: var(--light);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(223, 130, 7, 0.3);
+}
+
+/* Cards Section in Hero */
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    position: absolute;
+    bottom: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: transform 0.3s, box-shadow 0.3s;
+    z-index: 2;
+}
+
+.card{
+    width: 350px;
+    height: 200px;
+    margin-bottom: -5%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0.8, 0);
+}
+
+.card-top {
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border: 1px solid #df8207;
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+/* Features Section */
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    position: relative;
+    justify-content: center;
+    padding: 1rem 2rem;
+    background: #f4f4f4;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background: #ffffff;
+    padding: 2rem;
+    width: 350px;
+    border: 1px solid #df8207;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.feature-Icon {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.5rem;
+}
+
+.feature-Icon .icon-shape {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: auto;
+    opacity: 1;
+    z-index: 1;
+}
+
+.feature-Icon .main-Icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: auto;
+    z-index: 2;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333333;
+    font-weight: 600;
+}
+
+.feature-card p {
+    font-size: 1rem;
+    color: #666666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.feature-card .btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: #df8207;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.feature-card .btn:hover {
+    background: #c67206;
+    transform: translateY(-2px);
+}
+
+/* Animation for icons */
+@keyframes float {
+    0% {
+        transform: translate(-50%, -50%) translateY(0);
+    }
+    50% {
+        transform: translate(-50%, -50%) translateY(-5px);
+    }
+    100% {
+        transform: translate(-50%, -50%) translateY(0);
+    }
+}
+
+.feature-icon .main-icon {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .features {
+        padding: 3rem 1rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .feature-card {
+        padding: 1.5rem;
+    }
+
+    .feature-icon {
+        width: 100px;
+        height: 100px;
+    }
+
+    .feature-icon .main-icon {
+        width: 50px;
+    }
+}
+
+/* courses Section */
+:root {
+            --orange: #df8207;
+            --dark: #000000;
+            --card-bg: #df8207;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--dark);
+            font-family: Arial, sans-serif;
+        }
+
+        .courses {
+            padding: 5rem 2rem;
+            overflow: hidden;
+        }
+
+        /* Heading Animation */
+        .courses h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 30px;
+            color: var(--orange);
+            opacity: 0;
+            animation: fadeInLeft 1s ease forwards;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .course-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Icon Animation */
+        .course-card i {
+            font-size: 2.5em;
+            color: white;
+            margin-bottom: 1rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Title Animation */
+        .course-card h3 {
+            color: white;
+            font-size: 1.2em;
+            margin-top: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .course-card:hover h3 {
+            animation: peek 0.5s ease;
+        }
+
+        @keyframes peek {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .courses-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+
+ /* Stats Section */
+.stats {
+    padding: 5rem 2rem;
+    background: var(--primary);
+    color: var(--light);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.stat-item {
+    position: relative;
+    padding: 1rem;
+}
+
+.stat-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background-color: black;
+}
+
+.stat-item .icon-shape {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: auto;
+    opacity: 0.2;
+    z-index: 1;
+    animation: spiral 20s linear infinite;
+}
+
+@keyframes spiral {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(180deg) scale(1.1);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg) scale(1);
+    }
+}
+
+.stat-item h3 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.stat-item p {
+    position: relative;
+    z-index: 2;
+}
+
+@media (max-width: 800px) {
+    .stat-item:not(:last-child)::after {
+        display: none;
+    }
+    
+    .stats-grid {
+        gap: 2rem;
+    }
+}
+
+        /* Testimonials Section */
+.testimonials {
+    padding: 5rem 2rem;
+    background: #fff;
+    position: relative;
+}
+
+.testimonial-slider {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.testimonial {
+    flex: 1;
+    position: relative;
+    padding: 2rem;
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    border-radius: 10px;
+}
+
+.testimonial::before {
+    content: '"';
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 120px;
+    color: #f0f0f0;
+    font-family: serif;
+    z-index: 1;
+}
+
+.testimonial-content {
+    position: relative;
+    z-index: 2;
+}
+
+.testimonial-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: #444;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.author-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-name {
+    color: #ff6b00;
+    font-weight: 500;
+}
+
+.testimonial-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ddd;
+    cursor: pointer;
+}
+
+.dot.active {
+    background: #ff6b00;
+}
+
+@media (max-width: 768px) {
+    .testimonial-slider {
+        flex-direction: column;
+    }
+}
+
+/* SETA Accreditation Section */
+.seta-accreditation {
+    padding: 5rem 0;
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.section-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.section-title .dot {
+    width: 10px;
+    height: 10px;
+    background-color: #ff6b00;
+    border-radius: 50%;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin: 0;
+}
+
+.seta-logos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem;
+    align-items: center;
+    justify-items: center;
+}
+
+.logo-item {
+    padding: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.logo-item:hover {
+    transform: scale(1.05);
+}
+
+.seta-logo {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(0);
+    transition: filter 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .seta-logos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .section-title h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .seta-logos {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-title h2 {
+        font-size: 1.75rem;
+    }
+}
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+<!--Scroll button-->
+<a id="scroll-to-top" href="#top" title="Go to top">
+    <span>&#x2191;</span>
+</a>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="../index.html" ><img  src="../img/insika_foundation_logo1.png" alt="Insika Foundation Logo" class="logo"></a>
+            <h5 class="heading">RE-ENGINEER YOUR CRAFT</h5>
+            <ul class="nav-links">
+                <li><a href="trainingacademy.html" class="active">Home</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li class="dropdown">
+                    <a href="#courses">Training Courses</a>
+                    <div class="dropdown-content">
+                        <a href="unqf.html">Understanding the NQF</a>
+                        <a href="agriculture.html">Agriculture</a>
+                        <a href="#">Banking</a>
+                        <a href="transportation.html">Transport</a>
+                        <a href="#">Fibre Processing & Manufacturing</a>
+                        <a href="#">Information Technology Systems</a>
+                        <a href="#">Education & Training</a>
+                        <a href="#">Cooking & Hospitality</a>
+                        <a href="#">Local Government</a>
+                    </div>
+                </li>
+                <li><a href="contact.php">Contact</a></li>
+            </ul>
+            <a href="#" class="btn" onclick="openModal(event)"><span></span>Book Now</a>
+        </div>
+        <div class="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>Insika Foundation Training Academy</h2>
+            <p>Insika Foundation Training Academy is a branch of the parent company known as Insika Foundation NPC. 
+                The Training Academy focuses specifically on skills development to improve one's employability. 
+                With the ever evolving skill advancement and aggressive economic exclusion, 
+                the Training Academy will ensure that you are always on top of your professional development. 
+                We pride ourselves on the life-changing skills we have transferred to all who have 
+                attended our training.</p>
+            <a href="#courses" class="btn">View All Courses</a>
+        </div>
+        <div class="cards-container">
+            <div class="card">
+                <div class="card-top" style="background-image: url('../img/Get\ Industry\ Relevant\ Training.jpeg');">
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-top" style="background-image: url('../img/own\ pace.jpg');">
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-top" style="background-image: url('../img/Hybrid-Education.jpeg');">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-Icon">
+                    <img src="../img/icon-shape.png" alt="Icon Shape" class="icon-shape">
+                    <img src="../img/brain.png" alt="Brain Icon" class="main-Icon">
+                </div>
+                <h3>Get Industry Relevant Training</h3>
+                <p>We remain committed to developing, uplifting, and inspiring high-quality skills much needed within our economic workforce.</p>
+                <a href="#" class="btn">Start Now!</a>
+            </div>
+            <div class="feature-card">
+                <div class="feature-Icon">
+                    <img src="../img/icon-shape.png" alt="Icon Shape" class="icon-shape">
+                    <img src="../img/check-mark.png" alt="Check Icon" class="main-Icon">
+                </div>
+                <h3>Go at Your Own Pace</h3>
+                <p>Our concept and philosophy of learning is that individuals should be able to self-direct their own learning at their own pace as Adult Learners.</p>
+                <a href="#" class="btn">Start Now!</a>
+            </div>
+            <div class="feature-card">
+                <div class="feature-Icon">
+                    <img src="../img/icon-shape.png" alt="Icon Shape" class="icon-shape">
+                    <img src="../img/computer.png" alt="Computer Icon" class="main-Icon">
+                </div>
+                <h3>Hybrid Learning</h3>
+                <p>We offer contact learning as well as virtual training, which upon completion will be assessed and moderated by trained industry experts.</p>
+                <a href="#" class="btn">Start Now!</a>
+            </div>
+        </div>
+    </section>
+
+
+<!-- Courses Section -->
+<section class="courses" id="courses">
+    <h2>Our Training Courses</h2>
+    <div class="courses-grid">
+        <div class="course-card">
+            <i class="fas fa-seedling"></i>
+            <h3>Agriculture</h3>
+        </div>
+        <div class="course-card">
+            <i class="fas fa-landmark"></i>
+            <h3>Banking</h3>
+        </div>
+        <div class="course-card">
+            <i class="fas fa-laptop-code"></i>
+            <h3>Information Technology Systems</h3>
+        </div>
+        <div class="course-card">
+            <i class="fas fa-utensils"></i>
+            <h3>Cooking & Hospitality</h3>
+        </div>
+        <div class="course-card">
+            <i class="fas fa-network-wired"></i>
+            <h3>Fibre Processing & Manufacturing</h3>
+        </div>
+        <div class="course-card">
+            <i class="fas fa-city"></i>
+            <h3>Local Government</h3>
+        </div>
+        <div class="course-card">
+            <i class="fas fa-graduation-cap"></i>
+            <h3>Education & Training</h3>
+        </div>
+        <div class="course-card">
+            <i class="fas fa-truck-moving"></i>
+            <h3>Transportation</h3>
+        </div>
+    </div>
+</section>
+
+
+<section class="stats">
+    <div class="stats-grid">
+        <div class="stat-item">
+            <img src="../img/stat-shape.png" alt="Icon Shape" class="icon-shape">
+            <h3 data-target="4225">0</h3>
+            <p>Finished Sessions</p>
+        </div>
+        <div class="stat-item">
+            <img src="../img/stat-shape.png" alt="Icon Shape" class="icon-shape">
+            <h3 data-target="300">0</h3>
+            <p>Enrolled Learners</p>
+        </div>
+        <div class="stat-item">
+            <img src="../img/stat-shape.png" alt="Icon Shape" class="icon-shape">
+            <h3 data-target="287">0</h3>
+            <p>Number of Instructors</p>
+        </div>
+        <div class="stat-item">
+            <img src="../img/stat-shape.png" alt="Icon Shape" class="icon-shape">
+            <h3 data-target="98">0%</h3>
+            <p>Satisfaction Rate</p>
+        </div>
+    </div>
+</section>
+
+   <!-- Testimonials Section -->
+<section class="testimonials">
+    <div class="testimonial-slider">
+        <div class="testimonial">
+            <div class="testimonial-content">
+                <p class="testimonial-text"></p>
+                <div class="testimonial-author">
+                    <img src="" alt="" class="author-image">
+                    <span class="author-name"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="testimonial-dots">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot active"></span>
+    </div>
+</section>
+
+<!-- SETA Accreditation Section -->
+<section class="seta-accreditation">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-title">
+                <h2>SETA Accreditation</h2>
+            </div>
+        </div>
+        
+        <div class="seta-logos">
+            <div class="logo-item">
+                <img src="../img/Bank-SETA.jpg" alt="BANKSETA" class="seta-logo">
+            </div>
+            <div class="logo-item">
+                <img src="../img/CATHSETA.png" alt="CATHSSETA" class="seta-logo">
+            </div>
+            <div class="logo-item">
+                <img src="../img/TETA.png" alt="TETA" class="seta-logo">
+            </div>
+            <div class="logo-item">
+                <img src="../img/mictseta.jpg" alt="MICTSETA" class="seta-logo">
+            </div>
+            <div class="logo-item">
+                <img src="../img/ETDP-SETA.png" alt="ETDP SETA" class="seta-logo">
+            </div>
+            <div class="logo-item">
+                <img src="../img/AGRI-SETA.png" alt="AgriSETA" class="seta-logo">
+            </div>
+            <div class="logo-item">
+                <img src="../img/LG-SETA.png" alt="LGSETA" class="seta-logo">
+            </div>
+            <div class="logo-item">
+                <img src="../img/FPM.png" alt="FPM SETA" class="seta-logo">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modal -->
+<div id="bookingModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Online Booking</h2>
+        
+        <!-- Calendar Section -->
+        <div class="calendar-section">
+            <div class="calendar-header">
+                <button onclick="previousMonth()">&lt;</button>
+                <h3 id="currentMonth">February 2025</h3>
+                <button onclick="nextMonth()">&gt;</button>
+                <button>Filters</button>
+            </div>
+            <div class="calendar-grid" id="calendar">
+                <!-- Calendar will be generated by JavaScript -->
+            </div>
+        </div>
+
+     <!-- Auth Forms -->
+<div class="auth-forms">
+    <div class="flip-container">
+        <div class="flipper">
+            <!-- Register Form (Front) -->
+            <div class="form-section front">
+                <h3>Register</h3>
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label>Email address</label>
+                        <input type="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Confirm Password</label>
+                        <input type="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox"> Want to become an instructor?
+                        </label>
+                    </div>
+                    <button type="submit">Register</button>
+                    <p><a href="#" class="flip-trigger" id="showLogin">Already have an account? Login</a></p>
+                </form>
+            </div>
+
+            <!-- Login Form (Back) -->
+            <div class="form-section back">
+                <h3>Login</h3>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label>Username or email</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox"> Remember me
+                        </label>
+                    </div>
+                    <button type="submit">Login</button>
+                    <p><a href="#">Lost your password?</a></p>
+                    <p><a href="#" class="flip-trigger" id="showRegister">Don't have an account? Register</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+    <!-- Footer -->
+<footer class="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Company Info -->
+                <div class="footer-widget">
+                    <div class="footer-logo">
+                        <img src="../img/logo_footer.png" alt="Insika Foundation Logo">
+                    </div>
+                    <p class="company-description">A branch of Insika Foundation NPC focusing on skills development and professional growth.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-widget">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Services</a></li>
+                        <li><a href="#">Courses</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+<div class="footer-widget">
+    <h3>Contact Us</h3>
+    <ul class="contact-info">
+        <li>
+            <i class="fas fa-map-marker-alt"></i>
+            <a href="https://www.google.com/maps/search/?api=1&query=Elethu+House,+Building+23+Thornhill+Office+Park+94+Bekker+Road+Midrand+1686" style="color: #ffffff; text-decoration: none;" target="_blank" rel="noopener noreferrer">
+                Elethu House, Building 23 Thornhill Office Park<br>94 Bekker Road Midrand 1686
+            </a>
+        </li>
+        <li>
+            <i class="fas fa-phone"></i>
+            <span>011 695 6800</span>
+        </li>
+        <li>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:info@insikafoundation.co.za" style="color: #ffffff; text-decoration: none;">info@insikafoundation.co.za</a>
+        </li>
+    </ul>
+</div>
+
+                <!-- Newsletter -->
+                <div class="footer-widget">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for updates</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="footer-bottom-content">
+                <p>&copy; 2024 Insika Foundation Training Academy. Proudly Crafted by Nova Codings</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <span class="separator">|</span>
+                    <a href="#">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- JavaScript -->
+ <script src="main.js"></script>
+    <script>
+        /* Up button*/
+document.addEventListener("DOMContentLoaded", function () {
+    var scrollToTopBtn = document.getElementById("scroll-to-top");
+
+    // Show/hide the "UP" link based on scroll position
+    window.addEventListener("scroll", function () {
+        var scrollPosition = window.scrollY || document.documentElement.scrollTop;
+
+        // Toggle visibility based on scroll position
+        if (scrollPosition > 20) {
+            scrollToTopBtn.style.display = "block";
+        } else {
+            scrollToTopBtn.style.display = "none";
+        }
+
+        // Change colors when near footer
+        var footer = document.querySelector("footer");
+        if (footer) {
+            var footerTop = footer.offsetTop;
+            if (scrollPosition + window.innerHeight >= footerTop) {
+                scrollToTopBtn.style.backgroundColor = "black";
+                scrollToTopBtn.style.color = "#df8207";
+            } else {
+                scrollToTopBtn.style.backgroundColor = "#df8207";
+                scrollToTopBtn.style.color = "#000000";
+            }
+        }
+    });
+
+    // Smooth scroll to the top
+    scrollToTopBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    });
+});
+    /*End Up Scroll*/
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // stats count//
+        const counters = document.querySelectorAll('.stat-item h3');
+const speed = 200;
+
+counters.forEach(counter => {
+    const target = parseFloat(counter.getAttribute('data-target'));
+    const isPercentage = counter.textContent.includes('%');
+    
+    const updateCount = () => {
+        const count = parseFloat(counter.innerText);
+        const increment = target / speed;
+
+        if (count < target) {
+            counter.innerText = Math.ceil(count + increment);
+            if (isPercentage) {
+                counter.innerText += '%';
+            }
+            setTimeout(updateCount, 1);
+        } else {
+            counter.innerText = isPercentage ? target + '%' : target;
+        }
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+            updateCount();
+            observer.disconnect();
+        }
+    });
+
+    observer.observe(counter);
+});
+
+const testimonials = [
+    {
+        text: "The training was really good and helpful towards helping us in getting certificates. At the training we received lunch and transport money to attend training. The facilitator helped us to finish the work in time.",
+        author: "Ganean Steve",
+        image: "../img/Genean.jpeg",
+    },
+    {
+        text: "I really enjoyed the store keeper training because i met other store keepers from different sites in the Western Cape , as a new store keeper it helped me a lot going forward.",
+        author: "Roseline Ngesi",
+        image: "../img/Roseline.jpeg"
+    },
+    {
+        text: "Igama Nokukhanya Ngubane ngsebenza kaInsika eMkhambathini, ngithanda ukbonga uInsika Foundation nge training owangipha yona yoku manage finances for new venture.",
+        author: "Nokukhanya Ngubane",
+        image: "../img/nokukhanya.jpeg"
+    },
+    {
+        text: "Igama ngu Nobuhle Shelembe ngsebenza kwaInsika eMkhambathini. Ngyabonga kakhulu kuInsika Foundation ngama training osipha wona kumanje sengiyakwazi ukubhaka izinhlobo ezihlukene zamakhekhe wasifundisa nokuthi liphathathwa kanjani ibusiness, wasilekelela nangolwazi sakwazi uku register iCo op yethu. Ngyabonga.",
+        author: "Nobuhle Shehlebe",
+        image: "../img/Nobuhle.jpeg",
+    }
+];
+
+let currentTestimonial = 0;
+const testimonialText = document.querySelector('.testimonial-text');
+const authorName = document.querySelector('.author-name');
+const authorImage = document.querySelector('.author-image');
+const dots = document.querySelectorAll('.dot');
+
+function updateTestimonial() {
+    const testimonial = testimonials[currentTestimonial];
+    testimonialText.textContent = `"${testimonial.text}"`;
+    authorName.textContent = testimonial.author;
+    authorImage.src = testimonial.image;
+    authorImage.alt = testimonial.author;
+    
+    // Update dots
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentTestimonial);
+    });
+    
+    currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+}
+
+// Add click handlers for dots
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        currentTestimonial = index;
+        updateTestimonial();
+    });
+});
+
+updateTestimonial();
+setInterval(updateTestimonial, 5000);
+
+        // Hide the heading on scroll//
+        const headingSection = document.querySelector('.heading');
+const scrollThreshold = 100; // Adjust this value to control when the heading disappears
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > scrollThreshold) {
+        headingSection.style.opacity = '0';
+        headingSection.style.visibility = 'hidden';
+    } else {
+        headingSection.style.opacity = '1';
+        headingSection.style.visibility = 'visible';
+    }
+});
+
+        // Add intersection observer for fade-in animation of heading
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInLeft 1s ease forwards';
+                }
+            });
+        });
+
+        // Observe the heading
+        observer.observe(document.querySelector('.courses h2'));
+
+        // Add hover effect for icons
+        document.querySelectorAll('.course-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const icon = card.querySelector('i');
+                icon.style.animation = 'none';
+                setTimeout(() => {
+                    icon.style.animation = 'float 3s ease-in-out infinite';
+                }, 10);
+            });
+        });
+
+    </script>
+</body>
+</html>
